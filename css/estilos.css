@@ -1,0 +1,24 @@
+body { padding-top: 80px; }
+.navbar-footer{
+  background-color: #f6f6f6;
+  margin-bottom: 0;
+}
+.cuerpo{
+  min-height: calc(100vh - (80px + 64px));
+}
+.cabecera-edificio {
+  position: relative;
+  box-sizing: border-box;
+  max-height: 600px;
+}
+.cabecera-edificio .imagen-cabecera{
+  width: 100%;
+  z-index: -1;
+}
+.cabecera-edificio h1{
+  position: absolute;
+  bottom: 0;
+  left: .5em;
+  z-index: 1;
+  color: rgb(233, 233, 233);
+}
