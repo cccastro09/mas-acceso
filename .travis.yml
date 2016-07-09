@@ -1,15 +1,6 @@
 language: php
 php:
   - '7.0'
-  - hhvm
-  - nightly
-
-python:
- - "2.7"
-
-branches:
-  only:
-    - gh-pages
 
 # install Java 8 as required by vnu.jar
 before_install:
@@ -18,6 +9,7 @@ before_install:
  - sudo update-java-alternatives -s java-8-oracle
 
 install:
- - pip install html5validator
+ - pip install --user html5validator
 
-script: html5validator 
+script:
+ - html5validator --root ./
