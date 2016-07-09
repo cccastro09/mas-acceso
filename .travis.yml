@@ -9,7 +9,7 @@ before_install:
  - sudo update-java-alternatives -s java-8-oracle
 
 install:
- - pip install html5validator
+ - pip install --user html5validator
 
 script: 
- - sudo html5validator --root ./
+ - html5validator --root ./
