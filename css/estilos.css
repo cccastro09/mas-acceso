@@ -1,11 +1,11 @@
 @import "./lugares.css";
 body {
-    padding-top: 128px;
+    padding-top: 151px;
 }
 
 .btn-default {
     background-color: #006;
-    color: #fff;	
+    color: #fff;
 }
 
 .navbar-footer {
