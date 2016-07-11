@@ -2,6 +2,12 @@
 body {
     padding-top: 128px;
 }
+
+.btn-default {
+    background-color: #006;
+    color: #fff;	
+}
+
 .navbar-footer {
     background-color: #f6f6f6;
     margin-bottom: 0;
