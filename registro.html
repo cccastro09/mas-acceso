@@ -17,12 +17,28 @@
   
     <link rel="stylesheet" href="css_login/style_log_reg.css">
 
+<script type="text/javascript">
+    var datefield=document.createElement("input")
+    datefield.setAttribute("type", "date")
+    if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
+        document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n') 
+    }
+</script>
+<script>
+if (datefield.type!="date"){ //if browser doesn't support input type="date", initialize date picker widget:
+    jQuery(function($){ //on document.ready
+        $('#calendario').datepicker();
+    })
+}
+</script>
 </head>
-
+ 
 <body id="page-top">
 
     <nav id="mainNav" class="navbar-fixed-top">
-               <a class="navbar-brand page-scroll" >+ACCESO</a>
+               <a class="navbar-brand page-scroll" >+ACCESO</a>     
            </nav>
 	<form class="form-registro">
 	<div class="form-column">
@@ -47,7 +63,7 @@
 			<option>Femenino</option>
 		</select>
 		<label id="fecha-nac">Fecha de Nacimiento:</label>
-		<input type="date" class="form-control" name="nacimiento" step="1" min="1950-01-01" max="2015-12-31" value="2016-07-13">
+		<input type="date" id="calendario" class="form-control" name="nacimiento" step="1" min="1950-01-01" max="2015-12-31" value="2016-07-13">
 		<label>Pa&iacute;s:</label>
 		<select id="pais" name="pais">
 				<option value="pais1">Argentina</option>
@@ -87,7 +103,10 @@
 		</select>
 	</div>
 	
+	
 	<div class="cbp-mc-submit-wrap"><input class="boton-enviar" type="submit" value="Registrar" /></div>
 </form>
+
 </body>
+
 </html>
