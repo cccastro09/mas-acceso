@@ -106,14 +106,24 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-9">
-                <div class="mapa">
-                    <p>
-                        MAPA
-                    </p>
+                <div class="mapa" id="map">
+                    
                 </div>
             </div>
         </div>
     </div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -2.14629, lng: -79.9547},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC88qkAYGuOHrBGdi0345L6XZQtnLngE9Y&callback=initMap"
+    async defer></script>
+
 </body>
 
 </html>
