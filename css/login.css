@@ -1,3 +1,4 @@
+
 /*-------------------------------*/
 html,
 body {
@@ -10,6 +11,13 @@ body {
 	font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #0ca3d2;
+}
+
+.span_2_of_2 {
+	width: 100%;
+}
+.span_1_of_2 {
+	width: 49%;
 }
 
 .control-label{
@@ -74,97 +82,6 @@ body {
   text-decoration: none;
 }
 
-
-hr {
-  border-color: #f05f40;
-  border-width: 3px;
-  max-width: 50px;
-}
-hr.light {
-  border-color: white;
-}
-a {
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
-  color: #f05f40;
-}
-a:hover,
-a:focus {
-  color: #eb3812;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-.bg-primary {
-  background-color: #f05f40;
-}
-.bg-dark {
-  background-color: #222222;
-  color: white;
-}
-.text-faded {
-  color: rgba(255, 255, 255, 0.7);
-}
-section {
-  padding: 100px 0;
-}
-aside {
-  padding: 50px 0;
-}
-.no-padding {
-  padding: 0;
-}
-.navbar-default {
-  background-color: white;
-  border-color: rgba(34, 34, 34, 0.05);
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
-}
-.navbar-default .navbar-header .navbar-brand {
-  color: #f05f40;
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 900;
-	margin-left: 25px;
-  text-transform: uppercase;
-}
-.navbar-default .navbar-header .navbar-brand:hover,
-.navbar-default .navbar-header .navbar-brand:focus {
-  color: #eb3812;
-}
-.navbar-default .nav > li > a,
-.navbar-default .nav > li > a:focus {
-  text-transform: uppercase;
-  font-weight: 900;
-  font-size: 16px;
-  color: #222222;
-}
-.navbar-default .nav > li > a:hover,
-.navbar-default .nav > li > a:focus:hover {
-  color: #f05f40;
-}
-.navbar-default .nav > li.active > a,
-.navbar-default .nav > li.active > a:focus {
-  color: #f05f40 !important;
-  background-color: transparent;
-}
-.navbar-default .nav > li.active > a:hover,
-.navbar-default .nav > li.active > a:focus:hover {
-  background-color: transparent;
-}
-
 /*--------------------------------------------------*/
 /*-------------------------------------------------*/
 
@@ -181,8 +98,8 @@ label {
     font-family:Arial;
 }
 form {
-    margin:0 auto;
-    width:400px;
+    margin-left:25px;
+    width:auto;
 }
  
 textarea {
@@ -202,4 +119,128 @@ textarea {
     border:none;
     margin-top:20px;
     cursor:pointer;
+}
+
+/****************************************/
+.form-registro {
+	position: relative;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.form-registro:before, 
+.form-registro:after { 
+	content: " "; display: table; 
+}
+
+.form-registro:after { 
+	clear: both; 
+}
+
+.form-column {
+	width: 33%;
+	padding: 10px 30px;
+	float: left;
+}
+
+.form-registro label {
+	display: block;
+	padding: 40px 5px 5px 2px;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.form-registro input,
+.form-registro textarea,
+.form-registro select {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	line-height: 1.5;
+	font-size: 1.4em;
+	padding: 5px 10px;
+	color: #fff;
+	display: block;
+	width: 100%;
+	background: transparent;
+}
+
+.form-registro input,
+.form-registro textarea {
+	border: 3px solid #fff;
+}
+
+.form-registro textarea {
+	min-height: 200px;
+}
+
+.form-registro input:focus,
+.form-registro textarea:focus,
+.form-registro label:active + input,
+.form-registro label:active + textarea {
+	outline: none;
+	border: 3px solid #10689a;
+}
+
+.form-registro select:focus {
+	outline: none;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #10689a;
+    font-style: italic;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #10689a;
+    font-style: italic;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #10689a;
+    font-style: italic;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #10689a;
+    font-style: italic;
+}
+
+.cbp-mc-submit-wrap {
+	text-align: center;
+	padding-top: 40px;
+	clear: both;
+}
+
+.form-registro input.boton-enviar {
+	background: #10689a;
+	border: none;
+	color: #fff;
+	width: auto;
+	cursor: pointer;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 15px 30px;
+	font-size: 1.1em;
+	border-radius: 2px;
+	letter-spacing: 1px;
+}
+
+.form-registro input.boton-enviar:hover {
+	background: #1478b1;
+}
+
+@media screen and (max-width: 70em) {
+	.cbp-mc-column {
+		width: 50%;
+	}
+	.cbp-mc-column:nth-child(3) {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 48em) {
+	.cbp-mc-column {
+		width: 100%;
+		padding: 10px;
+	}
 }
