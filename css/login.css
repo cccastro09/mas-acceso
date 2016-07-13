@@ -16,6 +16,13 @@ body {
   background: #0ca3d2;
 }
 
+.span_2_of_2 {
+	width: 100%;
+}
+.span_1_of_2 {
+	width: 49%;
+}
+
 .control-label{
 	color: #ffffff;
 	font-size: 16px;
@@ -216,8 +223,8 @@ label {
     font-family:Arial;
 }
 form {
-    margin:0 auto;
-    width:400px;
+    margin-left:25px;
+    width:auto;
 }
  
 textarea {
@@ -241,4 +248,130 @@ textarea {
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 >>>>>>> dev
+=======
+/****************************************/
+.form-registro {
+	position: relative;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.form-registro:before, 
+.form-registro:after { 
+	content: " "; display: table; 
+}
+
+.form-registro:after { 
+	clear: both; 
+}
+
+.form-column {
+	width: 33%;
+	padding: 10px 30px;
+	float: left;
+}
+
+.form-registro label {
+	display: block;
+	padding: 40px 5px 5px 2px;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.form-registro input,
+.form-registro textarea,
+.form-registro select {
+	font-family: 'Lato', Calibri, Arial, sans-serif;
+	line-height: 1.5;
+	font-size: 1.4em;
+	padding: 5px 10px;
+	color: #fff;
+	display: block;
+	width: 100%;
+	background: transparent;
+}
+
+.form-registro input,
+.form-registro textarea {
+	border: 3px solid #fff;
+}
+
+.form-registro textarea {
+	min-height: 200px;
+}
+
+.form-registro input:focus,
+.form-registro textarea:focus,
+.form-registro label:active + input,
+.form-registro label:active + textarea {
+	outline: none;
+	border: 3px solid #10689a;
+}
+
+.form-registro select:focus {
+	outline: none;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #10689a;
+    font-style: italic;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #10689a;
+    font-style: italic;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #10689a;
+    font-style: italic;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #10689a;
+    font-style: italic;
+}
+
+.cbp-mc-submit-wrap {
+	text-align: center;
+	padding-top: 40px;
+	clear: both;
+}
+
+.form-registro input.boton-enviar {
+	background: #10689a;
+	border: none;
+	color: #fff;
+	width: auto;
+	cursor: pointer;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 15px 30px;
+	font-size: 1.1em;
+	border-radius: 2px;
+	letter-spacing: 1px;
+}
+
+.form-registro input.boton-enviar:hover {
+	background: #1478b1;
+}
+
+@media screen and (max-width: 70em) {
+	.cbp-mc-column {
+		width: 50%;
+	}
+	.cbp-mc-column:nth-child(3) {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 48em) {
+	.cbp-mc-column {
+		width: 100%;
+		padding: 10px;
+	}
+}
+>>>>>>> a8f0652111f7c58a5017e4addf2c012fe3b500a2
