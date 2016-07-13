@@ -1,7 +1,30 @@
 @import "./lugares.css";
 body {
     padding-top: 128px;
+    text-align: center;
 }
+
+.carousel-inner, .carousel, .slide, .item, .active{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+.contenido{
+    text-align: center;
+    margin: auto;
+}
+.icon{
+list-style-image: url('../img/pdf.png');
+ }
+.iconSearch{
+list-style-image: url('../img/search.png');
+ }
 
 .btn-default {
     background-color: #369;
