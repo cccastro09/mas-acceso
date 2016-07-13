@@ -1,10 +1,33 @@
 @import "./lugares.css";
 body {
-    padding-top: 151px;
+    padding-top: 128px;
+    text-align: center;
 }
 
+.carousel-inner, .carousel, .slide, .item, .active{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
+.contenido{
+    text-align: center;
+    margin: auto;
+}
+.icon{
+list-style-image: url('../img/pdf.png');
+ }
+.iconSearch{
+list-style-image: url('../img/search.png');
+ }
+
 .btn-default {
-    background-color: #006;
+    background-color: #369;
     color: #fff;
 }
 
@@ -57,3 +80,33 @@ body {
 .navbar-social li {
     display: inline-block;
 }
+.ec-stars-wrapper {
+
+	font-size: 0;
+
+	display: inline-block;
+}
+.ec-stars-wrapper a {
+	text-decoration: none;
+	display: inline-block;
+
+	font-size: 32px;
+	font-size: 2rem;
+
+	color: rgb(39, 130, 228);
+}
+
+.ec-stars-wrapper:hover a {
+	color: #FFD700;
+}
+
+.ec-stars-wrapper > a:hover ~ a {
+	color:  rgb(39, 130, 228);
+}
+
+
+.imagen1  {
+  width: 30%;
+  height: 35%;
+
+  }
