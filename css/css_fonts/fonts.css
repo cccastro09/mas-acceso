@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'amaranth';
+    src: url('amaranth.otf');
+    src: url('amaranth.otf?#iefix') format('embedded-opentype'),
+         url('Amaranth-Bold.woff') format('woff'),
+            url('amaranth.otf.svg#aaarghnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
+	font-family:'amaranth';
+	font-size: 600%;
+	text-align: center
+}
+
