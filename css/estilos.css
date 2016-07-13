@@ -28,7 +28,7 @@ list-style-image: url('../img/search.png');
 
 .btn-default {
     background-color: #369;
-    color: #fff;	
+    color: #fff;
 }
 
 .navbar-footer {
@@ -81,18 +81,18 @@ list-style-image: url('../img/search.png');
     display: inline-block;
 }
 .ec-stars-wrapper {
-	
+
 	font-size: 0;
-	
+
 	display: inline-block;
 }
 .ec-stars-wrapper a {
 	text-decoration: none;
 	display: inline-block;
-	
+
 	font-size: 32px;
 	font-size: 2rem;
-	
+
 	color: rgb(39, 130, 228);
 }
 
@@ -108,5 +108,5 @@ list-style-image: url('../img/search.png');
 .imagen1  {
   width: 30%;
   height: 35%;
-  
+
   }
