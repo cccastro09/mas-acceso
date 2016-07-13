@@ -1,20 +1,25 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> dev
 /*-------------------------------*/
+=======
+>>>>>>> 2a9efc3b2e7d657a3bc95527cb45ec8cb5345399
 html,
 body {
   height: 100%;
   width: 100%;
 	margin: 0;
+	 background: #0ca3d2;
 }
-body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
-	font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
-  color: #404040;
-  background: #0ca3d2;
+
+a {
+	font-size: 40px;
+	color: #fff;
+	font-family: 'Lato', Calibri, Arial, sans-serif;
 }
+
 
 .span_2_of_2 {
 	width: 100%;
@@ -28,7 +33,7 @@ body {
 	font-size: 16px;
 }
 
-.form-control
+.formulario-control
 {
   border: 1px solid #DBE1EB;
   font-size: 18px;
@@ -42,15 +47,11 @@ body {
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
   background: #FFFFFF;
-  background: linear-gradient(left, #FFFFFF, #F7F9FA);
-  background: -moz-linear-gradient(left, #FFFFFF, #F7F9FA);
-  background: -webkit-linear-gradient(left, #FFFFFF, #F7F9FA);
-  background: -o-linear-gradient(left, #FFFFFF, #F7F9FA);
   color: #8DC2FF;
   border: 4px solid;
   }
 
-.form-control:focus
+.formulario-control:focus
 {
   color: #2E3133;
   border-color: #FBFFAD;
@@ -208,6 +209,7 @@ header .header-content .header-content-inner p {
 =======
 >>>>>>> dev
 /*--------------------------------------------------*/
+
 /*-------------------------------------------------*/
 
 label {
@@ -254,6 +256,12 @@ textarea {
 /****************************************/
 .form-registro {
 	position: relative;
+	
+}
+
+.form-login {
+	 position: relative; /* podría ser relative */
+	margin:0 auto;
 }
 
 /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
@@ -275,7 +283,7 @@ textarea {
 .form-registro label {
 	display: block;
 	padding: 40px 5px 5px 2px;
-	font-size: 1.1em;
+	font-size: 18px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	cursor: pointer;
