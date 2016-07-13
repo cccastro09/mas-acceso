@@ -4,6 +4,13 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
+    <meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
+    <meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
+    <meta name="name" content="Lugares">
+    <meta name="description" content="Muestra los establecimientos en un mapa, y permite realizar busquedas">
+    <meta name="author" content="Guillermo Bernal">
+    
     <!-- http://getbootstrap.com/css/#overview-mobile -->
     <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
 
@@ -97,17 +104,26 @@
                         </div>
                     </a>
                 </div>
-            
-            <div class="col-sm-12 col-md-9">
-                <div class="mapa">
-                    <p>
-                        MAPA
-                    </p>
-                </div>
             </div>
+            <div class="col-sm-12 col-md-9">
+                <div class="mapa" id="map">
+                    
+                </div>
             </div>
         </div>
     </div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -2.14629, lng: -79.9547},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC88qkAYGuOHrBGdi0345L6XZQtnLngE9Y&callback=initMap"
+    async defer></script>
+
 </body>
 
 </html>
