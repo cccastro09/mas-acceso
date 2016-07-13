@@ -57,3 +57,33 @@ body {
 .navbar-social li {
     display: inline-block;
 }
+.ec-stars-wrapper {
+	
+	font-size: 0;
+	
+	display: inline-block;
+}
+.ec-stars-wrapper a {
+	text-decoration: none;
+	display: inline-block;
+	
+	font-size: 32px;
+	font-size: 2rem;
+	
+	color: rgb(39, 130, 228);
+}
+
+.ec-stars-wrapper:hover a {
+	color: #FFD700;
+}
+
+.ec-stars-wrapper > a:hover ~ a {
+	color:  rgb(39, 130, 228);
+}
+
+
+.imagen1  {
+  width: 30%;
+  height: 35%;
+  
+  }
