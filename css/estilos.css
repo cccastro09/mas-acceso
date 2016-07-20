@@ -8,6 +8,26 @@ body {
   margin-left: -15px;
   margin-right: -15px;
 }
+.imgFooter{
+width:100px;
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+transition:filter 0.4s;
+-webkit-transition:-webkit-filter 1s;
+}
+
+.container{
+background-color: #369;
+width:100%;
+}
+
+.imgFooter:hover {
+
+filter: grayscale(0);
+
+-webkit-filter: grayscale(0);
+
+}
 
 .carousel-inner, .item, .active{
     text-align: center;
