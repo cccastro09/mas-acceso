@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	include_once("loginDatos.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
