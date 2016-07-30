@@ -1,3 +1,8 @@
+<?php
+	session_start();
+
+	include_once("registroDatos.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 
