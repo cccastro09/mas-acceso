@@ -1,8 +1,8 @@
 @import "./lugares.css";
 body {
-    padding-top: 158px;
     text-align: center;
 }
+
 .slide{
   margin-top: -30px;
   margin-left: -15px;
