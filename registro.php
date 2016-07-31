@@ -1,6 +1,5 @@
 <?php
 	session_start();
-
 	include_once("registroDatos.php");
 ?>
 <!DOCTYPE html>
@@ -11,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="application-name" content="Informacion sobre el nivel de accesibilidad de infraestructuras">
-	<meta name="copyright" content="+Acceso"> <!--Nombre de la compaÃ±ia-->
+	<meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
 	<meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
 	<meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
     <meta name="name" content="Registro">
@@ -54,28 +53,28 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 	<form class="form-registro">
 	<div class="form-column">
 		<label id="apellidos">Apellidos:</label>
-		<input type="text" id="apellido" name="apellido" placeholder="Apellidos">
+		<input type="text" id="apellido"  class="textbox" name="apellido" placeholder="Apellidos">
 		<label id="nombre">Nombres:</label>
-		<input type="text" id="nombres" name="nombres" placeholder="Nombres">
+		<input type="text" id="nombres" class="textbox" name="nombres" placeholder="Nombres">
 		<label id="user">Usuario:</label>
-		<input type="text" id="usuario" name="usuario" placeholder="Usuario">
+		<input type="text" id="usuario" class="textbox" name="usuario" placeholder="Usuario">
 		<label id="password">Contrase&ntilde;a:</label>
-		<input type="text" id="contrasena" name="contrasena" placeholder="**********">
+		<input type="password" id="contrasena" class="textbox" name="contrasena" placeholder="**********">
 		<label id="confirmar-contrasena">Confirmar Contrase&ntilde;a:</label>
-		<input type="text" id="conf-contrasena" name="conf-contrasena" placeholder="*********">
+		<input type="password" id="conf-contrasena" class="textbox" name="conf-contrasena" placeholder="*********">
 		<label id="email">Correo Electr&oacute;nico:</label>
-		<input type="text" id="correo" name="correo" placeholder="yyyyyy@yyyy.com">
+		<input type="text" id="correo" class="textbox" name="correo" placeholder="yyyyyy@yyyy.com">
 	</div>
 	<div class="form-column">
 	<label id="genero_reg">G&eacute;nero</label>
-		<select id="genero" name="genero">
+		<select id="genero" class="textbox" name="genero">
 			<option>Masculino</option>
 			<option>Femenino</option>
 		</select>
 		<label id="fecha-nac">Fecha de Nacimiento:</label>
-		<input type="date" id="calendario" class="form-control" name="nacimiento" step="1" min="1950-01-01" max="2015-12-31" value="2016-07-13">
+		<input type="date" id="calendario" class="textbox" name="nacimiento" step="1" min="1950-01-01" max="2015-12-31" value="2016-07-13">
 		<label>Pa&iacute;s:</label>
-		<select id="pais" name="pais">
+		<select id="pais" class="textbox" name="pais">
 				<option value="pais1">Argentina</option>
 				<option value="pais2">Bolivia</option>
 				<option value="pais3">Brasil</option>
@@ -86,26 +85,26 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 				<option value="pais8">Ecuador</option>
 				<option value="pais8">El Salvador</option>
 				<option value="pais10">Guatemala</option>
-				<option value="pais11">HaitÃ­</option>
+				<option value="pais11">Haití</option>
 				<option value="pais12">Honduras</option>
-				<option value="pais13">MÃ©xico</option>
+				<option value="pais13">México</option>
 				<option value="pais14">Nicaragua</option>
-				<option value="pais15">PanamÃ¡</option>
+				<option value="pais15">Panamá</option>
 				<option value="pais16">Paraguay</option>
-				<option value="pais17">PerÃº</option>
-				<option value="pais18">RepÃºblica Dominicana</option>
+				<option value="pais17">Perú</option>
+				<option value="pais18">República Dominicana</option>
 				<option value="pais19">Uruguay</option>
 				<option value="pais20">Venezuela</option> 
 		</select>
 		<label>Tipo de Discapacidad:</label>
-		<select id="tipo-discapacidad" name="tipo-discapacidad">
+		<select id="tipo-discapacidad" class="textbox" name="tipo-discapacidad">
 				<option value="tipo1">F&iacute;sica</option>
 				<option value="tipo2">Cognitiva</option>
 				<option value="tipo3">Sensorial</option>
 				<option value="tipo4">Intelectual</option>
 		</select>
 		<label>Porcentaje de Discapacidad:</label>
-		<select id="porc-discapacidad" name="porc-discapacidad">
+		<select id="porc-discapacidad" class="textbox" name="porc-discapacidad">
 				<option value="porcentaje1">10%</option>
 				<option value="porcentaje2">20%</option>
 				<option value="porcentaje3">30%</option>
