@@ -13,3 +13,4 @@ install:
 
 script:
  - html5validator --root ./
+ - phpunit --bootstrap src/autoload.php tests
