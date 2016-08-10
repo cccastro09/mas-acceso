@@ -1,17 +1,71 @@
-<?php 
-include_once('registroClass.php');
-//include_once(''); --> collector para configurar la conexion a la base
+<?php
 
-class registroDatos extends Collector 
-{
-	function consultaGeneral(){
-		$rows = self::$db->getRows("SELECT * FROM Registro ORDER BY id_registro");
-		$arrayRegisgtro = array();
-		foreach ($rows as $c){
-			$aux = new registroClass($c{'id_registro'},$c{'apellidos'},$c{'nombres'},$c{'usuario'},$c{'contrasena'},$c{'confContrasena'},$c{'email'},$c{'genero'},$c{'fechaNacimiento'},$c{'pais'},$c{'tipoDiscapacidad'},$c{'porcentajeDiscapacidad'});
-			array_push($arrayRegisgtro, $aux);
-		}	
-		return $arrayRegisgtro;
-	}
+  require 'Collector.php';
+  require 'usuarioClass.php';
+  class usuarioCollector extends Collector {
+
+   function __construct()
+   {
+    parent::__construct();
+   }
+
+   public function addUsuario($usuario)
+   {
+     return self::execQuery("INSERT INTO usuario(appellidos, nombres, usuario, contrasena, confContrasena, 
+     email, genero, fechaNacimiento, pais, tipoDiscapacidad, porcentajeDiscapacidad) VALUES".$usuario->getApellidos().$usuario->getNombres().$usuario->getUsuario()
+     .$usuario->getContrasena().$usuario->getConfContrasena().$usuario->getEmail()
+     .$usuario->getGenero().$usuario->getFechaNacimiento().$usuario->getPais()
+     .$usuario->getTipoDiscapacidad().$usuario->getPorcentajeDiscapacidad());   
+   }
+
+   public function getUsuario($id)
+   {
+    $stmt = self::$con->prepare("SELECT * FROM usuario WHERE id=:id");
+    $stmt->execute(array(":id"=>$id));
+    $usuario=$stmt->fetch(PDO::FETCH_ASSOC);
+    return $usuario;
+   }
+   public function readAllUsuario(){
+
+      return self::read('usuario',''); 
+
+
+  }
+
+   public function updateUsuario($id,$usuario)
+   {
+    try
+    {
+      self::execQuery("UPDATE usuario SET apellidos, nombres, usuario, contrasena, confContrasena, 
+     email, genero, fechaNacimiento, pais, tipoDiscapacidad, porcentajeDiscapacidad"
+     .$usuario->getApellidos().$usuario->getNombres().$usuario->getUsuario()
+     .$usuario->getContrasena().$usuario->getConfContrasena().$usuario->getEmail()
+     .$usuario->getGenero().$usuario->getFechaNacimiento().$usuario->getPais()
+     .$usuario->getTipoDiscapacidad().$usuario->getPorcentajeDiscapacidad()."\' WHERE id=".$usuario->getId());
+
+     return true; 
+    }
+    catch(PDOException $e)
+    {
+     echo $e->getMessage(); 
+     return false;
+    }
+   }
+
+   public function deleteUsuario($id)
+   {
+    try
+    {
+      self::execQuery("DELETE FROM usuario WEHRE id=".$usuario->getId());
+
+     return true; 
+    }
+    catch(PDOException $e)
+    {
+     echo $e->getMessage(); 
+     return false;
+    }
+   } 
 }
 ?>
+
