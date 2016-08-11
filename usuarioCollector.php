@@ -11,11 +11,8 @@
 
    public function addUsuario($usuario)
    {
-     return self::execQuery("INSERT INTO usuario(appellidos, nombres, usuario, contrasena, confContrasena, 
-     email, genero, fechaNacimiento, pais, tipoDiscapacidad, porcentajeDiscapacidad) VALUES".$usuario->getApellidos().$usuario->getNombres().$usuario->getUsuario()
-     .$usuario->getContrasena().$usuario->getConfContrasena().$usuario->getEmail()
-     .$usuario->getGenero().$usuario->getFechaNacimiento().$usuario->getPais()
-     .$usuario->getTipoDiscapacidad().$usuario->getPorcentajeDiscapacidad());   
+     return self::execQuery("INSERT INTO usuario(apellidos, nombres, usuario, contrasena, confContrasena, 
+     email, genero, fechaNacimiento, pais, tipoDiscapacidad, porcentajeDiscapacidad) VALUES ".$usuario->getApellidos()"\',\'".$usuario->getNombres()"\',\'".$usuario->getUsuario()"\',\'".$usuario->getContrasena()"\',\'".$usuario->getConfContrasena()"\',\'".$usuario->getEmail()"\',\'".$usuario->getGenero()"\',\'".$usuario->getFechaNacimiento()"\',\'".$usuario->getPais()"\',\'".$usuario->getTipoDiscapacidad()"\',\'".$usuario->getPorcentajeDiscapacidad()"\'");
    }
 
    public function getUsuario($id)
@@ -27,7 +24,7 @@
    }
    public function readAllUsuario(){
 
-      return self::read('usuario',''); 
+      return self::read('usuario','usuarioClass'); 
 
 
   }
@@ -38,10 +35,7 @@
     {
       self::execQuery("UPDATE usuario SET apellidos, nombres, usuario, contrasena, confContrasena, 
      email, genero, fechaNacimiento, pais, tipoDiscapacidad, porcentajeDiscapacidad"
-     .$usuario->getApellidos().$usuario->getNombres().$usuario->getUsuario()
-     .$usuario->getContrasena().$usuario->getConfContrasena().$usuario->getEmail()
-     .$usuario->getGenero().$usuario->getFechaNacimiento().$usuario->getPais()
-     .$usuario->getTipoDiscapacidad().$usuario->getPorcentajeDiscapacidad()."\' WHERE id=".$usuario->getId());
+     .$usuario->getApellidos()"\',\'".$usuario->getNombres()"\',\'".$usuario->getUsuario()"\',\'".$usuario->getContrasena()"\',\'".$usuario->getConfContrasena()"\',\'".$usuario->getEmail()"\',\'".$usuario->getGenero()"\',\'".$usuario->getFechaNacimiento()"\',\'".$usuario->getPais()"\',\'".$usuario->getTipoDiscapacidad()"\',\'".$usuario->getPorcentajeDiscapacidad()"\' WHERE id=".$usuario->getId());
 
      return true; 
     }
@@ -69,3 +63,4 @@
 }
 ?>
 
+  
