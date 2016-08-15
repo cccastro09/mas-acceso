@@ -8,6 +8,11 @@ body {
   margin-left: -15px;
   margin-right: -15px;
 }
+
+.instruc{
+    width: 100%;
+}
+
 .imgFooter{
 width:100px;
 filter: grayscale(100%);
@@ -37,7 +42,7 @@ filter: grayscale(0);
 
  .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
+      width: 100%;
       margin: auto;
   }
 .contenido{
