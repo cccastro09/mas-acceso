@@ -43,7 +43,7 @@
     }
    }
 
-   public function deleteDemo($id)
+   public function deleteDemo($demo)
    {
     try
     {
@@ -59,5 +59,3 @@
    } 
 }
 ?>
-
-  
