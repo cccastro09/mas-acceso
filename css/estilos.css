@@ -1,0 +1,142 @@
+@import "./lugares.css";
+body {
+    text-align: center;
+}
+
+.slide{
+  margin-top: -30px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.instruc{
+    width: 100%;
+}
+
+.imgFooter{
+width:100px;
+filter: grayscale(100%);
+-webkit-filter: grayscale(100%);
+transition:filter 0.4s;
+-webkit-transition:-webkit-filter 1s;
+}
+
+.container{
+background-color: #369;
+width:100%;
+}
+
+.imgFooter:hover {
+
+filter: grayscale(0);
+
+-webkit-filter: grayscale(0);
+
+}
+
+.carousel-inner, .item, .active{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+.contenido{
+    text-align: center;
+    margin: auto;
+}
+.icon{
+list-style-image: url('../img/pdf.png');
+ }
+.iconSearch{
+list-style-image: url('../img/search.png');
+ }
+
+.btn-default {
+    background-color: #369;
+    color: #fff;
+}
+
+.navbar-footer {
+    background-color: #f6f6f6;
+    margin-bottom: 0;
+}
+.cuerpo {
+    min-height: calc(100vh - (80px+ 64px));
+}
+.cabecera-edificio {
+    position: relative;
+    box-sizing: border-box;
+    max-height: 600px;
+}
+.cabecera-edificio .imagen-cabecera {
+    width: 100%;
+    z-index: -1;
+}
+.cabecera-edificio h1 {
+    position: absolute;
+    bottom: 0;
+    left: .5em;
+    z-index: 1;
+    color: rgb(233, 233, 233);
+}
+.clear-right {
+    clear: right;
+}
+.clear-left {
+    clear: left;
+}
+.navbar-inverse {
+    background-color: #2774ac;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+    color: #ffffff;
+    background-color: initial;
+}
+.navbar-brand {
+    height: 128px;
+}
+.navbar-brand img {
+    width: 80px;
+    height: 87px;
+}
+.navbar-social {
+    margin-right: 15px;
+}
+.navbar-social li {
+    display: inline-block;
+}
+.ec-stars-wrapper {
+
+	font-size: 0;
+
+	display: inline-block;
+}
+.ec-stars-wrapper a {
+	text-decoration: none;
+	display: inline-block;
+
+	font-size: 32px;
+	font-size: 2rem;
+
+	color: rgb(39, 130, 228);
+}
+
+.ec-stars-wrapper:hover a {
+	color: #FFD700;
+}
+
+.ec-stars-wrapper > a:hover ~ a {
+	color:  rgb(39, 130, 228);
+}
+
+
+.imagen1  {
+  width: 30%;
+  height: 35%;
+
+  }
