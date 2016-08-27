@@ -1,6 +1,7 @@
 <?php
-require_once 'database.php';
+namespace mas_acceso\Util;
 
+use mas_acceso\Util\Database\Database;
 
 class Collector{
 	protected $con;
