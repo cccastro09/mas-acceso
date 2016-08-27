@@ -6,10 +6,7 @@ namespace mas_aceso\Util\Database;
  */
 class Database
 {
-    private static final $CONNHST = $_ENV["DATABASE_HOST"];
-    private static final $DBNAME = $_ENV["DATABASE_NAME"];
-    private static final $DBUSER = $_ENV["DATABASE_USER"];
-    private static final $DBPSW = $_ENV["DATABASE_PSW"];
+
     private static $connection;
 
     public function __construct()
@@ -34,8 +31,7 @@ class Database
        {
         try
         {
-          self::$connection =  new PDO( "pgsql:host=".self::$CONNHST.";"."dbname=".self::$DBNAME, self::$DBUSER, self::$DBPSW);
-          self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+          self::$connection =  new PDO( "pgsql:host=".getenv("host").";"."dbname=".getenv("dbname"), getenv("user"), getenv("psw"));          self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e)
         {
