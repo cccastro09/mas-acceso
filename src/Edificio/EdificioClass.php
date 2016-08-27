@@ -2,8 +2,8 @@
 
 namespace mas_aceso\Edificio;
 
-using mas_aceso\Edificio\Reportes\ReporteCollector;
-using mas_aceso\Edificio\Categorias\CategoriaCollector;
+use mas_aceso\Edificio\Reportes\ReporteCollector;
+use mas_aceso\Edificio\Categorias\CategoriaCollector;
 /**
  *
  */
