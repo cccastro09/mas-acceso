@@ -10,7 +10,9 @@ before_install:
 
 install:
  - pip install --user html5validator
+ - pyrus install pear/PHP_CodeSniffer
+ - phpenv rehash
 
 script:
- - html5validator --root ./
+ - phpcs --report=summary src/
  - phpunit --bootstrap src/autoload.php tests
