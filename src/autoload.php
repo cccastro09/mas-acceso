@@ -11,6 +11,7 @@ spl_autoload_register(
 
         $cn = strtolower($class);
         if (isset($classes[$cn])) {
-            require __DIR__ . $classes[$cn];
+            include __DIR__ . $classes[$cn];
         }
-      });
+    }
+);
