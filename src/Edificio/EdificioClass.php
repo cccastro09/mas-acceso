@@ -3,19 +3,20 @@
 namespace mas_aceso\Edificio;
 
 use mas_aceso\Edificio\Reportes\ReporteCollector;
+use mas_acceso\Edificio\Reportes\ReporteClass;
 use mas_aceso\Edificio\Categorias\CategoriaCollector;
+use mas_aceso\Edificio\Categorias\CategoriaClass;
 
 /**
- *
+ * Un edificio accesible.
  */
 class EdificioClass
 {
     private $e_id;
-    private $e_name;
-    private $e_dscr;
-    private $e_prcnt_accs;
-    private $e_report;
-    private $e_cid;
+    private $e_nombre;
+    private $e_descripcion;
+    private $e_id_reporte;
+    private $e_id_categoria;
 
     public function __construct()
     {
@@ -38,7 +39,7 @@ class EdificioClass
      */
     public function getNombre()
     {
-        return $this->$e_name;
+        return $this->e_nombre;
     }
 
     /**
@@ -48,7 +49,7 @@ class EdificioClass
      */
     public function getDescripcion()
     {
-        return $this->$e_dscr;
+        return $this->e_descripcion;
     }
 
     /**
@@ -58,7 +59,7 @@ class EdificioClass
      */
     public function getAccesibilidad()
     {
-        return $this->$e_prcnt_accs;
+        return $this->e_prcnt_accs;
     }
 
     /**
@@ -66,9 +67,9 @@ class EdificioClass
      *
      * @return ReporteClass El último reporte (y por lo tanto el efectivo) acerca del Edificio.
      */
-    public function getReporte()
+    public function getReporte($colector)
     {
-        return ReporteCollector::getById($this->$e_report);
+        return ReporteCollector::getById($this->e_report);
     }
 
     /**
@@ -76,9 +77,9 @@ class EdificioClass
      *
      * @return CategoriaClass La Categoría del Edificio.
      */
-    public function getCategoria()
+    public function getCategoria($colector)
     {
-        return CategoriaCollector::getById($this->$e_cid);
+        return $colector->getCategoria($this->$e_id_categoria);
     }
 
     /**
@@ -88,7 +89,16 @@ class EdificioClass
      */
     public function setNombre($n)
     {
-        $this->$e_name = $n;
+        $this->$e_nombre = $n;
+    }
+
+    /**
+     * Cambia el id del reporte del Edificio
+     * @param ReporteClass $reporte el nuevo reporte del Edificio.
+     */
+    public function setReporte($reporte)
+    {
+        $this->$e_id_reporte = $reporte->getId();
     }
 
     /**
@@ -98,7 +108,7 @@ class EdificioClass
      */
     public function setDescripcion($n)
     {
-        $this->$e_dscr = $n;
+        $this->$e_descripcion = $n;
     }
 
     /**
@@ -108,6 +118,6 @@ class EdificioClass
      */
     public function setCategoria($categoria)
     {
-        $this->$e_cid = $categoria->getId();
+        $this->$e_id_categoria = $categoria->getId();
     }
 }
