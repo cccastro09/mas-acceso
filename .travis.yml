@@ -11,6 +11,6 @@ before_script:
  - phpcs -i
 
 script:
- - phpcs --standar=PSR1,PSR2 src/
- - phpcs --report=summary src/
+ - phpcs --standard=PSR1,PSR2 src/
+ - phpcs --standard=PSR1,PSR2 --report=summary src/
  - phpunit --bootstrap src/autoload.php tests
