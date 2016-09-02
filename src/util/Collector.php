@@ -38,7 +38,8 @@ class Collector
     public function getById($id, $table, $id_col, $class = 'stdClass')
     {
         try {
-            $queryRead= 'SELECT * FROM '. $table . 'WHERE '.$id_col . '=' . $id;
+            $queryRead= 'SELECT * FROM '. $table . 'WHERE '.$id_col . '=:id';
+            $stmt->execute(array(":id"=>$id));
             $stmt = $this->con->prepare($queryRead);
             $stmt->execute();
             $result = $stmt->fetchObject($class);

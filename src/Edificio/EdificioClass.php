@@ -6,6 +6,7 @@ use mas_aceso\Edificio\Reportes\ReporteCollector;
 use mas_acceso\Edificio\Reportes\ReporteClass;
 use mas_aceso\Edificio\Categorias\CategoriaCollector;
 use mas_aceso\Edificio\Categorias\CategoriaClass;
+use mas_aceso\Util\Functions as FNC;
 
 /**
  * Un edificio accesible.
@@ -20,6 +21,7 @@ class EdificioClass
 
     public function __construct()
     {
+        $this->e_id = FNC::guid();
     }
 
     /**
@@ -27,9 +29,9 @@ class EdificioClass
      *
      * @return String El id del Edificio.
      */
-    public function getId()
+    public function getId(): string
     {
-        return $this->$e_id;
+        return $this->e_id;
     }
 
     /**
@@ -37,7 +39,7 @@ class EdificioClass
      *
      * @return String El nombre del Edificio.
      */
-    public function getNombre()
+    public function getNombre(): string
     {
         return $this->e_nombre;
     }
@@ -47,7 +49,7 @@ class EdificioClass
      *
      * @return String La descripción
      */
-    public function getDescripcion()
+    public function getDescripcion(): string
     {
         return $this->e_descripcion;
     }
@@ -57,7 +59,7 @@ class EdificioClass
      *
      * @return Integer EL procentaje de accesibilidad.
      */
-    public function getAccesibilidad()
+    public function getAccesibilidad(): string
     {
         return $this->e_prcnt_accs;
     }
@@ -67,9 +69,9 @@ class EdificioClass
      *
      * @return ReporteClass El último reporte (y por lo tanto el efectivo) acerca del Edificio.
      */
-    public function getReporte($colector)
+    public function getReporte($colector): ReporteClass
     {
-        return ReporteCollector::getById($this->e_report);
+        return $colector->getById($this->e_report);
     }
 
     /**
@@ -77,9 +79,27 @@ class EdificioClass
      *
      * @return CategoriaClass La Categoría del Edificio.
      */
-    public function getCategoria($colector)
+    public function getCategoria($colector): CategoriaClass
     {
-        return $colector->getCategoria($this->$e_id_categoria);
+        return $colector->getCategoria($this->e_id_categoria);
+    }
+
+    /**
+     * Devuelve el id del reporte que describe el Edificio
+     * @return string El id.
+     */
+    public function getReporteID(): string
+    {
+        return $this->e_id_reporte;
+    }
+
+    /**
+     * Devuelve el id del reporte que describe el Edificio
+     * @return string El id.
+     */
+    public function getCategoriaID(): string
+    {
+        return $this->e_id_categoria;
     }
 
     /**
@@ -89,7 +109,7 @@ class EdificioClass
      */
     public function setNombre($n)
     {
-        $this->$e_nombre = $n;
+        $this->e_nombre = $n;
     }
 
     /**
@@ -98,7 +118,7 @@ class EdificioClass
      */
     public function setReporte($reporte)
     {
-        $this->$e_id_reporte = $reporte->getId();
+        $this->e_id_reporte = $reporte->getId();
     }
 
     /**
@@ -108,7 +128,7 @@ class EdificioClass
      */
     public function setDescripcion($n)
     {
-        $this->$e_descripcion = $n;
+        $this->e_descripcion = $n;
     }
 
     /**
@@ -118,6 +138,6 @@ class EdificioClass
      */
     public function setCategoria($categoria)
     {
-        $this->$e_id_categoria = $categoria->getId();
+        $this->e_id_categoria = $categoria->getId();
     }
 }
