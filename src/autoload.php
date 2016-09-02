@@ -11,7 +11,7 @@ spl_autoload_register(
 
         $cn = strtolower($class);
         if (isset($classes[$cn])) {
-            include __DIR__ . $classes[$cn];
+            include $_SERVER['DOCUMENT_ROOT'] . $classes[$cn];
         }
     }
 );
