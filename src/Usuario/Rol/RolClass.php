@@ -1,5 +1,5 @@
 <?php 
-namespace "usuario/rol";
+namespace mas_acceso\usuario\Rol;;
 class Rol{
     private $r_id;
     private $r_constante;

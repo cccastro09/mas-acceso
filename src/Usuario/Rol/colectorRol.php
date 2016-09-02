@@ -1,8 +1,9 @@
 <?php
-namespace "usuario/rol";
-require "RolClass";
-require "../../util/Collector.php"
-class ColectorRol{
+namespace mas_acceso\usuario\Rol;
+require_once "RolClass.php";
+require_once "../../autoload.php";
+
+class ColectorRol extends Collector{
     function __construct()
    {
     parent::__construct();
@@ -27,7 +28,7 @@ class ColectorRol{
 
 
   }*/
-   public function readAllRol(){
+   public function leerRol(){
 
       return self::read('rol','Rol'); 
 
@@ -63,4 +64,3 @@ class ColectorRol{
     }
    }
    }
-}
