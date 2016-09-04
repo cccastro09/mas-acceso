@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'src/autoload.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -8,21 +8,20 @@
     <meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
     <meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
     <meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
-    <meta name="name" content="Edificio">
-    <meta name="description" content="Visualiza la informacion de las infraestructuras enlazadas a nuestro sitio">
+    <meta name="name" content="Admin - Lugares">
+    <meta name="description" content="Pagina de inicio de administración de lugares.">
     <meta name="author" content="Guillermo Bernal">
     <!-- http://getbootstrap.com/css/#overview-mobile -->
     <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <title>+Acceso</title>
     <!-- http://getbootstrap.com/getting-started/ -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="css/tema.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="/admin/css/sb-admin.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -31,61 +30,301 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img alt="Logo" src="img/logo.png"></a>
-            </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right navbar-social">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-left clear-right">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li class="active"><a href="lugares.html">Lugares</a></li>
-                    <li><a href="categorias.html">Categorías</a></li>
-                    <li><a href="calificar.html">Calificar</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login.html">Iniciar Sesión</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <div class="container-fluid cuerpo">
-        <div class="row">
-            <div class="col col-sm-12">
-                <ol class="breadcrumb">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/lugares.html">Lugares</a></li>
-                    <li class="active">EDCOM</li>
-                </ol>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-sm-12">
-                <header class="cabecera-edificio">
-                    <img src="img/header.png" class="imagen-cabecera" alt="" />
-                    <h1>EDCOM</h1>
-                </header>
-<h2>Categoría</h2><h4>parcialmente accesible</h4>
-<p>Edifico creado en el año 2008, cuenta con algunas rampas para ingresar a los pisos bajos y ascensor ara acceder a las oficinas. Su patio de comidas cuenta con una rampa para silla de ruedas. Sin embargo sus laboratorios y la mayoría de sus aulas se encuentran en el tercer piso, donde solo se puede llegar en escalera. Se estima ascensor para el 2016</p>
-            </div>
-        </div>
+      <div id="wrapper">
 
-    </div>
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/admin/partes/menu.php'; ?>
+
+          <div id="page-wrapper">
+
+              <div class="container-fluid">
+                    <?php use mas_acceso\Edificio;
+
+                        $col = new Edificio\EdificioCollector();
+                    ?>
+
+                  <!-- Page Heading -->
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <h1 class="page-header">
+                              Dashboard <small>Statistics Overview</small>
+                          </h1>
+                          <ol class="breadcrumb">
+                              <li class="active">
+                                  <i class="fa fa-dashboard"></i> Dashboard
+                              </li>
+                          </ol>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="alert alert-info alert-dismissable">
+                              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <i class="fa fa-info-circle"></i>  <strong>Like SB Admin?</strong> Try out <a href="http://startbootstrap.com/template-overviews/sb-admin-2" class="alert-link">SB Admin 2</a> for additional features!
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+
+                  <div class="row">
+                      <div class="col-lg-3 col-md-6">
+                          <div class="panel panel-primary">
+                              <div class="panel-heading">
+                                  <div class="row">
+                                      <div class="col-xs-3">
+                                          <i class="fa fa-comments fa-5x"></i>
+                                      </div>
+                                      <div class="col-xs-9 text-right">
+                                          <div class="huge">26</div>
+                                          <div>New Comments!</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a href="#">
+                                  <div class="panel-footer">
+                                      <span class="pull-left">View Details</span>
+                                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                      <div class="clearfix"></div>
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-6">
+                          <div class="panel panel-green">
+                              <div class="panel-heading">
+                                  <div class="row">
+                                      <div class="col-xs-3">
+                                          <i class="fa fa-tasks fa-5x"></i>
+                                      </div>
+                                      <div class="col-xs-9 text-right">
+                                          <div class="huge">12</div>
+                                          <div>New Tasks!</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a href="#">
+                                  <div class="panel-footer">
+                                      <span class="pull-left">View Details</span>
+                                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                      <div class="clearfix"></div>
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-6">
+                          <div class="panel panel-yellow">
+                              <div class="panel-heading">
+                                  <div class="row">
+                                      <div class="col-xs-3">
+                                          <i class="fa fa-shopping-cart fa-5x"></i>
+                                      </div>
+                                      <div class="col-xs-9 text-right">
+                                          <div class="huge">124</div>
+                                          <div>New Orders!</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a href="#">
+                                  <div class="panel-footer">
+                                      <span class="pull-left">View Details</span>
+                                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                      <div class="clearfix"></div>
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                      <div class="col-lg-3 col-md-6">
+                          <div class="panel panel-red">
+                              <div class="panel-heading">
+                                  <div class="row">
+                                      <div class="col-xs-3">
+                                          <i class="fa fa-support fa-5x"></i>
+                                      </div>
+                                      <div class="col-xs-9 text-right">
+                                          <div class="huge">13</div>
+                                          <div>Support Tickets!</div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a href="#">
+                                  <div class="panel-footer">
+                                      <span class="pull-left">View Details</span>
+                                      <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                      <div class="clearfix"></div>
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+
+                  <div class="row">
+                      <div class="col-lg-12">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
+                              </div>
+                              <div class="panel-body">
+                                  <div id="morris-area-chart"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+
+                  <div class="row">
+                      <div class="col-lg-4">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
+                              </div>
+                              <div class="panel-body">
+                                  <div id="morris-donut-chart"></div>
+                                  <div class="text-right">
+                                      <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-4">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
+                              </div>
+                              <div class="panel-body">
+                                  <div class="list-group">
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">just now</span>
+                                          <i class="fa fa-fw fa-calendar"></i> Calendar updated
+                                      </a>
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">4 minutes ago</span>
+                                          <i class="fa fa-fw fa-comment"></i> Commented on a post
+                                      </a>
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">23 minutes ago</span>
+                                          <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                                      </a>
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">46 minutes ago</span>
+                                          <i class="fa fa-fw fa-money"></i> Invoice 653 has been paid
+                                      </a>
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">1 hour ago</span>
+                                          <i class="fa fa-fw fa-user"></i> A new user has been added
+                                      </a>
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">2 hours ago</span>
+                                          <i class="fa fa-fw fa-check"></i> Completed task: "pick up dry cleaning"
+                                      </a>
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">yesterday</span>
+                                          <i class="fa fa-fw fa-globe"></i> Saved the world
+                                      </a>
+                                      <a href="#" class="list-group-item">
+                                          <span class="badge">two days ago</span>
+                                          <i class="fa fa-fw fa-check"></i> Completed task: "fix error on sales page"
+                                      </a>
+                                  </div>
+                                  <div class="text-right">
+                                      <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-lg-4">
+                          <div class="panel panel-default">
+                              <div class="panel-heading">
+                                  <h3 class="panel-title"><i class="fa fa-money fa-fw"></i> Transactions Panel</h3>
+                              </div>
+                              <div class="panel-body">
+                                  <div class="table-responsive">
+                                      <table class="table table-bordered table-hover table-striped">
+                                          <thead>
+                                              <tr>
+                                                  <th>Order #</th>
+                                                  <th>Order Date</th>
+                                                  <th>Order Time</th>
+                                                  <th>Amount (USD)</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>3326</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>3:29 PM</td>
+                                                  <td>$321.33</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>3325</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>3:20 PM</td>
+                                                  <td>$234.34</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>3324</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>3:03 PM</td>
+                                                  <td>$724.17</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>3323</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>3:00 PM</td>
+                                                  <td>$23.71</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>3322</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>2:49 PM</td>
+                                                  <td>$8345.23</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>3321</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>2:23 PM</td>
+                                                  <td>$245.12</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>3320</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>2:15 PM</td>
+                                                  <td>$5663.54</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>3319</td>
+                                                  <td>10/21/2013</td>
+                                                  <td>2:13 PM</td>
+                                                  <td>$943.45</td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                                  <div class="text-right">
+                                      <a href="#">View All Transactions <i class="fa fa-arrow-circle-right"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- /.row -->
+
+              </div>
+              <!-- /.container-fluid -->
+
+          </div>
+          <!-- /#page-wrapper -->
+
+      </div>
+      <!-- /#wrapper -->
+
+
+
+      <!-- Morris Charts JavaScript -->
+      <script src="/admin/js/plugins/morris/raphael.min.js"></script>
+      <script src="/admin/js/plugins/morris/morris.min.js"></script>
+      <script src="/admin/js/plugins/morris/morris-data.js"></script>
 
 </html>
