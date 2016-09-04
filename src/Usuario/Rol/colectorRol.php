@@ -6,7 +6,7 @@ require_once "../../autoload.php";
 
 class ColectorRol extends Collector
 {
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
     }
