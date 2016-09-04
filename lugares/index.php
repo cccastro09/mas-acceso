@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'src/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -5,8 +6,8 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
-	<meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
-	<meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
+    <meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
+    <meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
     <meta name="name" content="Edificio">
     <meta name="description" content="Visualiza la informacion de las infraestructuras enlazadas a nuestro sitio">
     <meta name="author" content="Guillermo Bernal">
