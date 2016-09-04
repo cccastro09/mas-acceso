@@ -1,5 +1,6 @@
 <?php
 namespace mas_acceso\Util;
+
 require "database/Database.php";
 
 use mas_acceso\Util\database\Database;
