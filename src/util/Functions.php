@@ -1,4 +1,5 @@
 <?php
+namespace mas_acceso\util;
 
 /**
  * Funciones static para ser reutilizadas
@@ -6,7 +7,7 @@
 class Functions
 {
 
-    function __construct()
+    public function __construct()
     {
         die('no contruction allowed :v');
     }

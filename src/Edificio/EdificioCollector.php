@@ -1,8 +1,8 @@
 <?php
-namespace mas_acceso\Edificio;
+namespace mas_acceso\edificio;
 
-use mas_acceso\Util\Collector;
-use mas_acceso\Edificio\EdificioClass;
+use mas_acceso\util\Collector;
+use mas_acceso\edificio\EdificioClass;
 
 /**
  * Colector de Edificio
