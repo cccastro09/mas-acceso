@@ -1,18 +1,20 @@
 <?php
 namespace mas_acceso\usuario\Rol;
+
 require_once "RolClass.php";
 require_once "../../autoload.php";
 
-class ColectorRol extends Collector{
-    function __construct()
-   {
-    parent::__construct();
-   }
+class ColectorRol extends Collector
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-   public function addRol($rol)
-   {
-     return self::execQuery("INSERT INTO rol(r_constante, r_nombre) VALUES('".$rol->getConstante()."','".$rol->getNombre()."')");
-   }
+    public function addRol($rol)
+    {
+        return self::execQuery("INSERT INTO rol(r_constante, r_nombre) VALUES('".$rol->getConstante()."','".$rol->getNombre()."')");
+    }
 
   /* public function getNombre($id)
    {
@@ -28,39 +30,32 @@ class ColectorRol extends Collector{
 
 
   }*/
-   public function leerRol(){
-
-      return self::read('rol','Rol'); 
-
-
-  }
-   public function updateDemo($rolo)
-   {
-    try
+    public function leerRol()
     {
-      self::execQuery("UPDATE rol SET id='".$rol->getId()."',nombre='".$rol->getNombre()."',r_constante='".$rol->getConstante()."' WHERE id=".$rol->getId());
 
-     return true;
+        return self::read('rol', 'Rol');
     }
-    catch(PDOException $e)
+    public function updateDemo($rolo)
     {
-     echo $e->getMessage();
-     return false;
-    }
-   }
+        try {
+             self::execQuery("UPDATE rol SET id='".$rol->getId()."',nombre='".$rol->getNombre()."',r_constante='".$rol->getConstante()."' WHERE id=".$rol->getId());
 
-   public function deleteRol($rol)
-   {
-    try
-    {
-      self::execQuery("DELETE FROM rol WHERE id=".$rol);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
-     return true;
-    }
-    catch(PDOException $e)
+    public function deleteRol($rol)
     {
-     echo $e->getMessage();
-     return false;
+        try {
+             self::execQuery("DELETE FROM rol WHERE id=".$rol);
+
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
-   }
-   }
+}

@@ -1,3 +1,4 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'src/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -7,24 +8,21 @@
     <meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
     <meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
     <meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
-    <meta name="name" content="Calificar">
-    <meta name="description" content="Calificacion de cada infraestructura vinculada al sitio web">
-    <meta name="author" content="Kevin Malats, Christian Castro">
+    <meta name="name" content="Edificio">
+    <meta name="description" content="Visualiza la informacion de las infraestructuras enlazadas a nuestro sitio">
+    <meta name="author" content="Guillermo Bernal">
     <!-- http://getbootstrap.com/css/#overview-mobile -->
     <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <title>+Acceso-Calificar</title>
-
-
-
+    <title>+Acceso</title>
     <!-- http://getbootstrap.com/getting-started/ -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/tema.min.css">
-   <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -43,51 +41,51 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img alt="Logo" src="img/logo.png"></a>
+                <a class="navbar-brand" href="index.html"><img alt="Logo" src="img/logo.png"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right navbar-social">
-                  <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              </ul>
+                <ul class="nav navbar-nav navbar-right navbar-social">
+                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                </ul>
                 <ul class="nav navbar-nav navbar-left clear-right">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/lugares.html">Lugares</a></li>
-                    <li><a href="/categorias.html">Categorías</a></li>
-                    <li class="active"><a href="/calificar.html">Calificar</a></li>
-		    <li><a href="/contacto.html">Contacto</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="active"><a href="lugares.html">Lugares</a></li>
+                    <li><a href="categorias.html">Categorías</a></li>
+                    <li><a href="calificar.html">Calificar</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="logout.html">Cerrar Sesión</a></li>
+                    <li><a href="/login.html">Iniciar Sesión</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
+    <div class="container-fluid cuerpo">
+        <div class="row">
+            <div class="col col-sm-12">
+                <ol class="breadcrumb">
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="/lugares.html">Lugares</a></li>
+                    <li class="active">EDCOM</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-sm-12">
+                <header class="cabecera-edificio">
+                    <img src="img/header.png" class="imagen-cabecera" alt="" />
+                    <h1>EDCOM</h1>
+                </header>
+<h2>Categoría</h2><h4>parcialmente accesible</h4>
+<p>Edifico creado en el año 2008, cuenta con algunas rampas para ingresar a los pisos bajos y ascensor ara acceder a las oficinas. Su patio de comidas cuenta con una rampa para silla de ruedas. Sin embargo sus laboratorios y la mayoría de sus aulas se encuentran en el tercer piso, donde solo se puede llegar en escalera. Se estima ascensor para el 2016</p>
+            </div>
+        </div>
 
-<h1>Calificar</h1>
-  <div class="Principal">
-    <h6>Califique este sitio</h6>
-
-
-    <div class="ec-stars-wrapper">
-
-
-   <div><img  src="img/header.png" class ="imagen1" alt="EDCOM"/></div>
-	<a href="#" data-value="1" title="Votar con 1 estrellas">&#9733;</a>
-	<a href="#" data-value="2" title="Votar con 2 estrellas">&#9733;</a>
-	<a href="#" data-value="3" title="Votar con 3 estrellas">&#9733;</a>
-	<a href="#" data-value="4" title="Votar con 4 estrellas">&#9733;</a>
-	<a href="#" data-value="5" title="Votar con 5 estrellas">&#9733;</a>
     </div>
-
-  </div>
-
-
-
-</body>
 
 </html>
