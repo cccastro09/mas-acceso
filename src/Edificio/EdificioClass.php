@@ -1,12 +1,12 @@
 <?php
 
-namespace mas_aceso\Edificio;
+namespace mas_aceso\edificio;
 
-use mas_aceso\Edificio\Reportes\ReporteCollector;
-use mas_acceso\Edificio\Reportes\ReporteClass;
-use mas_aceso\Edificio\Categorias\CategoriaCollector;
-use mas_aceso\Edificio\Categorias\CategoriaClass;
-use mas_aceso\Util\Functions as FNC;
+use mas_aceso\edificio\reportes\ReporteCollector;
+use mas_acceso\edificio\reportes\ReporteClass;
+use mas_aceso\edificio\categorias\CategoriaCollector;
+use mas_aceso\edificio\categorias\CategoriaClass;
+use mas_aceso\util\Functions as FNC;
 
 /**
  * Un edificio accesible.
