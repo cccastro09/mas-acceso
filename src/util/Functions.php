@@ -27,4 +27,24 @@ class Functions
 
         return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
+
+    public static function getNameSpaceFromFile($fileName)
+    {
+        $classes = [
+        'mas_acceso\\util\\Collector'  => 'src/util/Collector.php',
+        'mas_acceso\\util\Database' => 'src/util/database/Database.php',
+        'mas_acceso\\usuario\\Rol' => 'src/Usuario/Rol/ColectorRol.php',
+        'mas_acceso\\usuario\\Rol' => 'src/Usuario/Rol/RolClass.php',
+        'mas_acceso\\usuario\\Rol' => 'src/Usuario/Rol/index.php',
+        'mas_aceso\\edificio\\EdificioClass' => 'src/Edificio/EdificioClass.php',
+        'mas_acceso\\edificio\\EdificioCollector' =>'src/Edificio/EdificioCollector.php',
+        'mas_acceso\\util\\database\\Database' => 'src/util/database/Database.php',
+        'mas_acceso\\util\\Functions'=> 'src/util/Functions.php'
+        ];
+
+        $match= array_filter($classes, function ($v, $k) use ($fileName) {
+            return strpos($v, $fileName) !== false;
+        }, ARRAY_FILTER_USE_BOTH);
+        return key($match);
+    }
 }

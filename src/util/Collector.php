@@ -1,9 +1,9 @@
 <?php
-namespace mas_acceso\Util;
+namespace mas_acceso\util;
 
-require "database/Database.php";
-
-use mas_acceso\Util\database\Database;
+use mas_acceso\util\database\Database as DB;
+use mas_acceso\util\Functions as FNC;
+use PDO;
 
 class Collector
 {
@@ -11,7 +11,7 @@ class Collector
 
     public function __construct()
     {
-        $this->con = Database::connect();
+        $this->con = DB::connect();
     }
 
     public function read($table, $class = 'stdClass')
@@ -20,7 +20,7 @@ class Collector
             $queryRead= 'SELECT * FROM '. $table;
             $stmt = $this->con->prepare($queryRead);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_CLASS, $class);
+            $result = $stmt->fetchAll(PDO::FETCH_CLASS, FNC::getNameSpaceFromFile($class.'.php'));
             return $result;
         } catch (PDOException $e) {
             echo $e->getMessage();
