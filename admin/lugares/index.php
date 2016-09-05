@@ -38,9 +38,12 @@
           <div id="page-wrapper">
 
               <div class="container-fluid">
-                    <?php use mas_acceso\Edificio;
+                    <?php use mas_acceso\edificio\EdificioCollector;
+                          use mas_aceso\edificio\EdificioClass;
 
-                        $col = new Edificio\EdificioCollector();
+                        $col = new EdificioCollector();
+
+                        var_dump($col->getAllEdificios());
                     ?>
 
                   <!-- Page Heading -->
