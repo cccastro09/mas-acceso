@@ -1,14 +1,16 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+
+
 use mas_acceso\edificio\EdificioCollector;
 use mas_aceso\edificio\EdificioClass;
 
 if (isset($_POST["nombre"])) {
     $vCollector = new EdificioCollector();
     $EdificioClass = new EdificioClass();
-    $EdificioClass->setId(123);
     $EdificioClass->setNombre($_POST["nombre"]);
-    $EdificioClass->setPrograma($_POST["programa"]);
-    if ($vCollector->addBecario($EdificioClass)) {
+    $EdificioClass->setDescripcion($_POST["descr"]);
+    if ($vCollector->addEdificio($EdificioClass)) {
         //var_dump($obj);
         header("Location: https://leccion-php.herokuapp.com/admin/EdificioClass");
         exit();
@@ -27,7 +29,7 @@ if (isset($_POST["nombre"])) {
       <div>
         <label for="name">Crear nuevo EdificioClass </label>
         <input type="text" name="nombre" value="Mickey" placeholder="nombre"><br>
-        <input type="number" name="programa" value=1 placeholder="programa"><br>
+        <input type="text" name="descr" value="Descr" placeholder="descr"><br>
       </div>
       <div class="button">
         <button type="submit">Crear</button>
