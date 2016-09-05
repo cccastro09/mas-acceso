@@ -7,13 +7,13 @@ use mas_aceso\Usuario\UsuarioCollector;
 /**
  *
  */
-class VotoClass
+class ComentarioClass
 {
-    private $v_id;
-    private $v_id_edificio;
-    private $v_id_usuario;
-    private $v_valoracion;
-    private $v_fecha;
+    private $c_id;
+    private $c_id_edificio;
+    private $c_id_usuario;
+    private $c_contenido;
+    private $c_fecha;
     
 
     public function __construct()
@@ -21,56 +21,56 @@ class VotoClass
     }
 
     /**
-     * Retorna el id de la instancia de Voto
+     * Retorna el id de la instancia de Comentario
      *
-     * @return String El id del Voto.
+     * @return String El id del Comentario.
      */
     public function getId()
     {
-        return $this->$v_id;
+        return $this->$c_id;
     }
 
     /**
-     * Retorna el id del Edificio sobre el cual se esta votando.
+     * Retorna el id del Edificio sobre el cual se esta comentando.
      *
      * @return String El Id del Edificio sobre el cual se comento.
      */
     public function getIdEdificio()
     {
-        return $v_id_edificio;
+        return $c_id_edificio;
     
     }
 
     /**
-     * Retorna el id del Usuario que esta votando.
+     * Retorna el id del Usuario que esta comentando.
      *
      * @return String El Id del Usuario que comento.
      */
     public function getIdUsuario()
     {
-        private $v_id_usuario;
+        private $c_id_usuario;
     
     }
 
     /**
-     * Retorna la valoracion que dio el usuario hacia el edificio
+     * Retorna el comentario que dio el usuario hacia el edificio
      *
-     * @return Integer EL procentaje de accesibilidad.
+     * @return String EL procentaje de accesibilidad.
      */
-    public function getValoracion()
+    public function getContenido()
     {
-        return $v_valoracion;
+        return $c_contenido;
     
     }
 
     /**
-     * Retorna la fecha en la que se realizo el voto
+     * Retorna la fecha en la que se realizo el comentario
      *
-     * @return String Fecha del voto
+     * @return String Fecha del comentario
      */
     public function getFecha()
     {
-        return $v_fecha;
+        return $c_fecha;
     }
 
     /**
@@ -97,11 +97,11 @@ class VotoClass
     /**
      * Cambia el id del Edificio.
      *
-     * @param String $n El nuevo id del Edificio correspondiente al voto.
+     * @param String $n El nuevo id del Edificio correspondiente al comentario.
      */
     public function setIdEdificio($n)
     {
-        this->$v_id_edificio = $n;
+        this->$c_id_edificio = $n;
     
     }
 
@@ -112,29 +112,29 @@ class VotoClass
      */
     public function setIdUsuario($n)
     {
-        this->$v_id_usuario = $n;
+        this->$c_id_usuario = $n;
     
     }
 
     /**
-     * Cambia la valoracion del voto correspondiente al Edificio
+     * Cambia la valoracion del comentario correspondiente al Edificio
      *
      * @param Integer $n la nueva valoracion del mensaje correspondiente al Edificio.
      */
-    public function setValoracion($n)
+    public function setContenido($n)
     {
-        this->$v_valoracion=$n;
+        this->$c_contenido=$n;
     
     }
     
     /**
-     * Cambia la fecha del voto correspondiente al Edificio
+     * Cambia la fecha del comentario correspondiente al Edificio
      *
-     * @param String $n la nueva fecha del mensaje correspondiente al Edificio.
+     * @param String $n la nueva fecha del comentario correspondiente al Edificio.
      */
     public function setFecha($n)
     {
-        this->$v_fecha=$n;
+        this->$c_fecha=$n;
     
     }
     
