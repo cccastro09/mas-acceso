@@ -41,6 +41,6 @@ class EdificioCollector extends Collector
      */
     public function addEdificio($e)
     {
-        return self::execQuery("INSERT INTO edficio VALUES('".$e->getId()."','".$e->getNombre()."','".$e->getDescripcion()."','".$e->getReporteID()."','".$e->getCategoriaID()."')");
+        return self::execQuery("INSERT INTO edificio VALUES(DEFAULT,'".$e->getNombre()."','".$e->getDescripcion()."',".$e->getReporteID().",".$e->getCategoriaID().")");
     }
 }

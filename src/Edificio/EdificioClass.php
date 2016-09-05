@@ -1,12 +1,11 @@
 <?php
-
 namespace mas_aceso\edificio;
 
 use mas_aceso\edificio\reportes\ReporteCollector;
 use mas_acceso\edificio\reportes\ReporteClass;
-use mas_aceso\edificio\categorias\CategoriaCollector;
-use mas_aceso\edificio\categorias\CategoriaClass;
-use mas_aceso\util\Functions as FNC;
+use mas_acceso\edificio\categorias\CategoriaCollector;
+use mas_acceso\edificio\categorias\CategoriaClass;
+use mas_acceso\util\Functions as FNC;
 
 /**
  * Un edificio accesible.
@@ -21,7 +20,6 @@ class EdificioClass
 
     public function __construct()
     {
-        $this->e_id = FNC::guid();
     }
 
     /**
@@ -29,7 +27,7 @@ class EdificioClass
      *
      * @return String El id del Edificio.
      */
-    public function getId(): string
+    public function getId(): int
     {
         return $this->e_id;
     }
@@ -86,20 +84,20 @@ class EdificioClass
 
     /**
      * Devuelve el id del reporte que describe el Edificio
-     * @return string El id.
+     * @return mixed El id.
      */
-    public function getReporteID(): string
+    public function getReporteID()
     {
-        return $this->e_id_reporte;
+        return is_null($this->e_id_reporte) ? "NULL":$this->e_id_reporte;
     }
 
     /**
      * Devuelve el id del reporte que describe el Edificio
-     * @return string El id.
+     * @return mixed El id.
      */
-    public function getCategoriaID(): string
+    public function getCategoriaID()
     {
-        return $this->e_id_categoria;
+        return is_null($this->e_id_categoria) ? "NULL":$this->e_id_categoria;
     }
 
     /**
