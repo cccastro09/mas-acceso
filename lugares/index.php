@@ -37,51 +37,42 @@ use mas_aceso\edificio\EdificioClass;
     <?php include $_SERVER['DOCUMENT_ROOT'].'/partes/menu.php'; ?>
   <div class="container-fluid">
     <div class="row">
-<div class="col-sm-12 col-md-3">
     <?php
     $col = new EdificioCollector();
 
     foreach (($col->getAllEdificios()) as $e) {
     ?>
-            <div class="resultados">
-                <p>
 
-                </p>
-                <a href="/lugar/?<?php echo $e->getID(); ?>" class="edificio-lista">
-                    <div>
-                        <h4><?php echo $e->getNombre(); ?></h4>
-                        <p>
-                            Universidad/Facultad
-                        </p>
-                        <h3>
-                  8.5
-                </h3>
-                        <div class="clearfix">
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <?php                                                                                                         }; ?>
+<div class="col-sm-6 col-md-4 col-lg-3">
+  <div class="example-2 card">
+    <div class="wrapper">
+      <div class="header">
+        <div class="date">
+          <span class="day">12</span>
+          <span class="month">Aug</span>
+          <span class="year">2016</span>
         </div>
-        <div class="col-sm-12 col-md-9">
-            <div class="mapa cuerpo" id="map">
-
-            </div>
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="content">
+          <span class="author">Jane Doe</span>
+          <h1 class="title"><a href="/lugar/?<?php echo $e->getID(); ?>"><?php echo $e->getNombre(); ?></a></h1>
+          <p class="text"><?php echo $e->getDescripcion(); ?></p>
+          <a href="/lugar/?<?php echo $e->getID(); ?>" class="button">ver lugar</a>
         </div>
+      </div>
     </div>
-</div>
-<script>
-  var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -2.14629, lng: -79.9547},
-      zoom: 8
-    });
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC88qkAYGuOHrBGdi0345L6XZQtnLngE9Y&callback=initMap"
-async defer></script>
+  </div>
+      </div>
+            <?php
+    }; ?>
 
     </div>
 
