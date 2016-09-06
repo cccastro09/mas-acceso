@@ -1,6 +1,7 @@
 @import "./lugares.css";
 body {
     text-align: center;
+    padding-top: 128px;
 }
 
 .slide{
@@ -66,7 +67,7 @@ list-style-image: url('../img/search.png');
     margin-bottom: 0;
 }
 .cuerpo {
-    min-height: calc(100vh - (80px+ 64px));
+    min-height: calc(100vh - 128px);
 }
 .cabecera-edificio {
     position: relative;
@@ -101,7 +102,6 @@ list-style-image: url('../img/search.png');
     height: 128px;
 }
 .navbar-brand img {
-    width: 80px;
     height: 87px;
 }
 .navbar-social {
@@ -140,3 +140,16 @@ list-style-image: url('../img/search.png');
   height: 35%;
 
   }
+
+.barra-busqueda{
+  padding: 1em 0;
+}
+
+.barra-busqueda .input-group{
+  background-color: #fefefe;
+  border-radius: 3px;
+}
+
+.barra-busqueda .btn{
+  padding: 12px 16px;
+}
