@@ -1,4 +1,7 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+use mas_acceso\edificio\EdificioCollector;
+use mas_aceso\edificio\EdificioClass;
+    ?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -35,29 +38,18 @@
   <div class="container-fluid">
     <div class="row">
 <div class="col-sm-12 col-md-3">
-            <div class="buscar">
-                <p>
+    <?php
+    $col = new EdificioCollector();
 
-                </p>
-                <div class="row">
-                    <div class="col-sm-10 col-md-9">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Buscar un lugar">
-                        </div>
-                    </div>
-                    <div class="col-sm-2 col-md-4">
-                        <button type="submit" class="btn btn-default">Buscar</button>
-                    </div>
-                </div>
-            </div>
-            <!-- /input-group -->
+    foreach (($col->getAllEdificios()) as $e) {
+    ?>
             <div class="resultados">
                 <p>
 
                 </p>
-                <a href="/edificio.html" class="edificio-lista">
+                <a href="/lugar/?<?php echo $e->getID(); ?>" class="edificio-lista">
                     <div>
-                        <h4>EDCOM</h4>
+                        <h4><?php echo $e->getNombre(); ?></h4>
                         <p>
                             Universidad/Facultad
                         </p>
@@ -70,6 +62,7 @@
                     </div>
                 </a>
             </div>
+            <?php                                                                                                         }; ?>
         </div>
         <div class="col-sm-12 col-md-9">
             <div class="mapa cuerpo" id="map">
