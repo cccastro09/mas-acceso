@@ -1,3 +1,5 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+    ?>
 <!DOCTYPE html>
 <html lang='es'>
 <head>
@@ -31,31 +33,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse">
-  		<div class="container-fluid">
-    		<div class="navbar-header">
-      			<a class="navbar-brand" href="index.html"><img alt="Logo" src="img/logo.gif"></a>
-    		</div>
-    		<div id="custom-search-input">
-            	<div class="input-group col-md-10">
-                	<input type="text" class="form-control input-lg" placeholder="Buscar lugar" />
-                    	<span class="input-group-btn">
-                        	<button class="btn btn-info btn-lg" type="button">
-                            	<i class="glyphicon glyphicon-search"></i>
-                        	</button>
-                    	</span>
-                </div>
-            </div>
-    	<ul class="nav navbar-nav">
-      		<li><a href="nosotros.html">Nosotros</a></li>
-      		<li><a href="contacto.html">Contacto</a></li> 
-    	</ul>
-    	<ul class="nav navbar-nav navbar-right">
-      		<li><a href="registro.php"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-      		<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Inciar Sesión</a></li>
-    	</ul>
-  		</div>
-	</nav>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/partes/menu.php'; ?>
     <div class="container-fluid cuerpo">
         <div class="row">
             <div class="col-sm-12">
@@ -126,7 +104,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-               
+
                 <h5>Noticias Conadis</h5>
                 <strong>Campaña Solidaria de Recolección de Donaciones para Atención Humanitaria</strong>
                 <p>Campaña Solidaria de Recolección de Donaciones para Atención Humanitaria Direcciones MIES 1 Planta Central – Quito Ministerio de...</p>
