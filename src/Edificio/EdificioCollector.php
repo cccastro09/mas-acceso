@@ -31,7 +31,7 @@ class EdificioCollector extends Collector
    */
     public function getEdificio($id)
     {
-        parent::getById($id, 'edificio', 'e_id', 'Edificio');
+        return parent::getById($id, 'edificio', 'e_id', 'EdificioClass');
     }
 
     /**
@@ -42,5 +42,27 @@ class EdificioCollector extends Collector
     public function addEdificio($e)
     {
         return self::execQuery("INSERT INTO edificio VALUES(DEFAULT,'".$e->getNombre()."','".$e->getDescripcion()."',".$e->getReporteID().",".$e->getCategoriaID().")");
+    }
+
+
+    public function updateEdificio($e)
+    {
+        try {
+            self::execQuery("UPDATE edificio SET e_id=".$e->getId().",e_nombre='".$e->getNombre()."',e_descripcion='".$e->getDescripcion()."' WHERE e_id=".$e->getId());
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function deleteEdificio($e_id)
+    {
+        try {
+            self::execQuery("DELETE FROM edificio WHERE e_id=".$e_id);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 }

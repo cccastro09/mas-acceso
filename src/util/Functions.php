@@ -61,7 +61,6 @@ class Functions
      */
     public static function isActive($pageName, $url)
     {
-        echo $url;
         return $pageName == self::getLastPathSegment($url);
     }
 

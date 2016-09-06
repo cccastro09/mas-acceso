@@ -100,6 +100,11 @@ class EdificioClass
         return is_null($this->e_id_categoria) ? "NULL":$this->e_id_categoria;
     }
 
+    public function setId($id)
+    {
+        $this->e_id = $id;
+    }
+
     /**
      * Cambia el nombre del Edificio.
      *
