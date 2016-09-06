@@ -1,4 +1,4 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'src/autoload.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php'; ?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -13,16 +13,16 @@
     <meta name="author" content="Guillermo Bernal">
     <!-- http://getbootstrap.com/css/#overview-mobile -->
     <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <title>+Acceso</title>
     <!-- http://getbootstrap.com/getting-started/ -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="css/tema.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="/css/tema.min.css">
+    <link rel="stylesheet" href="/css/estilos.css">
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -31,60 +31,64 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html"><img alt="Logo" src="img/logo.png"></a>
-            </div>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/partes/menu.php'; ?>
+  <div class="container-fluid">
+    <div class="row">
+<div class="col-sm-12 col-md-3">
+            <div class="buscar">
+                <p>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right navbar-social">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-left clear-right">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li class="active"><a href="lugares.html">Lugares</a></li>
-                    <li><a href="categorias.html">Categorías</a></li>
-                    <li><a href="calificar.html">Calificar</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login.html">Iniciar Sesión</a></li>
-                </ul>
+                </p>
+                <div class="row">
+                    <div class="col-sm-10 col-md-9">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Buscar un lugar">
+                        </div>
+                    </div>
+                    <div class="col-sm-2 col-md-4">
+                        <button type="submit" class="btn btn-default">Buscar</button>
+                    </div>
+                </div>
             </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <div class="container-fluid cuerpo">
-        <div class="row">
-            <div class="col col-sm-12">
-                <ol class="breadcrumb">
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/lugares.html">Lugares</a></li>
-                    <li class="active">EDCOM</li>
-                </ol>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col col-sm-12">
-                <header class="cabecera-edificio">
-                    <img src="img/header.png" class="imagen-cabecera" alt="" />
-                    <h1>EDCOM</h1>
-                </header>
-<h2>Categoría</h2><h4>parcialmente accesible</h4>
-<p>Edifico creado en el año 2008, cuenta con algunas rampas para ingresar a los pisos bajos y ascensor ara acceder a las oficinas. Su patio de comidas cuenta con una rampa para silla de ruedas. Sin embargo sus laboratorios y la mayoría de sus aulas se encuentran en el tercer piso, donde solo se puede llegar en escalera. Se estima ascensor para el 2016</p>
+            <!-- /input-group -->
+            <div class="resultados">
+                <p>
+
+                </p>
+                <a href="/edificio.html" class="edificio-lista">
+                    <div>
+                        <h4>EDCOM</h4>
+                        <p>
+                            Universidad/Facultad
+                        </p>
+                        <h3>
+                  8.5
+                </h3>
+                        <div class="clearfix">
+
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
+        <div class="col-sm-12 col-md-9">
+            <div class="mapa cuerpo" id="map">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -2.14629, lng: -79.9547},
+      zoom: 8
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC88qkAYGuOHrBGdi0345L6XZQtnLngE9Y&callback=initMap"
+async defer></script>
 
     </div>
 
