@@ -28,6 +28,11 @@ class Functions
         return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
     }
 
+    /**
+     * Obtiene el namespace del archivo que se envía.
+     * @param  string $fileName El nombre del archivo.
+     * @return string           El namespace del archivo.
+     */
     public static function getNameSpaceFromFile($fileName)
     {
         $classes = [
@@ -46,5 +51,33 @@ class Functions
             return strpos($v, $fileName) !== false;
         }, ARRAY_FILTER_USE_BOTH);
         return key($match);
+    }
+
+    /**
+     * Verifica si el url dado corresponde a la página dada.
+     * @param  string  $pageName El nombre de la página.
+     * @param  string  $url      El url a verificar.
+     * @return boolean           true si corresponde, false en caso contrario.
+     */
+    public static function isActive($pageName, $url)
+    {
+        return $pageName == self::getLastPathSegment($url);
+    }
+
+    /**
+     * Obtiene el último path del url dada. Tomado de {@link http://stackoverflow.com/a/2273328 stackoverflow}
+     * @param  string $url El url a analizar
+     * @return string      El path.
+     */
+    public static function getLastPathSegment($url)
+    {
+        $path = parse_url($url, PHP_URL_PATH); // to get the path from a whole URL
+        $pathTrimmed = trim($path, '/'); // normalise with no leading or trailing slash
+        $pathTokens = explode('/', $pathTrimmed); // get segments delimited by a slash
+
+        if (substr($path, -1) !== '/') {
+            array_pop($pathTokens);
+        }
+        return end($pathTokens); // get the last segment
     }
 }

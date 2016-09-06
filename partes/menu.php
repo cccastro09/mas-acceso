@@ -26,16 +26,16 @@ use mas_acceso\util\Functions as FNC;
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-left clear-right">
-                <li <?php echo FNC::isActive("lugares", __FILE__) ? "class=\"active\"" : " asd"; ?>>
+                <li <?php echo FNC::isActive("lugares", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
                     <a href="/lugares/">Lugares</a>
                 </li>
-                <li>
+                <li <?php echo FNC::isActive("categorias", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
                     <a href="/categorias/">Categorías</a>
                 </li>
-                <li>
+                <li <?php echo FNC::isActive("nosotros", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
                     <a href="/nosotros/">Nosotros</a>
                 </li>
-                <li>
+                <li <?php echo FNC::isActive("contacto", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
                     <a href="/contacto/">Contacto</a>
                 </li>
             </ul>

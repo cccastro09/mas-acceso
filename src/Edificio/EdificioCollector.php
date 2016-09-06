@@ -2,7 +2,7 @@
 namespace mas_acceso\edificio;
 
 use mas_acceso\util\Collector;
-use mas_acceso\edificio\EdificioClass;
+use mas_acceso\edificio\Edificio;
 
 /**
  * Colector de Edificio
@@ -21,7 +21,7 @@ class EdificioCollector extends Collector
    */
     public function getAllEdificios()
     {
-        parent::read('edificio', 'Edificio');
+        return self::read('edificio', 'EdificioClass');
     }
 
   /**
@@ -31,7 +31,7 @@ class EdificioCollector extends Collector
    */
     public function getEdificio($id)
     {
-        parent::getById($id, 'edificio', 'e_id', 'Edificio');
+        return parent::getById($id, 'edificio', 'e_id', 'EdificioClass');
     }
 
     /**
@@ -41,6 +41,28 @@ class EdificioCollector extends Collector
      */
     public function addEdificio($e)
     {
-        return self::execQuery("INSERT INTO edficio VALUES('".$e->getId()."','".$e->getNombre()."','".$e->getDescripcion()."','".$e->getReporteID()."','".$e->getCategoriaID()."')");
+        return self::execQuery("INSERT INTO edificio VALUES(DEFAULT,'".$e->getNombre()."','".$e->getDescripcion()."',".$e->getReporteID().",".$e->getCategoriaID().")");
+    }
+
+
+    public function updateEdificio($e)
+    {
+        try {
+            self::execQuery("UPDATE edificio SET e_id=".$e->getId().",e_nombre='".$e->getNombre()."',e_descripcion='".$e->getDescripcion()."' WHERE e_id=".$e->getId());
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+    public function deleteEdificio($e_id)
+    {
+        try {
+            self::execQuery("DELETE FROM edificio WHERE e_id=".$e_id);
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
     }
 }

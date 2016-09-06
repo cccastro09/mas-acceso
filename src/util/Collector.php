@@ -39,11 +39,10 @@ class Collector
     public function getById($id, $table, $id_col, $class = 'stdClass')
     {
         try {
-            $queryRead= 'SELECT * FROM '. $table . 'WHERE '.$id_col . '=:id';
-            $stmt->execute(array(":id"=>$id));
+            $queryRead= 'SELECT * FROM '. $table . ' WHERE '.$id_col.'=:e_id';
             $stmt = $this->con->prepare($queryRead);
-            $stmt->execute();
-            $result = $stmt->fetchObject($class);
+            $stmt->execute(array(':e_id'=>intval($id)));
+            $result = $stmt->fetchObject(FNC::getNameSpaceFromFile($class.'.php'));
             return $result;
         } catch (PDOException $e) {
             echo $e->getMessage();
