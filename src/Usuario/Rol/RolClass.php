@@ -1,9 +1,9 @@
 <?php
 namespace mas_acceso\usuario\Rol;
 
-;
 
-class Rol
+
+class RolClass
 {
     private $r_id;
     private $r_constante;

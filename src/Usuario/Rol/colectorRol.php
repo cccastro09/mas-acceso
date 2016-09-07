@@ -1,8 +1,9 @@
 <?php
 namespace mas_acceso\usuario\Rol;
 
-require_once "RolClass.php";
-require_once "../../autoload.php";
+//require_once "RolClass.php";
+//require_once "../../../autoload.php";
+use mas_acceso\util\Collector;
 
 class ColectorRol extends Collector
 {
@@ -33,7 +34,7 @@ class ColectorRol extends Collector
     public function leerRol()
     {
 
-        return self::read('rol', 'Rol');
+        return self::read('rol', 'RolClass');
     }
     public function updateDemo($rolo)
     {
