@@ -36,10 +36,10 @@ class ColectorRol extends Collector
 
         return self::read('rol', 'RolClass');
     }
-    public function updateDemo($rolo)
+    public function updateRol($rol)
     {
         try {
-             self::execQuery("UPDATE rol SET id='".$rol->getId()."',nombre='".$rol->getNombre()."',r_constante='".$rol->getConstante()."' WHERE id=".$rol->getId());
+             self::execQuery("UPDATE rol SET r_id='".$rol->getId()."',r_nombre='".$rol->getNombre()."',r_constante='".$rol->getConstante()."' WHERE r_id=".$rol->getId());
 
             return true;
         } catch (PDOException $e) {
@@ -47,11 +47,14 @@ class ColectorRol extends Collector
             return false;
         }
     }
+    public function getRol($id){
+         return self::getBYId($id, 'rol', 'r_id', 'RolClass');
+    }
 
     public function deleteRol($rol)
     {
         try {
-             self::execQuery("DELETE FROM rol WHERE id=".$rol);
+             self::execQuery("DELETE FROM rol WHERE r_id=".$rol);
 
             return true;
         } catch (PDOException $e) {

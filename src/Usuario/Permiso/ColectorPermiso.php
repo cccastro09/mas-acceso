@@ -36,10 +36,10 @@ class ColectorPermiso extends Collector
 
         return self::read('permiso', 'PermisoClass');
     }
-    public function updateRol($per)
+    public function updatePermiso($per)
     {
         try {
-             self::execQuery("UPDATE rol SET p_id='".$per->getId()."',p_descripcion='".$per->getPermiso()."',p_constante='".$per->getConstante()."' WHERE p_id=".$per->getId());
+             self::execQuery("UPDATE permiso SET p_id='".$per->getId()."',p_descripcion='".$per->getDescripcion()."',p_constante='".$per->getConstante()."' WHERE p_id=".$per->getId());
 
             return true;
         } catch (PDOException $e) {
@@ -47,14 +47,14 @@ class ColectorPermiso extends Collector
             return false;
         }
     }
-    public function getRol($id){
+    public function getPermiso($id){
          return self::getBYId($id, 'permiso', 'p_id', 'PermisoClass');
     }
 
-    public function deleteRol($perl)
+    public function deletePermiso($per)
     {
         try {
-             self::execQuery("DELETE FROM rol WHERE p_id=".$per);
+             self::execQuery("DELETE FROM permiso WHERE p_id=".$per);
 
             return true;
         } catch (PDOException $e) {
