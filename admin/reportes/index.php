@@ -1,24 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
-
-
 use mas_acceso\edificio\EdificioCollector;
 use mas_acceso\edificio\EdificioClass;
-
-if (isset($_POST["nombre"])) {
-    $vCollector = new EdificioCollector();
-    $EdificioClass = new EdificioClass();
-    $EdificioClass->setNombre($_POST["nombre"]);
-    $EdificioClass->setDescripcion($_POST["descr"]);
-    if ($vCollector->addEdificio($EdificioClass)) {
-        //var_dump($obj);
-        header("Location: /admin/lugares");
-        exit();
-    } else {
-        echo "Hubo un error al intentar agregar el Edificio.";
-    }
-} else {
-?>
+    ?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -56,20 +40,34 @@ if (isset($_POST["nombre"])) {
         <?php include $_SERVER['DOCUMENT_ROOT'].'/admin/partes/menu.php'; ?>
 
           <div id="page-wrapper">
+
               <div class="container-fluid">
-
-
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                      <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-                      </div>
-                        <div class="form-group">
-                          <label for="descr">Descripción</label>
-                          <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"></textarea>
+                    <?php
+                        $col = new EdificioCollector();
+                    ?>
+                    <div class="col-lg-6">
+                        <h2>Lugares</h2>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>NOMBRE</th>
+                                        <th>DESCRIPCIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($col->getAllEdificios() as $e) { ?>
+                                    <tr>
+                                        <td><?php echo $e->getId(); ?></td>
+                                        <td><?php echo $e->getNombre(); ?><br><a href="/admin/lugares/editar/?e_id=<?php echo $e->getId(); ?>">editar</a>   <a href="/admin/lugares/borrar/?e_id=<?php echo $e->getId(); ?>">borrar</a></td>
+                                        <td><?php echo $e->getDescripcion(); ?></td>
+                                    </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
                         </div>
-                        <button type="submit" class="btn btn-default">Crear</button>
-                    </form>
+                    </div>
 
               </div>
               <!-- /.container-fluid -->
@@ -81,6 +79,10 @@ if (isset($_POST["nombre"])) {
       <!-- /#wrapper -->
 
 
+
+      <!-- Morris Charts JavaScript -->
+      <script src="/admin/js/plugins/morris/raphael.min.js"></script>
+      <script src="/admin/js/plugins/morris/morris.min.js"></script>
+      <script src="/admin/js/plugins/morris/morris-data.js"></script>
+
 </html>
-<?php
-}

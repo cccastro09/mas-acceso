@@ -2,7 +2,7 @@
 namespace mas_acceso\edificio;
 
 use mas_acceso\util\Collector;
-use mas_acceso\edificio\Edificio;
+use mas_acceso\edificio\EdificioClass;
 
 /**
  * Colector de Edificio
@@ -21,7 +21,7 @@ class EdificioCollector extends Collector
    */
     public function getAllEdificios()
     {
-        return self::read('edificio', 'EdificioClass');
+        return self::read('edificio', EdificioClass::class);
     }
 
   /**
@@ -31,7 +31,7 @@ class EdificioCollector extends Collector
    */
     public function getEdificio($id)
     {
-        return parent::getById($id, 'edificio', 'e_id', 'EdificioClass');
+        return parent::getById($id, 'edificio', 'e_id', EdificioClass::class);
     }
 
     /**

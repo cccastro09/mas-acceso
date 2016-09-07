@@ -4,6 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
 use mas_acceso\edificio\EdificioCollector;
 use mas_acceso\edificio\EdificioClass;
+use mas_acceso\edificio\reporte\ReporteDetalladoClass;
 
 if (isset($_POST["nombre"])) {
     $vCollector = new EdificioCollector();

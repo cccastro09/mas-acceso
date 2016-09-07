@@ -1,8 +1,8 @@
 <?php
-namespace mas_aceso\edificio;
+namespace mas_acceso\edificio;
 
-use mas_aceso\edificio\reportes\ReporteCollector;
-use mas_acceso\edificio\reportes\ReporteClass;
+use mas_acceso\edificio\reporte\ReporteCollector;
+use mas_acceso\edificio\reporte\ReporteClass;
 use mas_acceso\edificio\categorias\CategoriaCollector;
 use mas_acceso\edificio\categorias\CategoriaClass;
 use mas_acceso\util\Functions as FNC;
@@ -53,23 +53,13 @@ class EdificioClass
     }
 
     /**
-     * Retorna el porcentaje de accesibilidad del edificio. 0-100 con 0 representando accesibilidad inexistente y 100 accesibilidad de excelencia.
-     *
-     * @return Integer EL procentaje de accesibilidad.
-     */
-    public function getAccesibilidad(): string
-    {
-        return $this->e_prcnt_accs;
-    }
-
-    /**
      * Retorna una instancia de ReporteClass dada por ReporteCollector. Es decir, retorna una instancia $r tal que $r->e_id==$this->e_id.
      *
      * @return ReporteClass El último reporte (y por lo tanto el efectivo) acerca del Edificio.
      */
-    public function getReporte($colector): ReporteClass
+    public function getReporte(ReporteCollector $colector)
     {
-        return $colector->getById($this->e_report);
+        return $colector->getReporte($this->e_id_reporte);
     }
 
     /**
