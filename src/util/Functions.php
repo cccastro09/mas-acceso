@@ -1,6 +1,8 @@
 <?php
 namespace mas_acceso\util;
 
+use DateTime;
+
 /**
  * Funciones static para ser reutilizadas
  */
@@ -29,6 +31,7 @@ class Functions
     }
 
     /**
+<<<<<<< HEAD
      * Obtiene el namespace del archivo que se envía.
      * @param  string $fileName El nombre del archivo.
      * @return string           El namespace del archivo.
@@ -56,6 +59,8 @@ class Functions
     }
 
     /**
+=======
+>>>>>>> b9f1bc3e4bd02322ffddde56c954bae436d1234a
      * Verifica si el url dado corresponde a la página dada.
      * @param  string  $pageName El nombre de la página.
      * @param  string  $url      El url a verificar.
@@ -81,5 +86,11 @@ class Functions
             array_pop($pathTokens);
         }
         return end($pathTokens); // get the last segment
+    }
+
+    public static function strToDate($date): DateTime
+    {
+        $d = DateTime::createFromFormat("Y-m-d H:i:s.u", $date);
+        return $d;
     }
 }

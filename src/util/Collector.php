@@ -20,7 +20,7 @@ class Collector
             $queryRead= 'SELECT * FROM '. $table;
             $stmt = $this->con->prepare($queryRead);
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_CLASS, FNC::getNameSpaceFromFile($class.'.php'));
+            $result = $stmt->fetchAll(PDO::FETCH_CLASS, $class);
             return $result;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -42,7 +42,7 @@ class Collector
             $queryRead= 'SELECT * FROM '. $table . ' WHERE '.$id_col.'=:e_id';
             $stmt = $this->con->prepare($queryRead);
             $stmt->execute(array(':e_id'=>intval($id)));
-            $result = $stmt->fetchObject(FNC::getNameSpaceFromFile($class.'.php'));
+            $result = $stmt->fetchObject($class);
             return $result;
         } catch (PDOException $e) {
             echo $e->getMessage();

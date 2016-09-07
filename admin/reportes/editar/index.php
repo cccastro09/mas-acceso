@@ -1,22 +1,21 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+
 use mas_acceso\edificio\EdificioCollector;
 use mas_acceso\edificio\EdificioClass;
 
- $coll = new EdificioCollector();
+    $coll = new EdificioCollector();
 if (isset($_GET["e_id"])) {
     $obj = $coll->getEdificio($_GET["e_id"]);
-?>
-<html lang='es'>
+    ?>
+    <html lang='es'>
 
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <meta name="copyright" content="+Acceso">
-        <!--Nombre de la compañia-->
-        <meta name="organization" content="+Acceso"/>
-        <!--Nombre de la Organizacion-->
-        <meta name="generator" content="Notepad++">
-        <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
+        <meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
+        <meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
+        <meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
         <meta name="name" content="Admin - Lugares">
         <meta name="description" content="Pagina de inicio de administración de lugares.">
         <meta name="author" content="Guillermo Bernal">
@@ -40,37 +39,39 @@ if (isset($_GET["e_id"])) {
 
     <body>
 
-        <div id="wrapper">
+          <div id="wrapper">
 
             <?php include $_SERVER['DOCUMENT_ROOT'].'/admin/partes/menu.php'; ?>
 
-            <div id="page-wrapper">
-                <div class="container-fluid">
+              <div id="page-wrapper">
+                  <div class="container-fluid">
 
-                    <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]); ?>" method="post">
-                        <input type="hidden" name="id" value="<?php echo $obj->getId(); ?>">
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $obj->getNombre(); ?>" placeholder="Nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="descr">Descripción</label>
-                            <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"><?php echo $obj->getDescripcion(); ?></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-default">Actualizar</button>
-                    </form>
 
-                </div>
-                <!-- /.container-fluid -->
-
-            </div>
-            <!-- /#page-wrapper -->
-
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+      <input type="hidden" name="id" value="<?php echo $obj->getId(); ?>">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $obj->getNombre(); ?>" placeholder="Nombre">
+      </div>
+        <div class="form-group">
+          <label for="descr">Descripción</label>
+          <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"><?php echo $obj->getDescripcion(); ?></textarea>
         </div>
-        <!-- /#wrapper -->
+        <button type="submit" class="btn btn-default">Crear</button>
+    </form>
+
+                  </div>
+                  <!-- /.container-fluid -->
+
+              </div>
+              <!-- /#page-wrapper -->
+
+          </div>
+          <!-- /#wrapper -->
+
 
     </html>
-<?php
+    <?php
 } elseif (isset($_POST["id"]) && isset($_POST["nombre"])) {
     $obj = new EdificioClass();
     $obj->setId($_POST["id"]);

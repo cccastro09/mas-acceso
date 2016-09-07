@@ -51,6 +51,11 @@ class ColectorRol extends Collector
          return self::getBYId($id, 'rol', 'r_id', 'RolClass');
     }
 
+    public function getRole($id)
+    {
+        return parent::getById($id, 'rol', 'r_id', RolClass::class);
+    }
+
     public function deleteRol($rol)
     {
         try {
