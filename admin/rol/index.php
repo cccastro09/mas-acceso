@@ -18,3 +18,4 @@ foreach ($cole->leerRol() as $datos) {
 }
     
     ?> 
+<a href="crear/index.php">Crear nuevo rol</a>

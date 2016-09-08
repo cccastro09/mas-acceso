@@ -1,7 +1,6 @@
 <?php
 namespace mas_acceso\edificio\reporte;
 
-use mas_acceso\edificio\reportes\ReporteClass;
 use mas_acceso\util\Functions as FNC;
 
 /**

@@ -34,7 +34,7 @@ class ColectorPermiso extends Collector
     public function leerPermiso()
     {
 
-        return self::read('permiso', 'PermisoClass');
+        return self::read('permiso', PermisoClass::class);
     }
     public function updatePermiso($per)
     {
@@ -48,7 +48,7 @@ class ColectorPermiso extends Collector
         }
     }
     public function getPermiso($id){
-         return self::getBYId($id, 'permiso', 'p_id', 'PermisoClass');
+         return self::getBYId($id, 'permiso', 'p_id', PermisoClass::class);
     }
 
     public function deletePermiso($per)
