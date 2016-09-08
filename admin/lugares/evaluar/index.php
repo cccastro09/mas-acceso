@@ -9,7 +9,7 @@ use mas_acceso\edificio\reporte\ReporteDetalladoClass;
 if (isset($_POST["nombre"])) {
     $vCollector = new EdificioCollector();
     $EdificioClass = new EdificioClass();
-    $EdificioClass->setNombre($_POST["nombre"]);
+    $EdificioClass->setReporte($_POST["nombre"]);
     $EdificioClass->setDescripcion($_POST["descr"]);
     if ($vCollector->addEdificio($EdificioClass)) {
         //var_dump($obj);
