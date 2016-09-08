@@ -3,7 +3,7 @@
 namespace mas_acceso\edificio\categoria;
   use mas_acceso\util\Collector;
   use mas_acceso\edificio\categoria\CategoriaClass;
-  class CollectorCategoria extends Collector {
+  class CategoriaCollector extends Collector {
 
 /**
      * Instancia un Colector de categoria
@@ -31,10 +31,7 @@ namespace mas_acceso\edificio\categoria;
      */
    public function getCategoria($id)
    {
-    $stmt = self::$con->prepare("SELECT * FROM categoria WHERE c_id=:id");
-    $stmt->execute(array(":id"=>$id));
-    $categoria=$stmt->fetch(PDO::FETCH_ASSOC);
-    return $categoria;
+    return parent::getById($id, 'categoria', 'c_id', CategoriaClass::class);
    }
 
       /**
@@ -43,8 +40,7 @@ namespace mas_acceso\edificio\categoria;
      * @return String con la informacion de todos los registros de la tabla categoria.
      */
    public function readAllCategoria(){
-
-      return self::read('categoria','CategoriaClass');
+      return self::read('categoria', CategoriaClass::class);
   }
 
       /**
@@ -69,11 +65,11 @@ namespace mas_acceso\edificio\categoria;
      * Elimina un registro de la tabla "categoria" segun su id.
      *
      */
-   public function deleteCategoria($categoria)
+   public function deleteCategoria($id)
    {
     try
     {
-      self::execQuery("DELETE FROM categoria WEHRE c_id=".$categoria->getId());
+      self::execQuery("DELETE FROM categoria WEHRE c_id=".$id;
 
      return true;
     }

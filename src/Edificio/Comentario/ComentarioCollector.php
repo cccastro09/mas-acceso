@@ -3,7 +3,7 @@
 namespace mas_acceso\edificio\comentario;
 use mas_acceso\util\Collector;
 use mas_acceso\edificio\ComentarioClass;
-  class CollectorComentario extends Collector {
+  class ComentarioCollector extends Collector {
 
 /**
      * Instancia un Colector de comentarios
@@ -29,6 +29,14 @@ use mas_acceso\edificio\ComentarioClass;
        return true;
    }
 
+   public function deleteComentarioByUsuario($comentario)
+   {
+     $sentencia=("DELETE FROM public.comentario WHERE c_id_usuario=".$comentario->getIdUsuario());
+    /*echo $sentencia;*/
+     self::execQuery($sentencia);
+       return true;
+   }
+
       /**
      * Retorna un comentario de la base de datos segun su Id
      *
@@ -36,10 +44,7 @@ use mas_acceso\edificio\ComentarioClass;
      */
    public function getComentario($id)
    {
-    $stmt = self::$con->prepare("SELECT * FROM comentario WHERE c_id=:id");
-    $stmt->execute(array(":id"=>$id));
-    $comentario=$stmt->fetch(PDO::FETCH_ASSOC);
-    return $comentario;
+     return parent::getById($id, 'comentario', 'c_id', ComentarioClass::class);
    }
 
       /**
@@ -49,7 +54,7 @@ use mas_acceso\edificio\ComentarioClass;
      */
    public function readAllComentario(){
 
-      return self::read('comentario','ComentarioClass');
+      return self::read('comentario', ComentarioClass::class);
   }
 
       /**

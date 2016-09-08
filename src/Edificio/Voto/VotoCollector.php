@@ -4,7 +4,7 @@
   namespace mas_acceso\edificio\voto;
   use mas_acceso\util\Collector;
   use mas_acceso\edificio\VotoClass;
-  class CollectorVoto extends Collector {
+  class VotoCollector extends Collector {
 
 /**
      * Instancia un Colector de votos
@@ -37,10 +37,15 @@
      */
    public function getVoto($id)
    {
-    $stmt = self::$con->prepare("SELECT * FROM voto WHERE v_id=:id");
-    $stmt->execute(array(":id"=>$id));
-    $voto=$stmt->fetch(PDO::FETCH_ASSOC);
-    return $voto;
+    return parent::getById($id, 'voto', 'v_id', VotoClass::class);
+   }
+
+   public function getPromedioByEdificio($voto)
+   {
+     $sentencia=("SELECT AVG (v_valoracion) FROM public.voto WHERE v_id=". $voto->getIdEdificio);
+    /*echo $sentencia;*/
+     self::execQuery($sentencia);
+       return true;
    }
 
       /**
@@ -50,7 +55,7 @@
      */
    public function readAllVoto(){
 
-      return self::read('voto','VotoClass');
+      return self::read('voto', VotoClass::class);
   }
 
       /**
