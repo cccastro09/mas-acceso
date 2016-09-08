@@ -4,6 +4,7 @@ use mas_acceso\edificio\EdificioClass;
 use mas_acceso\edificio\reporte\ReporteCollector;
 use mas_acceso\edificio\reporte\ReporteClass;
 use mas_acceso\util\Functions as FNC;
+use mas_acceso\edificio\categoria\CategoriaCollector;
     ?>
 <!DOCTYPE html>
 <html lang='es'>
@@ -43,12 +44,13 @@ use mas_acceso\util\Functions as FNC;
     <?php
     $col = new EdificioCollector();
     $colr = new ReporteCollector();
+      $ccol = new CategoriaCollector();
     foreach (($col->getAllEdificios()) as $e) {
         $r = $e->getReporte($colr);
         $d = $r? FNC::strToDate($r->getFecha()): false;
     ?>
 
-<div class="col-sm-6 col-md-4 col-lg-3">
+<div class="col-sm-6 col-md-4 col-lg-4">
   <div class="example-2 card">
     <div class="wrapper">
       <div class="header">
@@ -64,7 +66,7 @@ use mas_acceso\util\Functions as FNC;
       </div>
       <div class="data">
         <div class="content">
-          <span class="author">Categoria</span>
+          <span class="author"><?php echo $ccol->getCategoria($e->getCategoriaID())->getNombre(); ?></span>
           <h1 class="title"><a href="/lugar/?<?php echo $e->getID(); ?>"><?php echo $e->getNombre(); ?></a></h1>
           <p class="text"><?php echo $e->getDescripcion(); ?></p>
           <a href="/lugar/?e_id=<?php echo $e->getID(); ?>" class="button">ver lugar</a>
