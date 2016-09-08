@@ -50,10 +50,10 @@ class CategoriaCollector extends Collector
      * Actualiza un registro de la tabla "categoria" segun su id.
      *
      */
-    public function updateCategoria($id, $categoria)
+    public function updateCategoria($categoria)
     {
         try {
-             self::execQuery("UPDATE categoria SET c_descripcion".$categoria->getDescripcion()."\' WHERE c_id=".$categoria->getId());
+             self::execQuery("UPDATE public.categoria SET c_descripcion='".$categoria->getDescripcion()."' WHERE c_id=".$categoria->getId());
 
             return true;
         } catch (PDOException $e) {

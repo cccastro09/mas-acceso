@@ -2,7 +2,7 @@
 
 namespace mas_acceso\edificio\comentario;
 use mas_acceso\util\Collector;
-use mas_acceso\edificio\ComentarioClass;
+use mas_acceso\edificio\comentario\ComentarioClass;
   class ComentarioCollector extends Collector {
 
 /**
