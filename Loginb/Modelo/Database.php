@@ -1,8 +1,5 @@
 <?php
 
-namespace mas_acceso\util\database;
-
-use PDO;
 
 /**
  * Base de datos.
