@@ -29,6 +29,8 @@ spl_autoload_register(
               'mas_acceso\\edificio\\comentario\\ComentarioCollector' => 'src/Edificio/Comentario/ComentarioCollector.php',
               'mas_acceso\\edificio\\voto\\VotoClass' => 'src/Edificio/Voto/VotoClass.php',
               'mas_acceso\\edificio\\voto\\VotoCollector' => 'src/Edificio/Voto/VotoCollector.php'
+              'mas_acceso\\usuario\\Discapacidades\\CollectorDiscapacidad' => 'src/Usuario/Discapacidades/CollectorDiscapacidad.php',
+              'mas_acceso\\usuario\\Discapacidades\\DiscapacidadClass' => 'src/Usuario/Discapacidades/DiscapacidadClass.php'
 
             ];
         }
