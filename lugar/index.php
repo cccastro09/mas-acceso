@@ -7,7 +7,7 @@ if (!isset($_GET["e_id"])) {
 }
 use mas_acceso\edificio\EdificioClass;
 use mas_acceso\edificio\EdificioCollector;
-use mas_acceso\edificio\categoria\CollectorCategoria;
+use mas_acceso\edificio\categoria\CategoriaCollector;
 
  //por ejemplo.
 ?>
@@ -50,7 +50,7 @@ use mas_acceso\edificio\categoria\CollectorCategoria;
         header("Location: /lugares/");
         exit();
     }
-      $ccol = new CollectorCategoria();
+      $ccol = new CategoriaCollector();
     ?>
   <div class="container-fluid">
     <div class="row">
