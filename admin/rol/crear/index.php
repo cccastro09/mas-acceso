@@ -10,7 +10,7 @@ $rol= new RolClass();
     $rol->setNombre($_POST["nombre"]);
    if( $col->addRol($rol)){
        
-        //header("Location: ../../vista/Demo/Demo.php");
+        header("Location: ../");
             exit();
           }else{
               echo "Hubo un error al intentar actualizar el Demo.";

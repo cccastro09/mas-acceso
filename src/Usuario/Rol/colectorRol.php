@@ -12,6 +12,7 @@ class ColectorRol extends Collector
         parent::__construct();
     }
 
+  
     public function addRol($rol)
     {
         return self::execQuery("INSERT INTO rol(r_constante, r_nombre) VALUES('".$rol->getConstante()."','".$rol->getNombre()."')");
@@ -34,7 +35,7 @@ class ColectorRol extends Collector
     public function leerRol()
     {
 
-        return self::read('rol', 'RolClass');
+        return self::read('rol', RolClass::class);
     }
     public function updateRol($rol)
     {
@@ -48,7 +49,7 @@ class ColectorRol extends Collector
         }
     }
     public function getRol($id){
-         return self::getBYId($id, 'rol', 'r_id', 'RolClass');
+         return self::getBYId($id, 'rol', 'r_id', RolClass::class);
     }
 
     public function getRole($id)
@@ -58,6 +59,11 @@ class ColectorRol extends Collector
 
     public function deleteRol($rol)
     {
+        $query="Select * from usuario_info where u_role='".$rol."'";
+         if(self::execQuery($query)){
+             echo "No se puede borrar, el rol está asignado a un usuario";
+             exit();
+         }
         try {
              self::execQuery("DELETE FROM rol WHERE r_id=".$rol);
 

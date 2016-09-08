@@ -10,9 +10,8 @@ spl_autoload_register(
             $classes = [
               'mas_acceso\\util\\Collector'  => 'src/util/Collector.php',
               'mas_acceso\\util\Database' => 'src/util/database/Database.php',
-              'mas_acceso\\usuario\\Rol' => 'src/Usuario/Rol/ColectorRol.php',
-              'mas_acceso\\usuario\\Rol' => 'src/Usuario/Rol/RolClass.php',
-              'mas_acceso\\usuario\\Rol' => 'src/Usuario/Rol/index.php',
+              'mas_acceso\\usuario\\Rol\\ColectorRol' => 'src/Usuario/Rol/colectorRol.php',
+              'mas_acceso\\usuario\\Rol\\RolClass' => 'src/Usuario/Rol/RolClass.php',
               'mas_acceso\\edificio\\EdificioClass' => 'src/Edificio/EdificioClass.php',
               'mas_acceso\\edificio\\EdificioCollector' =>'src/Edificio/EdificioCollector.php',
               'mas_acceso\\edificio\\reporte\\ReporteClass' => 'src/Edificio/Reporte/ReporteClass.php',
