@@ -67,8 +67,10 @@ class CategoriaCollector extends Collector
      */
     public function deleteCategoria($id)
     {
+
         try {
-             self::execQuery("DELETE FROM categoria WEHRE c_id=".$id;
+      self::execQuery("DELETE FROM public.categoria WEHRE c_id=".$id);
+
 
             return true;
         } catch (PDOException $e) {
