@@ -4,11 +4,11 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
 //include_once("Modelo/usuarioColector.php");
 use mas_acceso\usuario\usuarioColector;
-use mas_acceso\usuario\Rol\colectorRol;
+use mas_acceso\usuario\Rol\ColectorRol;
 use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
 
 $UsuarioObj = new usuarioColector();
-$rolColector = new colectorRol();
+$rolColector = new ColectorRol();
 $discapacdadObjeto = new CollectorDiscapacidad();
 
 	if(isset($_GET["id"]))

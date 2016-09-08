@@ -5,13 +5,15 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
 //include_once("Modelo/usuarioColector.php");
 use mas_acceso\usuario\usuarioColector;
+use mas_acceso\usuario\UsuarioClass;
+use mas_acceso\usuario\UsuarioInfoClass;
 use mas_acceso\usuario\Rol\colectorRol;
 use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
 
 
 	$UsuarioObj = new usuarioColector();
-	$usuario = new usuario();
-	$usuario_info = new usuario_info();
+	$usuario = new UsuarioClass();
+	$usuario_info = new UsuarioInfoClass();
 
 ?>
 <!Doctype html>
