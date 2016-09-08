@@ -25,7 +25,7 @@ spl_autoload_register(
               'mas_acceso\\usuario\\Permiso\\PermisoClass' => 'src/Usuario/Permiso/PermisoClass.php',
               'mas_acceso\\usuario\\Permiso\\ColectorPermiso' => 'src/Usuario/Permiso/ColectorPermiso.php',
               'mas_aceso\\edificio\\categoria\\CategoriaClass' => 'src/Edificio/Categoria/CategoriaClass.php',
-              'mas_aceso\\edificio\\categoria\\CollectorCategoria' => 'src/Edificio/Categoria/CollectorCategoria.php',
+              'mas_aceso\\edificio\\categoria\\CategoriaCollector' => 'src/Edificio/Categoria/CategoriaCollector.php',
               'mas_aceso\\edificio\\comentario\\ComentarioClass' => 'src/Edificio/Comentario/ComentarioClass.php',
               'mas_aceso\\edificio\\comentario\\ComentarioCollector' => 'src/Edificio/Comentario/ComentarioCollector.php',
               'mas_aceso\\edificio\\voto\\VotoClass' => 'src/Edificio/Voto/VotoClass.php',
