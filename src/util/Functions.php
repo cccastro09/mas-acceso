@@ -31,6 +31,36 @@ class Functions
     }
 
     /**
+<<<<<<< HEAD
+     * Obtiene el namespace del archivo que se envía.
+     * @param  string $fileName El nombre del archivo.
+     * @return string           El namespace del archivo.
+     */
+    public static function getNameSpaceFromFile($fileName)
+    {
+        $classes = [
+        'mas_acceso\\util\\Collector'  => 'src/util/Collector.php',
+        'mas_acceso\\util\Database' => 'src/util/database/Database.php',
+        'mas_acceso\\usuario\\Rol\\ColectorRol' => 'src/Usuario/Rol/ColectorRol.php',
+        'mas_acceso\\usuario\\Rol\\RolClass' => 'src/Usuario/Rol/RolClass.php',
+        'mas_acceso\\usuario\\Rol\\index' => 'src/Usuario/Rol/index.php',
+        'mas_aceso\\edificio\\EdificioClass' => 'src/Edificio/EdificioClass.php',
+        'mas_acceso\\edificio\\EdificioCollector' =>'src/Edificio/EdificioCollector.php',
+        'mas_acceso\\util\\database\\Database' => 'src/util/database/Database.php',
+        'mas_acceso\\util\\Functions'=> 'src/util/Functions.php',
+        'mas_acceso\\usuario\\Permiso\\PermisoClass' => 'src/Usuario/Permiso/PermisoClass.php',
+        'mas_acceso\\usuario\\Permiso\\ColectorPermiso' => 'src/Usuario/Permiso/ColectorPermiso.php'
+        ];
+
+        $match= array_filter($classes, function ($v, $k) use ($fileName) {
+            return strpos($v, $fileName) !== false;
+        }, ARRAY_FILTER_USE_BOTH);
+        return key($match);
+    }
+
+    /**
+=======
+>>>>>>> b9f1bc3e4bd02322ffddde56c954bae436d1234a
      * Verifica si el url dado corresponde a la página dada.
      * @param  string  $pageName El nombre de la página.
      * @param  string  $url      El url a verificar.

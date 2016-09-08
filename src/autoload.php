@@ -18,12 +18,11 @@ spl_autoload_register(
               'mas_acceso\\edificio\\reporte\\ReporteCollector' =>'src/Edificio/Reporte/ReporteCollector.php',
               'mas_acceso\\util\\database\\Database' => 'src/util/database/Database.php',
               'mas_acceso\\util\\Functions'=> 'src/util/Functions.php',
-               'mas_acceso\\rol\crear\\index' => 'admin/rol/crear/index.php',
-                 'mas_acceso\\rol\editar\\index' => 'admin/rol/editar/index.php',
                  'mas_acceso\\usuario\\UsuarioClass' => 'src/Usuario/UsuarioClass.php',
                  'mas_acceso\\usuario\\UsuarioInfoClass' => 'src/Usuario/UsuarioInfoClass.php',
                  'mas_acceso\\usuario\\usuarioColector' => 'src/Usuario/usuarioColector.php',
-
+                'mas_acceso\\usuario\\Permiso\\PermisoClass' => 'src/Usuario/Permiso/PermisoClass.php',
+                'mas_acceso\\usuario\\Permiso\\ColectorPermiso' => 'src/Usuario/Permiso/ColectorPermiso.php'
 
 
             ];
@@ -32,7 +31,7 @@ spl_autoload_register(
         $cn = $class;
         if (isset($classes[$cn])) {
             //echo $_SERVER['DOCUMENT_ROOT'].'/mas-acceso/'. $classes[$cn];
-            include $_SERVER['DOCUMENT_ROOT'] .'/'. $classes[$cn];
+            include $_SERVER['DOCUMENT_ROOT'] .'/mas-acceso/'. $classes[$cn];
         } else {
             echo "DERPST!   ".$cn;
         }
