@@ -2,8 +2,12 @@
     session_start();
     require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
-    include_once("Modelo/usuarioColector.php");
+    //include_once("Modelo/usuarioColector.php");
+    use mas_acceso\usuario\usuarioColector;
+    use mas_acceso\usuario\Rol\colectorRol;
+
     $UsuarioObj = new usuarioColector();
+    $rolColector = new colectorRol();
 
 ?>
 <!DOCTYPE html>
@@ -126,7 +130,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
         <label>Rol:</label>
         <select id="rol" class="textbox" name="rol">
             <?php
-            foreach ($UsuarioObj->consultarRol() as $rol) {
+            foreach ($rolColector->leerRol() as $rol) {
                 $r_id = $rol->getId();
                 $r_nombre = $rol->getNombre();
             ?>

@@ -19,7 +19,12 @@ spl_autoload_register(
               'mas_acceso\\util\\database\\Database' => 'src/util/database/Database.php',
               'mas_acceso\\util\\Functions'=> 'src/util/Functions.php',
                'mas_acceso\\rol\crear\\index' => 'admin/rol/crear/index.php',
-                 'mas_acceso\\rol\editar\\index' => 'admin/rol/editar/index.php'
+                 'mas_acceso\\rol\editar\\index' => 'admin/rol/editar/index.php',
+                 'mas_acceso\\usuario\\UsuarioClass' => 'src/Usuario/UsuarioClass.php',
+                 'mas_acceso\\usuario\\UsuarioInfoClass' => 'src/Usuario/UsuarioInfoClass.php',
+                 'mas_acceso\\usuario\\usuarioColector' => 'src/Usuario/usuarioColector.php',
+
+
 
             ];
         }
