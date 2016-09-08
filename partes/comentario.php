@@ -8,7 +8,7 @@
 
         $comentario = new ComentarioClass();
         $comentario->setContenido($_POST["coment"]);
-        $comentario->setIdEdificio(2); //llamar a edificio de guillermo
+        $comentario->setIdEdificio($_GET["e_id"]); //llamar a edificio de guillermo
         $comentario->setIdUsuario(3); //llamar a usuario de Claudia
 
             if($colector->addComentario($comentario)){
@@ -21,7 +21,7 @@
       }
       else{
 
-      foreach ($colector->readAllComentario() as $datos) {
+      foreach ($colector->readAllComentarioByEdificio($_GET["e_id"]) as $datos) {
 ?>
 
 <div class="col-xs-12">
