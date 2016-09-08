@@ -59,6 +59,11 @@ class ColectorRol extends Collector
 
     public function deleteRol($rol)
     {
+        $query="Select * from usuario_info where u_role='".$rol."'";
+         if(self::execQuery($query)){
+             echo "No se puede borrar, el rol está asignado a un usuario";
+             exit();
+         }
         try {
              self::execQuery("DELETE FROM rol WHERE r_id=".$rol);
 
