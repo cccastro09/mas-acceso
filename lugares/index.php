@@ -67,7 +67,7 @@ use mas_acceso\util\Functions as FNC;
           <span class="author">Categoria</span>
           <h1 class="title"><a href="/lugar/?<?php echo $e->getID(); ?>"><?php echo $e->getNombre(); ?></a></h1>
           <p class="text"><?php echo $e->getDescripcion(); ?></p>
-          <a href="/lugar/?<?php echo $e->getID(); ?>" class="button">ver lugar</a>
+          <a href="/lugar/?e_id=<?php echo $e->getID(); ?>" class="button">ver lugar</a>
         </div>
       </div>
     </div>
