@@ -1,10 +1,16 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
-use mas_acceso\edificio\EdificioCollector;
+//aquí pueden ir agregando sus colectores usando
+
+if (!isset($_GET["e_id"])) {
+    header("Location: /lugares/");
+    exit();
+}
 use mas_acceso\edificio\EdificioClass;
-use mas_acceso\edificio\reporte\ReporteCollector;
-use mas_acceso\edificio\reporte\ReporteClass;
-use mas_acceso\util\Functions as FNC;
-    ?>
+use mas_acceso\edificio\EdificioCollector;
+use mas_acceso\edificio\categoria\CategoriaCollector;
+
+ //por ejemplo.
+?>
 <!DOCTYPE html>
 <html lang='es'>
 
@@ -37,44 +43,36 @@ use mas_acceso\util\Functions as FNC;
 </head>
 
 <body>
-    <?php include $_SERVER['DOCUMENT_ROOT'].'/partes/menu.php'; ?>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/partes/menu.php';
+      $col = new EdificioCollector();
+      $e = $col->getEdificio($_GET["e_id"]);
+    if (!$e) {
+        header("Location: /lugares/");
+        exit();
+    }
+      $ccol = new CategoriaCollector();
+    ?>
   <div class="container-fluid">
     <div class="row">
-    <?php
-    $col = new EdificioCollector();
-    $colr = new ReporteCollector();
-    foreach (($col->getAllEdificios()) as $e) {
-        $r = $e->getReporte($colr);
-        $d = $r? FNC::strToDate($r->getFecha()): false;
-    ?>
+                <div class="col col-sm-12">
+                    <ol class="breadcrumb">
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/lugares/">Lugares</a></li>
+                        <li class="active"><?php echo $e->getNombre(); ?></li>
+                    </ol>
+                </div>
+            </div>
 
-<div class="col-sm-6 col-md-4 col-lg-3">
-  <div class="example-2 card">
-    <div class="wrapper">
-      <div class="header">
-        <div class="date">
-          <span class="day"><?php echo $d ? $d->format("j"): ""; ?></span>
-          <span class="month"><?php echo $d ? $d->format("M"): ""; ?></span>
-          <span class="year"><?php echo $d ? $d->format("Y"): ""; ?></span>
-        </div>
-        <h2 class="menu-content">
-            <?php
-            echo $r ? $r->getCalificacion() : ""; ?>
-        </h2>
-      </div>
-      <div class="data">
-        <div class="content">
-          <span class="author">Categoria</span>
-          <h1 class="title"><a href="/lugar/?<?php echo $e->getID(); ?>"><?php echo $e->getNombre(); ?></a></h1>
-          <p class="text"><?php echo $e->getDescripcion(); ?></p>
-          <a href="/lugar/?e_id=<?php echo $e->getID(); ?>" class="button">ver lugar</a>
-        </div>
-      </div>
-    </div>
-  </div>
-      </div>
-            <?php
-    }; ?>
+            <div class="row">
+                <div class="col col-sm-12">
+                    <header class="cabecera-edificio">
+                        <img src="img/header.png" class="imagen-cabecera" alt="">
+                        <h1><?php echo $e->getNombre(); ?></h1>
+                    </header>
+    <h2>Categoría</h2><h4><?php echo $ccol->getCategoria($e->getCategoriaID()); ?></h4>
+    <p><?php echo $e->getDescripcion(); ?></p>
+                </div>
+            </div>
 
     </div>
 

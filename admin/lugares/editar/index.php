@@ -47,7 +47,7 @@ if (isset($_GET["e_id"])) {
             <div id="page-wrapper">
                 <div class="container-fluid">
 
-                    <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]); ?>" method="post">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <input type="hidden" name="id" value="<?php echo $obj->getId(); ?>">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>

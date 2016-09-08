@@ -2,18 +2,17 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
 
-use mas_acceso\edificio\EdificioCollector;
-use mas_acceso\edificio\EdificioClass;
-use mas_acceso\edificio\reporte\ReporteDetalladoClass;
+use mas_acceso\edificio\categoria\CategoriaCollector;
+use mas_acceso\edificio\categoria\CategoriaClass;
 
 if (isset($_POST["nombre"])) {
-    $vCollector = new EdificioCollector();
-    $EdificioClass = new EdificioClass();
-    $EdificioClass->setReporte($_POST["nombre"]);
-    $EdificioClass->setDescripcion($_POST["descr"]);
-    if ($vCollector->addEdificio($EdificioClass)) {
+    $vCollector = new CategoriaCollector();
+    $categoriaClass = new CategoriaClass();
+    $categoriaClass->setNombre($_POST["nombre"]);
+    $categoriaClass->setDescripcion($_POST["descripcion"]);
+    if ($vCollector->addCategoria($categoriaClass)) {
         //var_dump($obj);
-        header("Location: /admin/lugares");
+        header("Location: /admin/categoria");
         exit();
     } else {
         echo "Hubo un error al intentar agregar el Edificio.";
@@ -67,7 +66,7 @@ if (isset($_POST["nombre"])) {
                       </div>
                         <div class="form-group">
                           <label for="descr">Descripción</label>
-                          <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"></textarea>
+                          <textarea class='form-control' placeholder='Descripción' name="descripcion" id="descr" rows="6"></textarea>
                         </div>
                         <button type="submit" class="btn btn-default">Crear</button>
                     </form>

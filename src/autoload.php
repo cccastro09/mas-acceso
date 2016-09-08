@@ -4,6 +4,7 @@ spl_autoload_register(
 
     function ($class) {
         //echo $class;
+         //echo $_SERVER['DOCUMENT_ROOT'];
         static $classes = null;
         if ($classes === null) {
             $classes = [
@@ -21,8 +22,13 @@ spl_autoload_register(
               'mas_acceso\\usuario\\UsuarioInfoClass' => 'src/Usuario/UsuarioInfoClass.php',
               'mas_acceso\\usuario\\usuarioColector' => 'src/Usuario/usuarioColector.php',
               'mas_acceso\\usuario\\Permiso\\PermisoClass' => 'src/Usuario/Permiso/PermisoClass.php',
-              'mas_acceso\\usuario\\Permiso\\ColectorPermiso' => 'src/Usuario/Permiso/ColectorPermiso.php'
-
+              'mas_acceso\\usuario\\Permiso\\ColectorPermiso' => 'src/Usuario/Permiso/ColectorPermiso.php',
+              'mas_acceso\\edificio\\categoria\\CategoriaClass' => 'src/Edificio/Categoria/CategoriaClass.php',
+              'mas_acceso\\edificio\\categoria\\CategoriaCollector' => 'src/Edificio/Categoria/CategoriaCollector.php',
+              'mas_acceso\\edificio\\comentario\\ComentarioClass' => 'src/Edificio/Comentario/ComentarioClass.php',
+              'mas_acceso\\edificio\\comentario\\ComentarioCollector' => 'src/Edificio/Comentario/ComentarioCollector.php',
+              'mas_acceso\\edificio\\voto\\VotoClass' => 'src/Edificio/Voto/VotoClass.php',
+              'mas_acceso\\edificio\\voto\\VotoCollector' => 'src/Edificio/Voto/VotoCollector.php'
 
             ];
         }
