@@ -1,6 +1,7 @@
 <?php
+namespace mas_acceso\Usuario\Discapacidades;
 
- class Demo {
+ class DiscapacidadClass {
 
   private $d_id;
   private $d_tipo;

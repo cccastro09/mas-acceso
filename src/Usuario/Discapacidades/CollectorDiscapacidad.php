@@ -7,7 +7,7 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
 /**
  * Colector de Discapacidades
  */
-class DiscapacidadesCollector extends Collector
+class CollectorDiscapacidad extends Collector
 {
 
     public function __construct()
@@ -19,9 +19,9 @@ class DiscapacidadesCollector extends Collector
    * Obtiene todos los edificios agregar paginación es un TODO
    * @return mixed array() de EdificioClass o false si hubo algún error.
    */
-    public function getAllDiscapacides()
+    public function getAllDiscapacidades()
     {
-        return self::read('discapacidad_info', DiscapacidadesClass::class);
+        return self::read('discapacidad_info', DiscapacidadClass::class);
     }
 
   /**

@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
-use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidadClass;
+use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
     ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($col->getAllDiscapacidad_info() as $e) { ?>
+                                    <?php foreach ($col->getAllDiscapacidades() as $e) { ?>
                                     <tr>
                                         <td><?php echo $e->getD_id(); ?></td>
                                         <td><?php echo $e->getD_tipo(); ?></td>
