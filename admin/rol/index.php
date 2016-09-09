@@ -46,7 +46,7 @@ $cole= new ColectorRol();
           <div id="page-wrapper">
               <div class="container-fluid">
                 <div class="col-lg-6">
-                    <h2>Permiso</h2>
+                    <h2>Roles</h2>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
@@ -67,7 +67,7 @@ foreach ($cole->leerRol() as $datos) {
         <td class="celda"><?php echo $datos->getNombre(); ?></td>
         <td><a class="link" href="editar/index.php?id=<?php echo $datos->getId(); ?>">Editar</a></td>
         <td><a class="link" href="borrar/index.php?id=<?php echo $datos->getId(); ?>">Eliminar</a></td><br>
-  
+
 
  <?php
 }

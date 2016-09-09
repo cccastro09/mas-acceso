@@ -1,5 +1,5 @@
 <?php
-namespace mas_acceso\admin\permiso;
+
 
 require_once "../../src/autoload.php";
 use mas_acceso\usuario\Permiso\ColectorPermiso;
