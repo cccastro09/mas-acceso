@@ -9,8 +9,8 @@ if (isset($_POST["a"])) {
 
     $voto = new VotoClass();
     $voto->setValoracion($_POST["a"]);
-    $voto->setIdEdificio(2); //solicitar de Edificio Guillermo
-    $voto->setIdUsuario(3); //solicitar de Usuario Claudia
+    $voto->setIdEdificio($_GET["e_id"]); //solicitar de Edificio Guillermo
+    $voto->setIdUsuario($usuario->getId()); //solicitar de Usuario Claudia
 
     if ($colector->addVoto($voto)) {
         /*header("Refresh:0; url=localhost/proyectoLocal/modelo/indexEdificio.php");*/
@@ -18,6 +18,7 @@ if (isset($_POST["a"])) {
         echo "Hubo un error al intentar agregar el voto.";
     }
 } else {
+  if ($usuario) {
 ?>
 <div><?php echo $colector->getPromedioByEdificio(2) ?></div>
 <form action="voto.php" oninput="x.value=parseInt(a.value)" method="post">
@@ -30,5 +31,9 @@ if (isset($_POST["a"])) {
 </form>
 
     <?php
+}
+else {
+  echo "Para votar debe ser usuario";
+}
 }
 ?>
