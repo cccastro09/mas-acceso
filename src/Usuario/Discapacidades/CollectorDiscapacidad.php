@@ -29,9 +29,9 @@ class CollectorDiscapacidad extends Collector
    * @param  string $id El id del edificio.
    * @return mixed      El Edificio si se encuentra, caso contrario retorna false.
    */
-    public function getEdificio($id)
+    public function getDiscapacidades($id)
     {
-        return parent::getById($id, 'discapacidad_info', 'd_id', DiscapacidadesClass::class);
+        return parent::getById($id, 'discapacidad_info', 'd_id', DiscapacidadClass::class);
     }
 
     /**
@@ -39,29 +39,29 @@ class CollectorDiscapacidad extends Collector
      * @param EdificioClass $e El edificio a agregar
      * @return mixed  EdificioClass en caso de éxito, caso contrario, false
      */
-    public function addEdificio($e)
+    public function addDiscapacidades($e)
     {
-        return self::execQuery("INSERT INTO discapacidad_info VALUES(DEFAULT,".$e->getD_tipo().")");
+        return self::execQuery("INSERT INTO discapacidad_info VALUES(DEFAULT,'".$e->getD_tipo()."')");
     }
 
 
-    public function updateEdificio($e)
+    public function updateDiscapacidades($e)
     {
         try {
-            self::execQuery("UPDATE discapacidad_info SET d_id=".$e->getD_id()."d_tipo='".$e->getD_tipo()."' WHERE d_id=".$e->getD_id());
+            self::execQuery("UPDATE discapacidad_info SET d_tipo='".$e->getD_tipo()."' WHERE d_id=".$e->getD_id());
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
     }
-    public function deleteEdificio($d_id)
+    public function deleteDiscapacidades($d_id)
     {
         try {
-            self::execQuery("DELETE FROM edificio WHERE d_id=".$d_id);
+            self::execQuery("DELETE FROM discapacidad_info WHERE d_id=".$d_id);
             return true;
         } catch (PDOException $e) {
-            echo $e->getMessage();
+
             return false;
         }
     }
