@@ -55,7 +55,7 @@ class Collector
     public function execQuery($query)
     {
         try {
-            echo($query);
+            
             $stmt = $this->con->prepare($query);
             $stmt->execute();
             return true;

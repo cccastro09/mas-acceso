@@ -43,9 +43,9 @@ class ComentarioCollector extends Collector
     public function readAllComentarioByEdificio($idEdificio)
     {
         $sentencia=("SELECT FROM public.comentario WHERE c_id_edificio=".$idEdificio);
-      /*echo $sentencia;*/
-        self::execQuery($sentencia);
-        return true;
+
+        return self::readAlldemo("comentario WHERE c_id_edificio=".$idEdificio,ComentarioClass::class);
+
     }
     /**
      * Retorna un comentario de la base de datos segun su Id

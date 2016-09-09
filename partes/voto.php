@@ -13,15 +13,22 @@ if (isset($_POST["a"])) {
     $voto->setIdUsuario($usuario->getId()); //solicitar de Usuario Claudia
 
     if ($colector->addVoto($voto)) {
-        /*header("Refresh:0; url=localhost/proyectoLocal/modelo/indexEdificio.php");*/
-    } else {
+      ?>
+      <div><?php echo $colector->getPromedioByEdificio($_GET["e_id"]) ?></div>
+
+      <?php
+        } else {
+          ?>
+          <div><?php echo $colector->getPromedioByEdificio($_GET["e_id"]) ?></div>
+
+          <?php
         echo "Hubo un error al intentar agregar el voto.";
     }
 } else {
   if ($usuario) {
 ?>
-<div><?php echo $colector->getPromedioByEdificio(2) ?></div>
-<form action="voto.php" oninput="x.value=parseInt(a.value)" method="post">
+<div><?php echo $colector->getPromedioByEdificio($_GET["e_id"]) ?></div>
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>?e_id=<?php echo $_GET["e_id"]; ?>" oninput="x.value=parseInt(a.value)" method="post">
 <div style="margin-left:0;">
   0<input type="range" id="a" name="a" value="50">100
   <br>
@@ -33,6 +40,10 @@ if (isset($_POST["a"])) {
     <?php
 }
 else {
+  ?>
+  <div><?php echo $colector->getPromedioByEdificio($_GET["e_id"]) ?></div>
+
+  <?php
   echo "Para votar debe ser usuario";
 }
 }

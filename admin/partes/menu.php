@@ -2,6 +2,7 @@
 use mas_acceso\util\Functions as FNC;
 use mas_acceso\Autenticacion\AutenticarClass;
 use mas_acceso\usuario\Rol\ColectorRol;
+use mas_acceso\usuario\usuarioColector;
 
 $cu = new usuarioColector();
 $usuario = AutenticarClass::verUsuarioConectado($cu, $_SESSION);
