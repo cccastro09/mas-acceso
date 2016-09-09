@@ -6,9 +6,9 @@
   use mas_acceso\usuario\UsuarioInfoClass;
   use mas_acceso\usuario\rol\RolClass;
   use mas_acceso\usuario\rol\ColectorRol;
-  use mas_acceso\usuario\discapacidades\DiscapacidadInfoClass;
+  use mas_acceso\usuario\discapacidades\DiscapacidadClass;
 
-class usuarioColector extends collector
+class usuarioColector extends Collector
 {
 
     function __construct()
@@ -16,23 +16,32 @@ class usuarioColector extends collector
         parent::__construct();
     }
 
-    public function insertarUsuario($usuario)
+    /**
+     * [Función que se encarga de realizar el ingreso de los datos de usuario(usuario, password) a la base de datos]
+     * @param  [clase] $usuario [contiene los campos usuario y password]
+     * @return [objeto]          [con los campos usuario y password]
+     */
+    public function insertarUsuario($UsuarioClass)
     {
         try {
-            self::execQuery("INSERT INTO usuario (u_usuario, u_password) VALUES ('".$usuario->getUsuario()."','".$usuario->getPassword()."') ");
+            self::execQuery("INSERT INTO usuario (u_usuario, u_password) VALUES ('".$UsuarioClass->getUsuario()."','".$UsuarioClass->getPassword()."') ");
 
             $stmt = $this->con->prepare("SELECT * FROM usuario ORDER BY u_id DESC limit 1");
             $stmt->execute();
-            $usuario = $stmt->fetchObject("Usuario");
-            return $usuario;
+            $UsuarioClass = $stmt->fetchObject("UsuarioClass");
+            return $UsuarioClass;
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
     }
 
-
-    public function insertarUsuarioInfo($usuario_info)
+    /**
+     * [Función que se encarga de realizar el ingreso de los datos personales de usuario a la base de datos]
+     * @param  [clase] $usuario_info [contiene los campos usuario y password]
+     * @return [boolean]          [Estado exitoso al realizar el ingreso]
+     */
+    public function insertarUsuarioInfo($UsuarioInfoClass)
     {
         try {
             self::execQuery("INSERT INTO usuario_info (u_nombre, u_apellidos, u_mail, u_sexo, u_fecha_nacimiento, u_pais, u_tipo_discapacidad, u_porcentajediscapacidad, u_role, u_usuario) VALUES ('".$usuario_info->getNombre()."','".$usuario_info->getApellidos()."','".$usuario_info->getMail()."','".$usuario_info->getSexo()."','".$usuario_info->getFecha_nacimiento()."','".$usuario_info->getPais()."',".$usuario_info->getTipodiscapacidad().",'".$usuario_info->getPorcentajediscapacidad()."',".$usuario_info->getRole().",".$usuario_info->getUsuario().") ");
@@ -45,29 +54,45 @@ class usuarioColector extends collector
 
     public function consultarUsuario()
     {
-        return self::read('usuario', 'Usuario');
+        return self::read('usuario', UsuarioClass::class);
     }
-
+/**
+ * [Función que realiza una consulta a la base de datos obteniendo los datos]
+ * @param  [string] $id [id del usuario]
+ * @return [objeto]     [todos los datos de usuario]
+ */
     public function consultarUsuarioPorId($id)
     {
         $stmt = $this->con->prepare("SELECT * FROM usuario WHERE u_id=:id");
         $stmt->execute(array(":id"=>$id));
-        $usuario=$stmt->fetchObject("Usuario");
-        return $usuario;
+        $UsuarioClass=$stmt->fetchObject(UsuarioClass::class);
+        return $UsuarioClass;
     }
 
+/**
+ * [Realiza una consulta de toda la informacion personal del usuario]
+ * @param  [string] $id [id de usuario]
+ * @return [objeto]     [todos los datos informativos del usuario]
+ */
     public function consultarUsuarioInfoPorIdUsuario($id)
     {
         $stmt = $this->con->prepare("SELECT * FROM usuario_info WHERE u_usuario=:id");
         $stmt->execute(array(":id"=>$id));
-        $usuario_info=$stmt->fetchObject("usuario_info");
-        return $usuario_info;
+        $UsuarioInfoClass=$stmt->fetchObject(UsuarioInfoClass::class);
+        return $UsuarioInfoClass;
     }
 
-    public function updateUsuario($usuario)
+/**
+ * [Actualiza los dates de autenticacion del usuario]
+ * @param  [Objeto] $usuario [datos de usuario]
+ * @return [boolean]          [Estado exitoso al realizar las actualizacion de los datos]
+ */
+    public function updateUsuario($UsuarioClass)
     {
+      echo $UsuarioClass->getId();
         try {
-            self::execQuery("UPDATE usuario SET u_usuario='".$usuario->getUsuario()."',u_password='".$usuario->getPassword()."' WHERE u_id=".$usuario->getId());
+          echo $UsuarioClass->getId();
+            self::execQuery("UPDATE usuario SET u_usuario='".$UsuarioClass->getUsuario()."',u_password='".$UsuarioClass->getPassword()."',u_token='".$UsuarioClass->getToken()."' WHERE u_id=".$UsuarioClass->getId());
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -75,10 +100,18 @@ class usuarioColector extends collector
         }
     }
 
-    public function updateUsuarioInfo($usuario_info)
+
+
+
+/**
+ * [Funcion que actualiza los datos informativos del usuario en la base de datos]
+ * @param  [objeto] $usuario_info [todos los datos informativos del usuario]
+ * @return [boolean]               [Un estado exitoso cuando los datos se han actualizado de manera correcta]
+ */
+    public function updateUsuarioInfo($UsuarioInfoClass)
     {
         try {
-            self::execQuery("UPDATE usuario_info SET u_nombre='".$usuario_info->getNombre()."',u_apellidos='".$usuario_info->getApellidos()."',u_mail='".$usuario_info->getMail()."',u_sexo='".$usuario_info->getSexo()."',u_fecha_nacimiento='".$usuario_info->getFecha_nacimiento()."',u_pais='".$usuario_info->getPais()."',u_tipo_discapacidad=".$usuario_info->getTipodiscapacidad().",u_porcentajediscapacidad='".$usuario_info->getPorcentajediscapacidad()."',u_role=".$usuario_info->getRole()." WHERE u_usuario=".$usuario_info->getUsuario());
+            self::execQuery("UPDATE usuario_info SET u_nombre='".$UsuarioInfoClass->getNombre()."',u_apellidos='".$UsuarioInfoClass->getApellidos()."',u_mail='".$UsuarioInfoClass->getMail()."',u_sexo='".$usuario_info->getSexo()."',u_fecha_nacimiento='".$UsuarioInfoClass->getFecha_nacimiento()."',u_pais='".$UsuarioInfoClass->getPais()."',u_tipo_discapacidad=".$UsuarioInfoClass->getTipodiscapacidad().",u_porcentajediscapacidad='".$UsuarioInfoClass->getPorcentajediscapacidad()."',u_role=".$usuario_info->getRole()." WHERE u_usuario=".$UsuarioInfoClass->getUsuario());
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -125,27 +158,55 @@ class usuarioColector extends collector
 
     public function consultarRol()
     {
-        return self::read('rol', 'Rol');
+        return self::read('rol', RolClass::class);
     }
 
     public function consultarRolePorId($id)
     {
         $stmt = $this->con->prepare("SELECT * FROM rol WHERE r_id=:id");
         $stmt->execute(array(":id"=>$id));
-        $role=$stmt->fetchObject("rol");
+        $role=$stmt->fetchObject(RolClass::class);
         return $role;
     }
 
     public function consultarDiscapacidadInfo()
     {
-        return self::read('discapacidad_info', 'discapacidad_info');
+        return self::read('discapacidad_info', DiscapacidadClass::class);
     }
 
     public function consultarDiscapacidadInfoPorId($id)
     {
         $stmt = $this->con->prepare("SELECT * FROM discapacidad_info WHERE d_id=:id");
         $stmt->execute(array(":id"=>$id));
-        $discapacidad_info=$stmt->fetchObject("discapacidad_info");
+        $discapacidad_info=$stmt->fetchObject(DiscapacidadClass::class);
         return $discapacidad_info;
     }
+
+    public function consultarUsuarioPorUsuarioPassword($usuario, $password)
+	{
+    try{
+      $stmt = $this->con->prepare("SELECT * FROM usuario WHERE u_usuario=:usuario AND u_password=:password");
+      $stmt->execute(array(":usuario"=>$usuario, ":password"=>$password ));
+      $usuario=$stmt->fetchObject(UsuarioClass::class);
+
+      return $usuario;
+    }
+    catch(PDOException $e)
+    {
+     return false;
+    }
+  }
+
+  public function getByToken($token)
+  {
+      $stmt = $this->con->prepare("SELECT * FROM usuario WHERE u_token=:token");
+      $stmt->execute(array(":token"=>$token));
+      $usuario=$stmt->fetchObject(UsuarioClass::class);
+      $id = $usuario->getId();
+      $stmt = $this->con->prepare("SELECT * FROM usuario_info WHERE u_usuario=:usuario");
+      $stmt->execute(array(":usuario"=>$id));
+      $usuario_info=$stmt->fetchObject(UsuarioInfoClass::class);
+      return $usuario_info;
+    }
+
 }

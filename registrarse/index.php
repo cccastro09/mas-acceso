@@ -4,10 +4,12 @@
 
     //include_once("Modelo/usuarioColector.php");
     use mas_acceso\usuario\usuarioColector;
-    use mas_acceso\usuario\Rol\colectorRol;
+
+    use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
 
     $UsuarioObj = new usuarioColector();
-    $rolColector = new colectorRol();
+    
+    $discapacdadObjeto = new CollectorDiscapacidad();
 
 ?>
 <!DOCTYPE html>
@@ -82,36 +84,36 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
         <input type="date" id="fecha_nacimiento" class="textbox" name="fecha_nacimiento" step="1" min="1950-01-01" max="2015-12-31" value="2016-07-13">
         <label>Pa&iacute;s:</label>
         <select id="pais" class="textbox" name="pais">
-                <option value="Argentina">Argentina</option>
-                <option value="Bolivia">Bolivia</option>
-                <option value="Brasil">Brasil</option>
-                <option value="Colombia">Colombia</option>
-                <option value="Costa Rica">Costa Rica</option>
-                <option value="Cuba">Cuba</option>
-                <option value="Chile">Chile</option>
-                <option value="Ecuador">Ecuador</option>
-                <option value="El Salvador">El Salvador</option>
-                <option value="Guatemala">Guatemala</option>
-                <option value="Hait�">Hait&iacute;</option>
-                <option value="Honduras">Honduras</option>
-                <option value="M�xico">M�xico</option>
-                <option value="Nicaragua">Nicaragua</option>
-                <option value="Panam�">Panam�</option>
-                <option value="Paraguay">Paraguay</option>
-                <option value="Per�">Per�</option>
-                <option value="Rep�blica Dominicana">Rep�blica Dominicana</option>
-                <option value="Uruguay">Uruguay</option>
-                <option value="Venezuela">Venezuela</option>
-        </select>
+    						<option value="Argentina">Argentina</option>
+    						<option value="Bolivia">Bolivia</option>
+    						<option value="Brasil">Brasil</option>
+    						<option value="Colombia">Colombia</option>
+    						<option value="Costa Rica">Costa Rica</option>
+    						<option value="Cuba">Cuba</option>
+    						<option value="Chile">Chile</option>
+    						<option value="Ecuador">Ecuador</option>
+    						<option value="El Salvador">El Salvador</option>
+    						<option value="Guatemala">Guatemala</option>
+    						<option value="Hait&iacute;">Hait&iacute;</option>
+    						<option value="Honduras">Honduras</option>
+    						<option value="M&eacute;xico">M&eacute;xico</option>
+    						<option value="Nicaragua">Nicaragua</option>
+    						<option value="Panam&aacute;">Panam&aacute;</option>
+    						<option value="Paraguay">Paraguay</option>
+    						<option value="Per&uacute;">Per&uacute;</option>
+    						<option value="Rep&uacute;blica Dominicana">Rep&uacute;blica Dominicana</option>
+    						<option value="Uruguay">Uruguay</option>
+    						<option value="Venezuela">Venezuela</option>
+    		</select>
         </div>
         <div class="form-column">
         <label>Tipo de Discapacidad:</label>
         <select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad">
-            <?php
-            foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
-                $d_id = $tipo_discapacidad->getId();
-                $d_tipo = $tipo_discapacidad->getTipo();
-            ?>
+          <?php
+          foreach ($discapacdadObjeto->leerDiscapacidades() as $tipo_discapacidad) {
+              $d_id = $tipo_discapacidad->getId();
+              $d_tipo = $tipo_discapacidad->getTipo();
+          ?>
                 <option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
             <?php
             }?>
@@ -127,17 +129,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
                 <option value="30%">30%</option>
                 <option value="40%">40%</option>
         </select>
-        <label>Rol:</label>
-        <select id="rol" class="textbox" name="rol">
-            <?php
-            foreach ($rolColector->leerRol() as $rol) {
-                $r_id = $rol->getId();
-                $r_nombre = $rol->getNombre();
-            ?>
-            <option value= "<?php echo $r_id ?>" > <?php echo  $r_nombre ?> </option>
-            <?php
-            }?>
-        </select>
+      <input type="hidden" name="rol" value="2" />
     </div>
     <div class="cbp-mc-submit-wrap"><input class="boton-enviar" type="submit" value="Registrar" /></div>
 </form>

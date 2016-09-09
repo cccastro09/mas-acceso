@@ -40,27 +40,57 @@ $cole= new ColectorPermiso();
 <body>
 
       <div id="wrapper">
-        
-        <?php include $_SERVER['DOCUMENT_ROOT'].'/mas-acceso/admin/partes/menu.php'; ?>
-        
+
+        <?php include $_SERVER['DOCUMENT_ROOT'].'/admin/partes/menu.php'; ?>
+
           <div id="page-wrapper">
               <div class="container-fluid">
-        <table>
+                <div class="col-lg-6">
+                    <h2>Permiso</h2>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Constante</th>
+                                    <th>DESCRIPCIÓN</th>
+                                    <th> Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 <?php
 foreach ($cole->leerPermiso() as $datos) {
    ?>
     <tr>
-         <td class="celda"><?php echo $datos->getDescripcion(); ?></td> 
+         <td class="celda"><?php echo $datos->getID(); ?></td>
+         <td class="celda"><?php echo $datos->getConstante(); ?></td>
+         <td class="celda"><?php echo $datos->getDescripcion(); ?></td>
 
         <td><a class="link" href="editar/index.php?id=<?php echo $datos->getId(); ?>">Editar</a></td>
         <td><a class="link" href="borrar/index.php?id=<?php echo $datos->getId(); ?>">Eliminar</a></td><br>
 </tr>
- <?php  
+ <?php
 }
-    
-    ?> 
-            </table>
-                   <tr>
-            <td colspan=14><a class="link" href="crear/index.php">Crear nuevo permiso</a></td>
-                       
-         </tr>
+
+    ?>
+    <a href="crear/index.php">Crear nuevo Permiso</a>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Morris Charts JavaScript -->
+<script src="/admin/js/plugins/morris/raphael.min.js"></script>
+<script src="/admin/js/plugins/morris/morris.min.js"></script>
+<script src="/admin/js/plugins/morris/morris-data.js"></script>
+
+</html>
