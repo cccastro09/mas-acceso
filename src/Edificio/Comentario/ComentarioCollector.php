@@ -89,6 +89,8 @@ class ComentarioCollector extends Collector
      */
     public function deleteComentario($id)
     {
+
+
         try {
              self::execQuery("DELETE FROM public.comentario
  WHERE c_id=".$id);
