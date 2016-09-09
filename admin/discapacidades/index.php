@@ -57,14 +57,14 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
                                         <th>ID DE DISCAPACIDAD</th>
                                         <th>NOMBRE</th>
                                         <th> ACCIONES</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach ($col->getAllDiscapacidades() as $e) { ?>
                                     <tr>
                                         <td><?php echo $e->getD_id(); ?></td>
-                                        <td><?php echo $e->getD_tipo(); ?></td>
+                                        <td><?php echo $e->getD_nombre(); ?></td>
 
                                         <td>
                                             <a href="/admin/discapacidades/editar/?d_id=<?php echo $e->getD_id(); ?>">editar</a>

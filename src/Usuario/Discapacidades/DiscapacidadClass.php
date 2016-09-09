@@ -5,7 +5,7 @@ class DiscapacidadClass
 {
 
     private $d_id;
-    private $d_tipo;
+    private $d_nombre;
 
 
     public function __construct()
@@ -18,8 +18,8 @@ class DiscapacidadClass
     }
 
 
-  public function getD_tipo(){
-    return $this->d_tipo;
+  public function getD_nombre(){
+    return $this->d_nombre;
   }
 
 
@@ -27,8 +27,8 @@ class DiscapacidadClass
     $this->d_id = $d_id;
   }
 
-  public function setD_tipo($d_tipo){
-    $this->d_tipo = $d_tipo;
+  public function setD_tipo($d_nombre){
+    $this->d_nombre = $d_nombre;
   }
 
 }

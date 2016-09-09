@@ -5,10 +5,10 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
 use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
 
-if (isset($_POST["tipo"])) {
+if (isset($_POST["nombre"])) {
     $vCollector = new CollectorDiscapacidad();
     $DiscapacidadClass = new DiscapacidadClass();
-    $DiscapacidadClass->setD_tipo($_POST["tipo"]);
+    $DiscapacidadClass->setD_nombre($_POST["nombre"]);
     if ($vCollector->addDiscapacidades($DiscapacidadClass)) {
         //var_dump($obj);
         header("Location: /admin/discapacidades/");
@@ -61,7 +61,7 @@ if (isset($_POST["tipo"])) {
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                         <div class="form-group">
-                          <label for="Tipo Discapacidad">Nombre Discapacidad</label>
+                          <label for="Nombre Discapacidad">Nombre Discapacidad</label>
                           <textarea class='form-control' placeholder='Nombre Descapacidad' name="tipo" id="tipo" rows="6"></textarea>
                         </div>
                         <button type="submit" class="btn btn-default">Crear</button>

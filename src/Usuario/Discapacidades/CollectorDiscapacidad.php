@@ -21,7 +21,7 @@ class CollectorDiscapacidad extends Collector
    */
     public function getAllDiscapacidades()
     {
-        return self::read('discapacidad_info', DiscapacidadClass::class);
+        return self::read('discapacidad', DiscapacidadClass::class);
     }
 
   /**
@@ -31,7 +31,7 @@ class CollectorDiscapacidad extends Collector
    */
     public function getDiscapacidades($id)
     {
-        return parent::getById($id, 'discapacidad_info', 'd_id', DiscapacidadClass::class);
+        return parent::getById($id, 'discapacidad', 'd_id', DiscapacidadClass::class);
     }
 
     /**
@@ -41,14 +41,14 @@ class CollectorDiscapacidad extends Collector
      */
     public function addDiscapacidades($e)
     {
-        return self::execQuery("INSERT INTO discapacidad_info VALUES(DEFAULT,'".$e->getD_tipo()."')");
+        return self::execQuery("INSERT INTO discapacidad VALUES(DEFAULT,'".$e->getD_nombre()."')");
     }
 
 
     public function updateDiscapacidades($e)
     {
         try {
-            self::execQuery("UPDATE discapacidad_info SET d_tipo='".$e->getD_tipo()."' WHERE d_id=".$e->getD_id());
+            self::execQuery("UPDATE discapacidad SET d_nombre='".$e->getD_nombre()."' WHERE d_id=".$e->getD_id());
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -58,7 +58,7 @@ class CollectorDiscapacidad extends Collector
     public function deleteDiscapacidades($d_id)
     {
         try {
-            self::execQuery("DELETE FROM discapacidad_info WHERE d_id=".$d_id);
+            self::execQuery("DELETE FROM discapacidad WHERE d_id=".$d_id);
             return true;
         } catch (PDOException $e) {
 
