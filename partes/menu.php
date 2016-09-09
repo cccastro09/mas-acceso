@@ -1,5 +1,9 @@
 <?php
+session_start();
 use mas_acceso\util\Functions as FNC;
+use mas_acceso\autenticacion\AutenticarClass;
+use mas_acceso\usuario\usuarioColector;
+use mas_acceso\usuario\UsuarioClass;
     ?>
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -40,9 +44,25 @@ use mas_acceso\util\Functions as FNC;
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="/login/">Iniciar Sesión</a>
-                </li>
+                    <?php
+                    $cu = new usuarioColector();
+                    $usuario = AutenticarClass::verUsuarioConectado($cu, $_SESSION);
+                    if ($usuario) {
+                        ?>
+                    <li>Hola, <?php echo $usuario->getUsuario(); ?></li>
+                    <li>
+                      <a href="/logout/">Cerrar Sesión</a>
+                    </li>
+                        <?php
+                    } else {
+                        ?>
+                      <li>
+                      <a href="/login/">Iniciar Sesión</a>
+
+                  </li>
+                        <?php
+                    }
+                    ?>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
