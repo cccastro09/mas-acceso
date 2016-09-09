@@ -166,17 +166,17 @@ if(!AutenticarClass::esAdmin($cr,$usuario)){
                     Lugares</a>
             </li>
             <li <?php echo FNC::isActive("comentarios", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/comentarios/">
+                <a href="/admin/comentario/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Comentarios</a>
             </li>
             <li <?php echo FNC::isActive("usuarios", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/usuarios/">
+                <a href="/admin/usuario/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Usuarios</a>
             </li>
             <li <?php echo FNC::isActive("categorias", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/categorias/">
+                <a href="/admin/categoria/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Categorías</a>
             </li>
@@ -191,12 +191,12 @@ if(!AutenticarClass::esAdmin($cr,$usuario)){
                     Discapacidades</a>
             </li>
             <li <?php echo FNC::isActive("rol-permisos", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/rol-permisos/">
+                <a href="/admin/rol/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Roles y permisos</a>
             </li>
             <li <?php echo FNC::isActive("votos", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/votos/">
+                <a href="/admin/voto/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Votos</a>
             </li>

@@ -17,19 +17,18 @@ class DiscapacidadClass
         return $this->d_id;
     }
 
-    public function getD_tipo()
-    {
-        return $this->d_tipo;
-    }
+
+  public function getD_tipo(){
+    return $this->d_tipo;
+  }
 
 
-    public function setId($d_id)
-    {
-        $this->id = $d_id;
-    }
+  public function setD_id($d_id){
+    $this->d_id = $d_id;
+  }
 
-    public function setNombre($d_tipo)
-    {
-        $this->nombre = $nombre;
-    }
+  public function setD_tipo($d_tipo){
+    $this->d_tipo = $d_tipo;
+  }
+
 }

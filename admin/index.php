@@ -1,13 +1,11 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
-use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
-use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
-
- $coll = new CollectorDiscapacidad();
-if (isset($_GET["d_id"])) {
-    $obj = $coll->getDiscapacidades($_GET["d_id"]);
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+use mas_acceso\edificio\categoria\CategoriaCollector;
+use mas_acceso\edificio\categoria\CategoriaClass;
+$colector= new CategoriaCollector();
 ?>
+<!DOCTYPE html>
 <html lang='es'>
-
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -17,9 +15,9 @@ if (isset($_GET["d_id"])) {
         <!--Nombre de la Organizacion-->
         <meta name="generator" content="Notepad++">
         <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
-        <meta name="name" content="Admin - Discapacidad">
-        <meta name="description" content="Pagina de inicio de administración de Discapacidad.">
-        <meta name="author" content="Christian Castro">
+        <meta name="name" content="Admin - Lugares">
+        <meta name="description" content="Pagina de inicio de administración de lugares.">
+        <meta name="author" content="Guillermo Bernal">
         <!-- http://getbootstrap.com/css/#overview-mobile -->
         <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
         <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
@@ -45,40 +43,27 @@ if (isset($_GET["d_id"])) {
             <?php include $_SERVER['DOCUMENT_ROOT'].'/admin/partes/menu.php'; ?>
 
             <div id="page-wrapper">
+
                 <div class="container-fluid">
+                  <div class="col-lg-6">
 
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <input type="hidden" name="d_id" value="<?php echo $obj->getD_id(); ?>">
-                        <div class="form-group">
-                            <label for="Tipo Discapacidad">Tipo Discapacidad</label>
-                            <input type="text" class="form-control" id="discapacidad" name="discapacidad" value="<?php echo $obj->getD_tipo(); ?>" placeholder="Tipo">
-                        </div>
-                        <button type="submit" class="btn btn-default">Actualizar</button>
-                    </form>
+                      <div class="table-responsive">
+                    BIENVENIDO
+          </div>
+          </div>
 
-                </div>
-                <!-- /.container-fluid -->
+          </div>
+          <!-- /.container-fluid -->
 
-            </div>
-            <!-- /#page-wrapper -->
+          </div>
+          <!-- /#page-wrapper -->
 
-        </div>
-        <!-- /#wrapper -->
+          </div>
+          <!-- /#wrapper -->
 
-    </html>
-<?php
-} elseif (isset($_POST["d_id"]) && isset($_POST["discapacidad"])) {
-    $obj = new DiscapacidadClass();
-    $obj->setD_id($_POST["d_id"]);
-    $obj->setD_tipo($_POST["discapacidad"]);
-    if ($coll->updateDiscapacidades($obj)) {
-        //var_dump($obj);
-        header("Location: /admin/discapacidades/");
-        exit();
-    } else {
-        echo "Hubo un error al intentar actualizar la discapacidad.";
-    }
-} else {
-    header("Location: /admin/discapacidades/");
-    exit();
-}
+          <!-- Morris Charts JavaScript -->
+          <script src="/admin/js/plugins/morris/raphael.min.js"></script>
+          <script src="/admin/js/plugins/morris/morris.min.js"></script>
+          <script src="/admin/js/plugins/morris/morris-data.js"></script>
+
+          </html>
