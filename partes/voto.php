@@ -19,9 +19,11 @@ if(isset($_POST["a"])){
 }
 else {
 ?>
-<form action="voto.php">
-<div style="text-align: center;">
+<div><?php $colector->getPromedioByEdificio(2) ?></div>
+<form action="voto.php" oninput="x.value=parseInt(a.value)">
+<div style="margin-left:0;">
   0<input type="range" id="a" name="a" value="50">100
+  <br>
   <output name="x" for="a"></output>
 </div>
 <button type="submit">Votar</button>
