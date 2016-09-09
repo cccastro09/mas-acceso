@@ -67,6 +67,11 @@ class CategoriaCollector extends Collector
      */
     public function deleteCategoria($id)
     {
+      $sql="SELECT * FROM public.edificio WHERE e_id_categoria =".$id;
+      if (self::execQuery($sql)) {
+          echo "No se puede borrar, la categoria está asignado a un edificio";
+          exit();
+      }
         try {
              self::execQuery("DELETE FROM public.categoria WHERE c_id=".$id);
 
