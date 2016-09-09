@@ -61,8 +61,8 @@ if (isset($_POST["tipo"])) {
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                         <div class="form-group">
-                          <label for="Tipo Discapacidad">Tipo Discapacidad</label>
-                          <textarea class='form-control' placeholder='Tipo Descapacidad' name="tipo" id="tipo" rows="6"></textarea>
+                          <label for="Tipo Discapacidad">Nombre Discapacidad</label>
+                          <textarea class='form-control' placeholder='Nombre Descapacidad' name="tipo" id="tipo" rows="6"></textarea>
                         </div>
                         <button type="submit" class="btn btn-default">Crear</button>
 

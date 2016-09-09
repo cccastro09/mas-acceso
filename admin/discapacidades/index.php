@@ -55,8 +55,9 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
                                 <thead>
                                     <tr>
                                         <th>ID DE DISCAPACIDAD</th>
-                                        <th>TIPO DE DISCAPACIDADES</th>
+                                        <th>NOMBRE</th>
                                         <th> ACCIONES</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
