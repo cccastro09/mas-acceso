@@ -1,14 +1,14 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
-use mas_acceso\discapacidad\DiscapacidadCollector;
+use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
 $coll = new CollectorDiscapacidad();
-if (isset($_GET["e_id"])) {
-    $obj = $coll->deletediscapacidad($_GET["d_id"]);
-    header("Location: /admin/discapacidad/");
+if (isset($_GET["d_id"])) {
+    $obj = $coll->deleteDiscapacidades($_GET["d_id"]);
+    header("Location: /admin/discapacidades/");
     exit();
 } else {
-    header("Location: /admin/discapacidad/");
+    header("Location: /admin/discapacidades/");
     exit();
 }

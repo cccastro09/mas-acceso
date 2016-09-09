@@ -4,7 +4,7 @@ use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
  $coll = new CollectorDiscapacidad();
 if (isset($_GET["d_id"])) {
-    $obj = $coll->getDiscapacidad($_GET["d_id"]);
+    $obj = $coll->getDiscapacidades($_GET["d_id"]);
 ?>
 <html lang='es'>
 
@@ -47,7 +47,7 @@ if (isset($_GET["d_id"])) {
             <div id="page-wrapper">
                 <div class="container-fluid">
 
-                    <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]); ?>" method="post">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <input type="hidden" name="d_id" value="<?php echo $obj->getD_id(); ?>">
                         <div class="form-group">
                             <label for="Tipo Discapacidad">Tipo Discapacidad</label>
@@ -67,18 +67,18 @@ if (isset($_GET["d_id"])) {
 
     </html>
 <?php
-} elseif (isset($_POST["d_id"]) && isset($_POST["discapacidad_info"])) {
+} elseif (isset($_POST["d_id"]) && isset($_POST["discapacidad"])) {
     $obj = new DiscapacidadClass();
-    $obj->setId($_POST["d_id"]);
-    $obj->setNombre($_POST["d_tipo"]);
-    if ($coll->updatediscapacidad_info($obj)) {
+    $obj->setD_id($_POST["d_id"]);
+    $obj->setD_tipo($_POST["discapacidad"]);
+    if ($coll->updateDiscapacidades($obj)) {
         //var_dump($obj);
-        header("Location: /admin/discapacidad/");
+        header("Location: /admin/discapacidades/");
         exit();
     } else {
         echo "Hubo un error al intentar actualizar la discapacidad.";
     }
 } else {
-    header("Location: /admin/discapacidad/");
+    header("Location: /admin/discapacidades/");
     exit();
 }
