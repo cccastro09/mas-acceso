@@ -48,12 +48,17 @@ class EdificioCollector extends Collector
     public function updateEdificio($e)
     {
         try {
-            self::execQuery("UPDATE edificio SET e_id=".$e->getId().",e_nombre='".$e->getNombre()."',e_descripcion='".$e->getDescripcion()."' WHERE e_id=".$e->getId());
+            self::execQuery("UPDATE edificio SET e_id=".$e->getId().",e_nombre='".$e->getNombre()."',e_descripcion='".$e->getDescripcion().$this->getReporte($e)." WHERE e_id=".$e->getId());
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
         }
+    }
+
+    private function getReporte($e)
+    {
+        return $e->getReporteID() != null ? "', e_id_reporte=".$e->getReporteID():'';
     }
     public function deleteEdificio($e_id)
     {

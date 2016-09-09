@@ -1,14 +1,14 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
-use mas_acceso\edificio\EdificioCollector;
+use mas_acceso\edificio\reporte\ReporteCollector;
 
-$coll = new EdificioCollector();
-if (isset($_GET["e_id"])) {
-    $obj = $coll->deleteEdificio($_GET["e_id"]);
-    header("Location: /admin/lugares/");
+$coll = new ReporteCollector();
+if (isset($_GET["r_id"])) {
+    $obj = $coll->deleteReporte($_GET["r_id"]);
+    header("Location: /admin/reportes/");
     exit();
 } else {
-    header("Location: /admin/lugares/");
+    header("Location: /admin/reportes/");
     exit();
 }

@@ -2,6 +2,11 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 use mas_acceso\edificio\EdificioCollector;
 use mas_acceso\edificio\EdificioClass;
+use mas_acceso\edificio\categoria\CategoriaCollector;
+use mas_acceso\edificio\reporte\ReporteCollector;
+
+$cc = new CategoriaCollector();
+$cr = new ReporteCollector();
     ?>
 <!DOCTYPE html>
 <html lang='es'>
@@ -56,6 +61,8 @@ use mas_acceso\edificio\EdificioClass;
                                         <th>ID</th>
                                         <th>NOMBRE</th>
                                         <th>DESCRIPCIÓN</th>
+                                        <th>CALIFICACION</th>
+                                        <th>CATEGORIA</th>
                                         <th> Acciones</th>
                                     </tr>
                                 </thead>
@@ -65,6 +72,10 @@ use mas_acceso\edificio\EdificioClass;
                                         <td><?php echo $e->getId(); ?></td>
                                         <td><?php echo $e->getNombre(); ?></td>
                                         <td><?php echo $e->getDescripcion(); ?></td>
+                                        <td><?php $c = $e->getReporte($cr);
+                                        echo $c ? $c->getCalificacion() :"" ;?></td>
+                                        <td><?php $r = $e->getCategoria($cc);
+                                        echo $r ? $r->getNombre(): "" ;?></td>
                                         <td>
                                             <a href="/admin/lugares/editar/?e_id=<?php echo $e->getId(); ?>">editar</a>
                                             <a href="/admin/lugares/evaluar/?e_id=<?php echo $e->getId(); ?>">evaluar</a>

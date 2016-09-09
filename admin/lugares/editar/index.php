@@ -1,10 +1,13 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 use mas_acceso\edificio\EdificioCollector;
-use mas_acceso\edificio\EdificioClass;
 
  $coll = new EdificioCollector();
 if (isset($_GET["e_id"])) {
     $obj = $coll->getEdificio($_GET["e_id"]);
+    if (!$obj) {
+          header("Location: /admin/lugares/");
+          exit();
+    }
 ?>
 <html lang='es'>
 
@@ -48,7 +51,6 @@ if (isset($_GET["e_id"])) {
                 <div class="container-fluid">
 
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                      //aqui
                         <input type="hidden" name="id" value="<?php echo $obj->getId(); ?>">
                         <div class="form-group">
                             <label for="nombre">Nombre</label>

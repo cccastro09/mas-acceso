@@ -15,6 +15,7 @@ spl_autoload_register(
               'mas_acceso\\edificio\\EdificioClass' => 'src/Edificio/EdificioClass.php',
               'mas_acceso\\edificio\\EdificioCollector' =>'src/Edificio/EdificioCollector.php',
               'mas_acceso\\edificio\\reporte\\ReporteClass' => 'src/Edificio/Reporte/ReporteClass.php',
+              'mas_acceso\\edificio\\reporte\\ReporteDetalladoClass' => 'src/Edificio/Reporte/ReporteDetalladoClass.php',
               'mas_acceso\\edificio\\reporte\\ReporteCollector' =>'src/Edificio/Reporte/ReporteCollector.php',
               'mas_acceso\\util\\database\\Database' => 'src/util/database/Database.php',
               'mas_acceso\\util\\Functions' => 'src/util/Functions.php',

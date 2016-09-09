@@ -28,7 +28,7 @@ class usuarioColector extends Collector
 
             $stmt = $this->con->prepare("SELECT * FROM usuario ORDER BY u_id DESC limit 1");
             $stmt->execute();
-            $UsuarioClass = $stmt->fetchObject("UsuarioClass");
+            $UsuarioClass = $stmt->fetchObject(UsuarioClass::class);
             return $UsuarioClass;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -89,9 +89,9 @@ class usuarioColector extends Collector
  */
     public function updateUsuario($UsuarioClass)
     {
-      echo $UsuarioClass->getId();
+        echo $UsuarioClass->getId();
         try {
-          echo $UsuarioClass->getId();
+            echo $UsuarioClass->getId();
             self::execQuery("UPDATE usuario SET u_usuario='".$UsuarioClass->getUsuario()."',u_password='".$UsuarioClass->getPassword()."',u_token='".$UsuarioClass->getToken()."' WHERE u_id=".$UsuarioClass->getId());
             return true;
         } catch (PDOException $e) {
@@ -183,30 +183,27 @@ class usuarioColector extends Collector
     }
 
     public function consultarUsuarioPorUsuarioPassword($usuario, $password)
-	{
-    try{
-      $stmt = $this->con->prepare("SELECT * FROM usuario WHERE u_usuario=:usuario AND u_password=:password");
-      $stmt->execute(array(":usuario"=>$usuario, ":password"=>$password ));
-      $usuario=$stmt->fetchObject(UsuarioClass::class);
-
-      return $usuario;
-    }
-    catch(PDOException $e)
     {
-     return false;
-    }
-  }
+        try {
+              $stmt = $this->con->prepare("SELECT * FROM usuario WHERE u_usuario=:usuario AND u_password=:password");
+              $stmt->execute(array(":usuario"=>$usuario, ":password"=>$password ));
+              $usuario=$stmt->fetchObject(UsuarioClass::class);
 
-  public function getByToken($token)
-  {
-      $stmt = $this->con->prepare("SELECT * FROM usuario WHERE u_token=:token");
-      $stmt->execute(array(":token"=>$token));
-      $usuario=$stmt->fetchObject(UsuarioClass::class);
-      $id = $usuario->getId();
-      $stmt = $this->con->prepare("SELECT * FROM usuario_info WHERE u_usuario=:usuario");
-      $stmt->execute(array(":usuario"=>$id));
-      $usuario_info=$stmt->fetchObject(UsuarioInfoClass::class);
-      return $usuario_info;
+              return $usuario;
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 
+    public function getByToken($token)
+    {
+        $stmt = $this->con->prepare("SELECT * FROM usuario WHERE u_token=:token");
+        $stmt->execute(array(":token"=>$token));
+        $usuario=$stmt->fetchObject(UsuarioClass::class);
+        $id = $usuario->getId();
+        $stmt = $this->con->prepare("SELECT * FROM usuario_info WHERE u_usuario=:usuario");
+        $stmt->execute(array(":usuario"=>$id));
+        $usuario_info=$stmt->fetchObject(UsuarioInfoClass::class);
+        return $usuario_info;
+    }
 }

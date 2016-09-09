@@ -67,7 +67,7 @@ class EdificioClass
      *
      * @return CategoriaClass La Categoría del Edificio.
      */
-    public function getCategoria($colector): CategoriaClass
+    public function getCategoria($colector)
     {
         return $colector->getCategoria($this->e_id_categoria);
     }

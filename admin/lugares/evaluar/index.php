@@ -2,22 +2,34 @@
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
 
-use mas_acceso\edificio\EdificioCollector;
-use mas_acceso\edificio\EdificioClass;
+use mas_acceso\edificio\reporte\ReporteCollector;
 use mas_acceso\edificio\reporte\ReporteDetalladoClass;
+use mas_acceso\edificio\EdificioCollector;
 
-if (isset($_POST["nombre"])) {
-    $vCollector = new EdificioCollector();
-    $EdificioClass = new EdificioClass();
-    $EdificioClass->setReporte($_POST["nombre"]);
-    $EdificioClass->setDescripcion($_POST["descr"]);
-    if ($vCollector->addEdificio($EdificioClass)) {
-        //var_dump($obj);
-        header("Location: /admin/lugares");
-        exit();
-    } else {
-        echo "Hubo un error al intentar agregar el Edificio.";
+if (isset($_GET["e_id"]) && isset($_POST["eys"])) {
+    $vCollector = new ReporteCollector();
+    $ce = new EdificioCollector();
+    $e = $ce->getEdificio($_GET["e_id"]);
+    $obj = new ReporteDetalladoClass();
+        $obj->setEdificioID($_GET["e_id"]);
+        $obj->setRampas($_POST["rampas"]);
+        $obj->setAscensores($_POST["ascensores"]);
+        $obj->setPasamanos($_POST["pasamanos"]);
+        $obj->setPasillos($_POST["pasillos"]);
+        $obj->setBanos($_POST["banos"]);
+        $obj->setEntradasSalidas($_POST["eys"]);
+        $obj->setCalificacion();
+        $oobj = $vCollector->getReporteDetallado($vCollector->addReporte($obj));
+    if ($oobj) {
+        $e->setReporte($oobj);
+        if ($ce->updateEdificio($e)) {
+            var_dump($oobj);
+            var_dump($e);
+            //header("Location: /admin/lugares/");
+            //exit();
+        }
     }
+        echo "Hubo un error al intentar agregar el Reporte.";
 } else {
 ?>
 <!DOCTYPE html>
@@ -60,17 +72,71 @@ if (isset($_POST["nombre"])) {
               <div class="container-fluid">
 
 
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                      <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-                      </div>
-                        <div class="form-group">
-                          <label for="descr">Descripción</label>
-                          <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"></textarea>
+
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])."?e_id=".$_GET["e_id"]; ?>" method="post">
+                          <div class="form-group">
+                          <label for="descr">Rampas</label>
+                          <select class="form-control" name="rampas">
+                            <option  >1</option>
+                            <option  >2</option>
+                            <option  >3</option>
+                            <option  >4</option>
+                            <option  >5</option>
+                          </select>
                         </div>
-                        <button type="submit" class="btn btn-default">Crear</button>
+                          <div class="form-group">
+                            <label for="descr">Ascensores</label>
+                            <select class="form-control" name="ascensores">
+                              <option  >1</option>
+                              <option  >2</option>
+                              <option  >3</option>
+                              <option  >4</option>
+                              <option  >5</option>
+                            </select>
+                          </div>
+                            <div class="form-group">
+                              <label for="descr">Pasamanos</label>
+                              <select class="form-control" name="pasamanos">
+                                <option  >1</option>
+                                <option  >2</option>
+                                <option  >3</option>
+                                <option  >4</option>
+                                <option  >5</option>
+                              </select>
+                            </div>
+                              <div class="form-group">
+                                <label for="descr">Pasillos</label>
+                                <select class="form-control" name="pasillos">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                                <div class="form-group">
+                                  <label for="descr">Baños</label>
+                                  <select class="form-control" name="banos">
+                                    <option >1</option>
+                                    <option >2</option>
+                                    <option >3</option>
+                                    <option >4</option>
+                                    <option >5</option>
+                                  </select>
+                                </div>
+                                  <div class="form-group">
+                                    <label for="descr">Entradas/Salidas</label>
+                                    <select class="form-control" name="eys">
+                                      <option >1</option>
+                                      <option >2</option>
+                                      <option >3</option>
+                                      <option >4</option>
+                                      <option >5</option>
+                                    </select>
+                                  </div>
+                        <button type="submit" class="btn btn-default">Agregar</button>
                     </form>
+
 
               </div>
               <!-- /.container-fluid -->

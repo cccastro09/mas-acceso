@@ -10,7 +10,7 @@ class ReporteClass
 {
     private $r_id;
     private $r_fecha;
-    private $r_id_dificio;
+    private $r_id_edificio;
     private $r_calificacion;
 
     public function __construct()
@@ -33,7 +33,7 @@ class ReporteClass
      */
     public function getEdificioID(): int
     {
-        return $this->r_id_dificio;
+        return $this->r_id_edificio;
     }
 
     /**
@@ -61,7 +61,7 @@ class ReporteClass
      */
     public function setEdificio($e)
     {
-        $this->r_id_dificio = $e->getId();
+        $this->r_id_edificio = $e->getId();
     }
 
 

@@ -50,12 +50,28 @@ class Collector
         }
     }
 
+
+
     public function execQuery($query)
+    {
+        try {
+            echo($query);
+            $stmt = $this->con->prepare($query);
+            $stmt->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+    public function execQueryReturning($query, $class)
     {
         try {
             $stmt = $this->con->prepare($query);
             $stmt->execute();
-            return true;
+            return $stmt->fetchObject($class);
+            ;
         } catch (PDOException $e) {
             echo $e->getMessage();
             return false;
