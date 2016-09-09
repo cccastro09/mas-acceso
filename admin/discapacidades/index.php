@@ -49,15 +49,14 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
                         $col = new CollectorDiscapacidad();
                     ?>
                     <div class="col-lg-6">
-                        <h2>Lugares</h2>
+                        <h2>DISCAPACIDAD</h2>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>NOMBRE</th>
-                                        <th>DESCRIPCIÓN</th>
-                                        <th> Acciones</th>
+                                        <th>ID DE DISCAPACIDAD</th>
+                                        <th>TIPO DE DISCAPACIDADES</th>
+                                        <th> ACCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -67,9 +66,9 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
                                         <td><?php echo $e->getD_tipo(); ?></td>
 
                                         <td>
-                                            <a href="/admin/discapacidad/editar/?e_id=<?php echo $e->getId(); ?>">editar</a>
-                                            <a href="/admin/discapacidad/evaluar/?e_id=<?php echo $e->getId(); ?>">evaluar</a>
-                                            <a href="/admin/discapacidad/borrar/?e_id=<?php echo $e->getId(); ?>">borrar</a>
+                                            <a href="/admin/discapacidades/editar/?d_id=<?php echo $e->getD_id(); ?>">editar</a>
+                                            <a href="/admin/discapacidades/borrar/?d_id=<?php echo $e->getD_id(); ?>">borrar</a>
+                                            <a href="/admin/discapacidades/agregar/?d_id=<?php echo $e->getD_id(); ?>">agregar</a>
                                         </td>
                                     </tr>
                                     <?php } ?>
