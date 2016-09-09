@@ -9,7 +9,7 @@ if (isset($_POST["coment"])) {
     $comentario = new ComentarioClass();
     $comentario->setContenido($_POST["coment"]);
     $comentario->setIdEdificio($_GET["e_id"]); //llamar a edificio de guillermo
-    $comentario->setIdUsuario(3); //llamar a usuario de Claudia
+    $comentario->setIdUsuario($usuario->getId()); //llamar a usuario de Claudia
 
     if ($colector->addComentario($comentario)) {
         // refrescar a la pagina actual
@@ -18,6 +18,7 @@ if (isset($_POST["coment"])) {
         echo "Hubo un error al intentar agregar el comentario2.";
     }
 } else {
+    if ($usuario) {
     foreach (($colector->readAllComentarioByEdificio($_GET["e_id"])) as $datos) {
     ?>
 
@@ -34,6 +35,10 @@ if (isset($_POST["coment"])) {
 <button type="submit">Comentar</button>
 </form>
 <?php
+}
+else {
+  echo "Para comentar debe ser usuario";
+}
 }
 ?>
 </div>
