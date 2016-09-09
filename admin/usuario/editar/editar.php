@@ -1,13 +1,15 @@
 <?php
 	ini_set('display_errors', 1);
-	
-	include_once("../Modelo/usuarioColector.php");
+	session_start();
+	require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+
+	use mas_acceso\usuario\usuarioColector;
 	$uCollector = new usuarioColector();
 	$usuario = new usuario();
 	$usuario_info = new usuario_info();
-	
+
 	if(isset($_GET["id"]))
-	{    
+	{
 		$obj = $UsuarioObj->delete($_GET["id"]);
 		echo "Se elimino registro.";
 		echo "<meta http-equiv='Refresh' content='1;consulta.php'>";

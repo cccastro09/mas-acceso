@@ -3,7 +3,7 @@
 
   namespace mas_acceso\edificio\voto;
   use mas_acceso\util\Collector;
-  use mas_acceso\edificio\VotoClass;
+  use mas_acceso\edificio\voto\VotoClass;
   class VotoCollector extends Collector {
 
 /**
@@ -40,9 +40,9 @@
     return parent::getById($id, 'voto', 'v_id', VotoClass::class);
    }
 
-   public function getPromedioByEdificio($voto)
+   public function getPromedioByEdificio($id)
    {
-     $sentencia=("SELECT AVG (v_valoracion) FROM public.voto WHERE v_id=". $voto->getIdEdificio);
+     $sentencia=("SELECT AVG (v_valoracion) FROM public.voto WHERE v_id=". $id);
     /*echo $sentencia;*/
      self::execQuery($sentencia);
        return true;

@@ -6,6 +6,7 @@ class UsuarioClass
     private $u_id;
     private $u_usuario;
     private $u_password;
+    private $u_token;
 
     public function __construct()
     {
@@ -39,5 +40,15 @@ class UsuarioClass
     public function setPassword($u_password)
     {
         $this->u_password = $u_password;
+    }
+
+    public function getToken()
+    {
+        return $this->u_token;
+    }
+
+    public function setToken($u_token)
+    {
+        $this->u_token = $u_token;
     }
 }

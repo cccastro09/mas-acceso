@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
-use mas_acceso\edificio\voto\VotoCollector
+use mas_acceso\edificio\voto\VotoCollector;
 
 $coll = new VotoCollector();
 if (isset($_GET["id"])) {
