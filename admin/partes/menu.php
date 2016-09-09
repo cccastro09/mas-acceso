@@ -1,5 +1,8 @@
 <?php
 use mas_acceso\util\Functions as FNC;
+use mas_acceso\Autenticacion\AutenticarClass;
+
+
     ?>
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

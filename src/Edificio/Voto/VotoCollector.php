@@ -22,9 +22,8 @@
      */
    public function addVoto($voto)
    {
-     $sentencia=("INSERT INTO public.voto(
-            v_id_edificio, v_id_usuario, v_valoracion)
-    VALUES (".$voto->getIdEdificio().",".$voto->getIdUsuario().",'".$voto->getValoracion()."')");
+     $sentencia=("INSERT INTO public.voto(v_id_edificio, v_id_usuario, v_valoracion)
+    VALUES (".$voto->getIdEdificio().",".$voto->getIdUsuario().",".$voto->getValoracion().")");
     /*echo $sentencia;*/
      self::execQuery($sentencia);
        return true;
@@ -42,10 +41,11 @@
 
    public function getPromedioByEdificio($id)
    {
-     $sentencia=("SELECT AVG (v_valoracion) FROM public.voto WHERE v_id=". $id);
+     $sentencia=("SELECT AVG (v_valoracion) FROM public.voto WHERE v_id_edificio=". $id);
     /*echo $sentencia;*/
-     self::execQuery($sentencia);
-       return true;
+     $smt=self::execQueryAVG($sentencia);
+     
+       return $smt["avg"];
    }
 
       /**

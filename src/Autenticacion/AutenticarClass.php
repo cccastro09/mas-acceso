@@ -1,26 +1,21 @@
 <?php
- session_start();
 namespace mas_acceso\Autenticacion;
-require_once "../autoload.php"
 
-class AutenticarClass{
-    public static function verUsuarioConectado($colUsu){
-        if(!isset($_SESSION["token"])){
-        return false;   
-            exit();
-        }
-        return $colUsu->getByToken($_SESSION["token"]);
-        
-    }
-    public static function esAdmin($colRol, $usua){
-        $rol=$colRol->getRol($usua->getRole());
-        if($rol->getNombre()!='administrador'){
+class AutenticarClass
+{
+    public static function verUsuarioConectado($colUsu, $session)
+    {
+        if (!isset($session["token"])) {
             return false;
-            exit(); 
         }
-        return true;
+        return $colUsu->getByToken($session["token"]);
     }
-    public static function getSession(){
-        
+    public static function esAdmin($colRol, $usua)
+    {
+        $rol=$colRol->getRol($usua->getRole());
+        return $rol->getNombre() == 'administrador';
+    }
+    public static function getSession()
+    {
     }
 }

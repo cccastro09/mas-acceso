@@ -30,7 +30,9 @@ spl_autoload_register(
               'mas_acceso\\edificio\\voto\\VotoClass' => 'src/Edificio/Voto/VotoClass.php',
               'mas_acceso\\edificio\\voto\\VotoCollector' => 'src/Edificio/Voto/VotoCollector.php',
               'mas_acceso\\Usuario\\Discapacidades\\CollectorDiscapacidad' => 'src/Usuario/Discapacidades/CollectorDiscapacidad.php',
-              'mas_acceso\\Usuario\\Discapacidades\\DiscapacidadClass' => 'src/Usuario/Discapacidades/DiscapacidadClass.php'
+              'mas_acceso\\Usuario\\Discapacidades\\DiscapacidadClass' => 'src/Usuario/Discapacidades/DiscapacidadClass.php',
+              'mas_acceso\\Autenticacion\\AutenticarClass'  => 'src/Autenticacion/AutenticarClass.php'
+
 
             ];
         }

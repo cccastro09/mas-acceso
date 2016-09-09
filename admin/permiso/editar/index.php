@@ -6,7 +6,7 @@ use mas_acceso\usuario\Permiso\PermisoClass;
 if(isset($_GET["id"])){
     $col= new ColectorPermiso();
 $per = $col->getPermiso($_GET["id"]);
- 
+
 
 ?>
     <form enctype="multipart/form-data" action="#" method="post">
@@ -17,17 +17,17 @@ $per = $col->getPermiso($_GET["id"]);
             <label for="name">Constante</label>
             <input type="text" name="constante" value="<?php echo $per->getConstante();?>"><br>
       </div>
-    
+
         <div class="button">
             <button name= "update" type="submit">Update</button>
         </div>
     </form>
 <?php
-    
+
     if(isset($_POST["nombre"])){
     $per = $col->getPermiso($_GET["id"]);
     $per->setDescripcion($_POST["nombre"]);
-    
+
     $col->updatePermiso($per);
     }
     if(isset($_POST["constante"])){
