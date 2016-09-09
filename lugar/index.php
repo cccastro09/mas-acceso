@@ -69,8 +69,10 @@ use mas_acceso\edificio\categoria\CategoriaCollector;
                         <img src="img/header.png" class="imagen-cabecera" alt="">
                         <h1><?php echo $e->getNombre(); ?></h1>
                     </header>
-    <h2>Categoría</h2><h4><?php echo $ccol->getCategoria($e->getCategoriaID()); ?></h4>
+    <h2>Categoría</h2><h4><?php echo $ccol->getCategoria($e->getCategoriaID())->getNombre(); ?></h4>
     <p><?php echo $e->getDescripcion(); ?></p>
+    <hr>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/partes/comentario.php';?>
                 </div>
             </div>
 

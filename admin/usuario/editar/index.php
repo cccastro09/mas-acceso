@@ -1,17 +1,25 @@
 <?php
-	session_start();
-	include_once("../Modelo/usuarioColector.php");
-	$UsuarioObj = new usuarioColector();
-	
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+
+//include_once("Modelo/usuarioColector.php");
+use mas_acceso\usuario\usuarioColector;
+use mas_acceso\usuario\Rol\ColectorRol;
+use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
+
+$UsuarioObj = new usuarioColector();
+$rolColector = new ColectorRol();
+$discapacdadObjeto = new CollectorDiscapacidad();
+
 	if(isset($_GET["id"]))
-	{  
+	{
 		$usuario = $UsuarioObj->consultarUsuarioPorId($_GET["id"]);
 		$usuario_info = $UsuarioObj->consultarUsuarioInfoPorIdUsuario($_GET["id"]);
-		
+
 		$codigo = $_GET["id"];
 		$usu = $usuario->getUsuario();
 		$psw = $usuario->getPassword();
-	
+
 		$nombre = $usuario_info->getNombre();
 		$apellido = $usuario_info->getApellidos();
 		$email = $usuario_info->getMail();
@@ -21,7 +29,7 @@
 		$tipo = $usuario_info->getTipodiscapacidad();
 		$porcentaje = $usuario_info->getPorcentajediscapacidad();
 		$rol = $usuario_info->getRole();
-	
+
 	}
 ?>
 
@@ -33,7 +41,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="application-name" content="Informacion sobre el nivel de accesibilidad de infraestructuras">
-	<meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
+	<meta name="copyright" content="+Acceso"> <!--Nombre de la compaï¿½ia-->
 	<meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
 	<meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
     <meta name="name" content="Editar">
@@ -46,7 +54,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="css/tema.min.css">
-	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="/css/login.css">
 
 
 
@@ -56,7 +64,7 @@
     if (datefield.type!="date"){ //if browser doesn't support input type="date", load files for jQuery UI Date Picker
         document.write('<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />\n')
         document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"><\/script>\n')
-        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n') 
+        document.write('<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"><\/script>\n')
     }
 </script>
 <script>
@@ -67,11 +75,11 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 }
 </script>
 </head>
- 
+
 <body id="page-top">
 
-       <a href="login.html">+ACCESO</a>     
-   
+       <a href="login.html">+ACCESO</a>
+
 	<div class="container">
 	<form class="form-registro" action="editar.php" method="post">
 	<div class="form-column">
@@ -96,38 +104,38 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 		<label id="fecha-nac">Fecha de Nacimiento:</label>
 		<input type="date" id="fecha_nacimiento" class="textbox" name="fecha_nacimiento" step="1" min="1950-01-01" max="2015-12-31" value="<?php echo $fecha; ?>">
 		<label>Pa&iacute;s:</label>
-		<select id="pais" class="textbox" name="pais" >
-				<option value="Argentina">Argentina</option>
-				<option value="Bolivia">Bolivia</option>
-				<option value="Brasil">Brasil</option>
-				<option value="Colombia">Colombia</option>
-				<option value="Costa Rica">Costa Rica</option>
-				<option value="Cuba">Cuba</option>
-				<option value="Chile">Chile</option>
-				<option value="Ecuador">Ecuador</option>
-				<option value="El Salvador">El Salvador</option>
-				<option value="Guatemala">Guatemala</option>
-				<option value="Haití">Hait&iacute;</option>
-				<option value="Honduras">Honduras</option>
-				<option value="México">México</option>
-				<option value="Nicaragua">Nicaragua</option>
-				<option value="Panamá">Panamá</option>
-				<option value="Paraguay">Paraguay</option>
-				<option value="Perú">Perú</option>
-				<option value="República Dominicana">República Dominicana</option>
-				<option value="Uruguay">Uruguay</option>
-				<option value="Venezuela">Venezuela</option> 
+		<select id="pais" class="textbox" name="pais">
+						<option value="Argentina">Argentina</option>
+						<option value="Bolivia">Bolivia</option>
+						<option value="Brasil">Brasil</option>
+						<option value="Colombia">Colombia</option>
+						<option value="Costa Rica">Costa Rica</option>
+						<option value="Cuba">Cuba</option>
+						<option value="Chile">Chile</option>
+						<option value="Ecuador">Ecuador</option>
+						<option value="El Salvador">El Salvador</option>
+						<option value="Guatemala">Guatemala</option>
+						<option value="Hait&iacute;">Hait&iacute;</option>
+						<option value="Honduras">Honduras</option>
+						<option value="M&eacute;xico">M&eacute;xico</option>
+						<option value="Nicaragua">Nicaragua</option>
+						<option value="Panam&aacute;">Panam&aacute;</option>
+						<option value="Paraguay">Paraguay</option>
+						<option value="Per&uacute;">Per&uacute;</option>
+						<option value="Rep&uacute;blica Dominicana">Rep&uacute;blica Dominicana</option>
+						<option value="Uruguay">Uruguay</option>
+						<option value="Venezuela">Venezuela</option>
 		</select>
 		<label>Tipo de Discapacidad:</label>
-		<select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad" >
-				<?php
-				foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
-					$d_id = $tipo_discapacidad->getId();  
-					$d_tipo = $tipo_discapacidad->getTipo();
-				?>
-					<option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
-				<?php
-				}?>
+			<select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad" >
+					<?php
+					foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
+						$d_id = $tipo_discapacidad->getId();
+						$d_tipo = $tipo_discapacidad->getTipo();
+					?>
+						<option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
+					<?php
+					}?>
 		</select>
 		<label>Porcentaje de Discapacidad:</label>
 		<select id="porcentaje_discapacidad" class="textbox" name="porcentaje_discapacidad" >
@@ -138,11 +146,11 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 		</select>
 		<label>Rol:</label>
 		<select id="rol" class="textbox" name="rol" value="<?php echo $rol; ?>">
-				<?php
-					foreach ($UsuarioObj->consultarRol() as $rol) {
-						$r_id = $rol->getId();  
-						$r_nombre = $rol->getNombre();
-				?>
+			<?php
+			foreach ($rolColector->leerRol() as $rol) {
+					$r_id = $rol->getId();
+					$r_nombre = $rol->getNombre();
+			?>
 					<option value= "<?php echo $r_id ?>" > <?php echo  $r_nombre ?> </option>
 				<?php
 				}?>

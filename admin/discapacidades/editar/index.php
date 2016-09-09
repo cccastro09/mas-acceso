@@ -1,10 +1,10 @@
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
-use mas_acceso\edificio\categoria\CategoriaCollector;
-use mas_acceso\edificio\categoria\CategoriaClass;
+use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
+use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
- $coll = new CategoriaCollector();
-if (isset($_GET["id"])) {
-    $obj = $coll->getCategoria($_GET["id"]);
+ $coll = new CollectorDiscapacidad();
+if (isset($_GET["d_id"])) {
+    $obj = $coll->getDiscapacidad($_GET["d_id"]);
 ?>
 <html lang='es'>
 
@@ -17,9 +17,9 @@ if (isset($_GET["id"])) {
         <!--Nombre de la Organizacion-->
         <meta name="generator" content="Notepad++">
         <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
-        <meta name="name" content="Admin - Lugares">
-        <meta name="description" content="Pagina de inicio de administración de lugares.">
-        <meta name="author" content="Guillermo Bernal">
+        <meta name="name" content="Admin - Discapacidad">
+        <meta name="description" content="Pagina de inicio de administración de Discapacidad.">
+        <meta name="author" content="Christian Castro">
         <!-- http://getbootstrap.com/css/#overview-mobile -->
         <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
         <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
@@ -47,15 +47,11 @@ if (isset($_GET["id"])) {
             <div id="page-wrapper">
                 <div class="container-fluid">
 
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <input type="hidden" name="id" value="<?php echo $obj->getId(); ?>">
+                    <form action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF"]); ?>" method="post">
+                        <input type="hidden" name="d_id" value="<?php echo $obj->getD_id(); ?>">
                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $obj->getNombre(); ?>" placeholder="Nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="descr">Descripción</label>
-                            <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"><?php echo $obj->getDescripcion(); ?></textarea>
+                            <label for="Tipo Discapacidad">Tipo Discapacidad</label>
+                            <input type="text" class="form-control" id="discapacidad" name="discapacidad" value="<?php echo $obj->getD_tipo(); ?>" placeholder="Tipo">
                         </div>
                         <button type="submit" class="btn btn-default">Actualizar</button>
                     </form>
@@ -71,19 +67,18 @@ if (isset($_GET["id"])) {
 
     </html>
 <?php
-} elseif (isset($_POST["id"]) && isset($_POST["nombre"])) {
-    $obj = new CategoriaClass();
-    $obj->setId($_POST["id"]);
-    $obj->setNombre($_POST["nombre"]);
-    $obj->setDescripcion($_POST["descr"]);
-    if ($coll->updateCategoria($obj)) {
+} elseif (isset($_POST["d_id"]) && isset($_POST["discapacidad_info"])) {
+    $obj = new DiscapacidadClass();
+    $obj->setId($_POST["d_id"]);
+    $obj->setNombre($_POST["d_tipo"]);
+    if ($coll->updatediscapacidad_info($obj)) {
         //var_dump($obj);
-        header("Location: /admin/categoria/");
+        header("Location: /admin/discapacidad/");
         exit();
     } else {
-        echo "Hubo un error al intentar actualizar el Becario.";
+        echo "Hubo un error al intentar actualizar la discapacidad.";
     }
 } else {
-    header("Location: /admin/categoria/");
+    header("Location: /admin/discapacidad/");
     exit();
 }

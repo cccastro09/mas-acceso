@@ -2,7 +2,7 @@
 
 namespace mas_acceso\edificio\comentario;
 use mas_acceso\util\Collector;
-use mas_acceso\edificio\ComentarioClass;
+use mas_acceso\edificio\comentario\ComentarioClass;
   class ComentarioCollector extends Collector {
 
 /**
@@ -37,6 +37,13 @@ use mas_acceso\edificio\ComentarioClass;
        return true;
    }
 
+   public function readAllComentarioByEdificio($idEdificio)
+   {
+     $sentencia=("SELECT FROM public.comentario WHERE c_id_edificio=".$idEdificio);
+    /*echo $sentencia;*/
+     self::execQuery($sentencia);
+       return true;
+   }
       /**
      * Retorna un comentario de la base de datos segun su Id
      *

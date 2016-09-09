@@ -10,7 +10,7 @@ spl_autoload_register(
             $classes = [
               'mas_acceso\\util\\Collector'  => 'src/util/Collector.php',
               'mas_acceso\\util\Database' => 'src/util/database/Database.php',
-              'mas_acceso\\usuario\\Rol\\ColectorRol' => 'src/Usuario/Rol/ColectorRol.php',
+              'mas_acceso\\usuario\\Rol\\ColectorRol' => 'src/Usuario/Rol/colectorRol.php',
               'mas_acceso\\usuario\\Rol\\RolClass' => 'src/Usuario/Rol/RolClass.php',
               'mas_acceso\\edificio\\EdificioClass' => 'src/Edificio/EdificioClass.php',
               'mas_acceso\\edificio\\EdificioCollector' =>'src/Edificio/EdificioCollector.php',
@@ -28,7 +28,9 @@ spl_autoload_register(
               'mas_acceso\\edificio\\comentario\\ComentarioClass' => 'src/Edificio/Comentario/ComentarioClass.php',
               'mas_acceso\\edificio\\comentario\\ComentarioCollector' => 'src/Edificio/Comentario/ComentarioCollector.php',
               'mas_acceso\\edificio\\voto\\VotoClass' => 'src/Edificio/Voto/VotoClass.php',
-              'mas_acceso\\edificio\\voto\\VotoCollector' => 'src/Edificio/Voto/VotoCollector.php'
+              'mas_acceso\\edificio\\voto\\VotoCollector' => 'src/Edificio/Voto/VotoCollector.php',
+              'mas_acceso\\Usuario\\Discapacidades\\CollectorDiscapacidad' => 'src/Usuario/Discapacidades/CollectorDiscapacidad.php',
+              'mas_acceso\\Usuario\\Discapacidades\\DiscapacidadClass' => 'src/Usuario/Discapacidades/DiscapacidadClass.php'
 
             ];
         }

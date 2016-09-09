@@ -60,6 +60,12 @@ class CategoriaClass
 
     }
 
+    public function setId($n)
+    {
+        $this->c_id = $n;
+
+    }
+
     /**
      * Cambia la valoracion de la descripcion de la categoria
      *

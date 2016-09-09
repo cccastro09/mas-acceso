@@ -10,6 +10,14 @@ body {
 	margin: 0;
 	 background: #369;
 }
+
+.fondo {
+  height: auto;
+  width: auto;
+	margin: 0;
+	 background: #6FA7FF;
+}
+
 .logo{
 margin: 0 auto;
 }
@@ -19,6 +27,72 @@ a {
 	color: #fff;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 }
+
+.link {
+	font-size: 16px;
+	color: #09005B;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
+.celda {
+	font-size: 14px;
+	color: #444b65;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
+.boton{
+      text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+            text-align:center;
+			font-size: 12px;
+            text-decoration: none;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+			display:inline-block;
+            color: #FFF;
+            background: #7F8C8D;
+            padding: 7px 20px;
+            white-space: nowrap;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 100px;
+            margin: 10px 5px;
+            -webkit-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+}
+
+.azul{
+  background: #3498DB;
+  box-shadow: 0px 5px 0px 0px #2980B9;
+}
+
+
+ table {
+ font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+ font-size: 12px;
+ margin: 15px;
+ width: 480px;
+ text-align: left;
+ border-collapse: collapse;
+ }
+
+th {
+font-size: 13px;
+font-weight: normal;
+padding: 8px;
+background: #6e8ffd;
+border-top: 4px solid #5e80fd;
+border-bottom: 1px solid #000; color: #039; }
+
+td {
+padding: 8px;
+background: #9cb1ff;
+border-bottom: 1px solid #7894fd;
+color: #669;
+border-top: 1px solid transparent; }
+
+tr:hover td { background: #d0dafd; color: #339; }
 
 #registro{
 	font-size: 22px;
@@ -109,8 +183,8 @@ label {
 }
 .form-column {
 	/*width: 93%;*/
-	background: #2E64FE;
-	padding: 10px 30px;
+	background: #369;
+	padding: 0px 0px;
 	float: left;
 }
 .form-column .textbox{
@@ -151,14 +225,14 @@ label {
 
 }
 form {
-    
-	
+
+
     width:auto;
 	border:1px;
 	border-radius:3px;
-	margin-left: 300px;
+	margin-left: 100px;
 }
- 
+
 /*textarea {
     width:180px;
     height:27px;
@@ -169,7 +243,7 @@ form {
     font-size:10px;
     color:#ffffff;
 }*/
- 
+
 #submit {
     width:85px;
     height:35px;
@@ -181,12 +255,12 @@ form {
 /****************************************/
 .form-registro {
 	position: relative;
-	
+
 }
 
 
 .divForm{
-	
+
 	margin-top:10px;
 }
 
@@ -200,8 +274,8 @@ form {
 
 .form-login label {
 	display: block;
-	padding: 40px 5px 5px 2px;
-	font-size: 18px;
+	padding: 10px 5px 5px 2px;
+	font-size: 20px;
 	letter-spacing: 1px;
 	color: #fff;
 
@@ -221,13 +295,13 @@ form {
 }
 
 
-.form-registro:before, 
-.form-registro:after { 
-	content: " "; display: table; 
+.form-registro:before,
+.form-registro:after {
+	content: " "; display: table;
 }
 
-.form-registro:after { 
-	clear: both; 
+.form-registro:after {
+	clear: both;
 }
 
 
@@ -236,7 +310,7 @@ form {
 
 .form-registro label {
 	display: block;
-	padding: 40px 5px 5px 2px;
+	padding: 10px 5px 5px 2px;
 	font-size: 18px;
 	letter-spacing: 1px;
 	cursor: pointer;
@@ -317,8 +391,7 @@ form {
 }
 
 .form-registro input.boton-enviar {
-	background: #10689a;
-	border: none;
+	background:#1797df;
 	color: #fff;
 	width: auto;
 	cursor: pointer;
@@ -326,7 +399,7 @@ form {
 	display: inline-block;
 	padding: 15px 30px;
 	font-size: 1.1em;
-	border-radius: 2px;
+	border-radius: 15px;
 	letter-spacing: 1px;
 }
 
