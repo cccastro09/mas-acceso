@@ -159,7 +159,7 @@ use mas_acceso\Autenticacion\AutenticarClass;
                     Comentarios</a>
             </li>
             <li <?php echo FNC::isActive("usuarios", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/usuarios/">
+                <a href="/admin/usuario/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Usuarios</a>
             </li>
@@ -179,7 +179,7 @@ use mas_acceso\Autenticacion\AutenticarClass;
                     Discapacidades</a>
             </li>
             <li <?php echo FNC::isActive("rol-permisos", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/rol-permisos/">
+                <a href="/admin/rol/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Roles y permisos</a>
             </li>
