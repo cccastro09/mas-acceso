@@ -51,7 +51,7 @@ $UsuarioObj = new usuarioColector();
 				<input type="password" id="contrasena" name="contrasena" placeholder="Digite su contrase&ntilde;a">
 			</div>
 				<button type="submit" class="btn btn-default">Login</button>
-				<label  id="registroform">No estas registrado?, <a id="registro" href="../Registro/index.php">Registrate aqu&iacute;</a></label>
+				<label  id="registroform">No estas registrado?, <a id="registro" href="/registrarse/">Registrate aqu&iacute;</a></label>
 			</form>
 			</div>
 

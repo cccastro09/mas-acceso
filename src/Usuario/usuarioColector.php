@@ -6,7 +6,7 @@
   use mas_acceso\usuario\UsuarioInfoClass;
   use mas_acceso\usuario\rol\RolClass;
   use mas_acceso\usuario\rol\ColectorRol;
-  use mas_acceso\usuario\discapacidades\DiscapacidadClass;
+  use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
 
 class usuarioColector extends Collector
 {
@@ -44,7 +44,7 @@ class usuarioColector extends Collector
     public function insertarUsuarioInfo($UsuarioInfoClass)
     {
         try {
-            self::execQuery("INSERT INTO usuario_info (u_nombre, u_apellidos, u_mail, u_sexo, u_fecha_nacimiento, u_pais, u_tipo_discapacidad, u_porcentajediscapacidad, u_role, u_usuario) VALUES ('".$usuario_info->getNombre()."','".$usuario_info->getApellidos()."','".$usuario_info->getMail()."','".$usuario_info->getSexo()."','".$usuario_info->getFecha_nacimiento()."','".$usuario_info->getPais()."',".$usuario_info->getTipodiscapacidad().",'".$usuario_info->getPorcentajediscapacidad()."',".$usuario_info->getRole().",".$usuario_info->getUsuario().") ");
+            self::execQuery("INSERT INTO usuario_info (u_nombre, u_apellidos, u_mail, u_sexo, u_fecha_nacimiento, u_pais, u_tipo_discapacidad, u_porcentajediscapacidad, u_role, u_usuario) VALUES ('".$UsuarioInfoClass->getNombre()."','".$UsuarioInfoClass->getApellidos()."','".$UsuarioInfoClass->getMail()."','".$UsuarioInfoClass->getSexo()."','".$UsuarioInfoClass->getFecha_nacimiento()."','".$UsuarioInfoClass->getPais()."',".$UsuarioInfoClass->getTipodiscapacidad().",'".$UsuarioInfoClass->getPorcentajediscapacidad()."',".$UsuarioInfoClass->getRole().",".$UsuarioInfoClass->getUsuario().") ");
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -78,8 +78,11 @@ class usuarioColector extends Collector
     {
         $stmt = $this->con->prepare("SELECT * FROM usuario_info WHERE u_usuario=:id");
         $stmt->execute(array(":id"=>$id));
-        $UsuarioInfoClass=$stmt->fetchObject(UsuarioInfoClass::class);
-        return $UsuarioInfoClass;
+        $usuario_info=$stmt->fetchObject(UsuarioInfoClass::class);
+
+        //echo "nombre:".$usuario_info->getNombre();
+
+        return $usuario_info;
     }
 
 /**
@@ -89,9 +92,9 @@ class usuarioColector extends Collector
  */
     public function updateUsuario($UsuarioClass)
     {
-        echo $UsuarioClass->getId();
+      //echo $UsuarioClass->getId();
         try {
-            echo $UsuarioClass->getId();
+          //echo $UsuarioClass->getId();
             self::execQuery("UPDATE usuario SET u_usuario='".$UsuarioClass->getUsuario()."',u_password='".$UsuarioClass->getPassword()."',u_token='".$UsuarioClass->getToken()."' WHERE u_id=".$UsuarioClass->getId());
             return true;
         } catch (PDOException $e) {
@@ -100,7 +103,18 @@ class usuarioColector extends Collector
         }
     }
 
-
+    public function updateUser($UsuarioClass)
+    {
+      //echo $UsuarioClass->getId();
+        try {
+          //echo $UsuarioClass->getId();
+            self::execQuery("UPDATE usuario SET u_usuario='".$UsuarioClass->getUsuario()."',u_password='".$UsuarioClass->getPassword()."' WHERE u_id=".$UsuarioClass->getId());
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 
 
 /**
@@ -111,7 +125,7 @@ class usuarioColector extends Collector
     public function updateUsuarioInfo($UsuarioInfoClass)
     {
         try {
-            self::execQuery("UPDATE usuario_info SET u_nombre='".$UsuarioInfoClass->getNombre()."',u_apellidos='".$UsuarioInfoClass->getApellidos()."',u_mail='".$UsuarioInfoClass->getMail()."',u_sexo='".$usuario_info->getSexo()."',u_fecha_nacimiento='".$UsuarioInfoClass->getFecha_nacimiento()."',u_pais='".$UsuarioInfoClass->getPais()."',u_tipo_discapacidad=".$UsuarioInfoClass->getTipodiscapacidad().",u_porcentajediscapacidad='".$UsuarioInfoClass->getPorcentajediscapacidad()."',u_role=".$usuario_info->getRole()." WHERE u_usuario=".$UsuarioInfoClass->getUsuario());
+            self::execQuery("UPDATE usuario_info SET u_nombre='".$UsuarioInfoClass->getNombre()."',u_apellidos='".$UsuarioInfoClass->getApellidos()."',u_mail='".$UsuarioInfoClass->getMail()."',u_sexo='".$UsuarioInfoClass->getSexo()."',u_fecha_nacimiento='".$UsuarioInfoClass->getFecha_nacimiento()."',u_pais='".$UsuarioInfoClass->getPais()."',u_tipo_discapacidad=".$UsuarioInfoClass->getTipodiscapacidad().",u_porcentajediscapacidad='".$UsuarioInfoClass->getPorcentajediscapacidad()."',u_role=".$UsuarioInfoClass->getRole()." WHERE u_usuario=".$UsuarioInfoClass->getUsuario());
             return true;
         } catch (PDOException $e) {
             echo $e->getMessage();

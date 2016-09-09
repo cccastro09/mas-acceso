@@ -5,10 +5,10 @@
     //include_once("Modelo/usuarioColector.php");
     use mas_acceso\usuario\usuarioColector;
 
-    use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
+    use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
     $UsuarioObj = new usuarioColector();
-    
+
     $discapacdadObjeto = new CollectorDiscapacidad();
 
 ?>
@@ -60,7 +60,7 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
        <a href="/">+ACCESO</a>
 
     <div class="container">
-    <form class="form-registro" action="Vista/crear.php" method="post">
+    <form class="form-registro" action="/registrarse/crear.php" method="post">
     <div class="form-column">
         <label id="apellidos">Apellidos:</label>
         <input type="text" id="apellidos"  class="textbox" name="apellidos" placeholder="Apellidos">
@@ -110,13 +110,13 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
         <label>Tipo de Discapacidad:</label>
         <select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad">
           <?php
-          foreach ($discapacdadObjeto->leerDiscapacidades() as $tipo_discapacidad) {
-              $d_id = $tipo_discapacidad->getId();
-              $d_tipo = $tipo_discapacidad->getTipo();
-          ?>
-                <option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
-            <?php
-            }?>
+  								foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
+  									$d_id = $tipo_discapacidad->getD_id();
+  									$d_tipo = $tipo_discapacidad->getD_Tipo();
+  								?>
+  									<option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
+  								<?php
+  							}?>
         </select>
 
          <!--option value="0" selected="selected"> Seleccione tipo Menu</option-->

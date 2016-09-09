@@ -32,11 +32,11 @@ use mas_acceso\usuario\usuarioColector;
                 <li <?php echo FNC::isActive("lugares", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
                     <a href="/lugares/">Lugares</a>
                 </li>
-                <li <?php echo FNC::isActive("categorias", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
+                <!--<li <?php /*echo FNC::isActive("categorias", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; */?>>
                     <a href="/categorias/">Categorías</a>
                 </li>
-                <li <?php echo FNC::isActive("nosotros", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                    <a href="/nosotros/">Nosotros</a>
+                <li <?php /*echo FNC::isActive("nosotros", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd";*/ ?>>
+                    <a href="/nosotros/">Nosotros</a>-->
                 </li>
                 <li <?php echo FNC::isActive("contacto", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
                     <a href="/contacto/">Contacto</a>

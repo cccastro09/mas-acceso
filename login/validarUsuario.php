@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     //echo "<meta http-equiv='Refresh' content='2;../../index.php'>";
   }
   else {
-      echo "usuario: ".$_POST['usuario']."  contrasena: ".$_POST['contrasena'];
+    //  echo "usuario: ".$_POST['usuario']."  contrasena: ".$_POST['contrasena'];
 
       $usuario = $UsuarioObj->consultarUsuarioPorUsuarioPassword($_POST['usuario'], $_POST['contrasena']);
       //echo "xxx: ".$usuario->getUsuario();

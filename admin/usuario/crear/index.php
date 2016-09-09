@@ -4,12 +4,22 @@
 
     //include_once("Modelo/usuarioColector.php");
     use mas_acceso\usuario\usuarioColector;
+    use mas_acceso\usuario\UsuarioClass;
+    use mas_acceso\usuario\UsuarioInfoClass;
     use mas_acceso\usuario\Rol\ColectorRol;
-		use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
+    use mas_acceso\usuario\Rol\RolClass;
+    use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
+    use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
 
-    $UsuarioObj = new usuarioColector();
-    $rolColector = new ColectorRol();
-		$discapacidadObjeto = new CollectorDiscapacidad();
+
+    	$UsuarioObj = new usuarioColector();
+    	$usuario = new UsuarioClass();
+    	$usuario_info = new UsuarioInfoClass();
+    	$rol = new RolClass();
+    	$objRol = new ColectorRol;
+    	$discapacidadInfo = new DiscapacidadClass();
+    	$objDiscapacidad = new CollectorDiscapacidad();
+
 
 ?>
 <!DOCTYPE html>
@@ -33,7 +43,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/tema.min.css">
- <link rel="stylesheet" href="../css/login.css">
+ <link rel="stylesheet" href="/css/login.css">
 
 
 
@@ -110,9 +120,9 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
         <label>Tipo de Discapacidad:</label>
         <select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad">
             <?php
-            foreach ($discapacdadObjeto->leerDiscapacidades() as $tipo_discapacidad) {
-                $d_id = $tipo_discapacidad->getId();
-                $d_tipo = $tipo_discapacidad->getTipo();
+            foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
+                $d_id = $tipo_discapacidad->getD_id();
+                $d_tipo = $tipo_discapacidad->getD_Tipo();
             ?>
                 <option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
             <?php
@@ -131,12 +141,12 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
         </select>
         <label>Rol:</label>
         <select id="rol" class="textbox" name="rol">
-            <?php
-            foreach ($rolColector->leerRol() as $rol) {
-                $r_id = $rol->getId();
-                $r_nombre = $rol->getNombre();
-            ?>
-            <option value= "<?php echo $r_id ?>" > <?php echo  $r_nombre ?> </option>
+          <?php
+          foreach ($objRol->leerRol() as $rol) {
+              $r_id = $rol->getId();
+              $r_nombre = $rol->getNombre();
+          ?>
+              <option value= "<?php echo $r_id ?>" > <?php echo  $r_nombre ?> </option>
             <?php
             }?>
         </select>
