@@ -2,14 +2,15 @@ language: php
 php:
   - '7.0'
 
-# install Java 8 as required by vnu.jar
-before_install:
- - sudo apt-get update
- - sudo apt-get install oracle-java8-installer
- - sudo update-java-alternatives -s java-8-oracle
-
 install:
- - pip install --user html5validator
+ - pear install PHP_CodeSniffer
+ - phpenv rehash
+
+before_script:
+ - phpenv rehash
+ - phpcs -i
 
 script:
- - html5validator --root ./
+ - phpcs -n --standard=PSR1,PSR2 src/
+ - phpcs -n --standard=PSR1,PSR2 --report=summary src/
+ - phpunit --bootstrap src/autoload.php tests
