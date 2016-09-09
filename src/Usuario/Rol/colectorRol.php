@@ -48,7 +48,8 @@ class ColectorRol extends Collector
             return false;
         }
     }
-    public function getRol($id){
+    public function getRol($id)
+    {
          return self::getBYId($id, 'rol', 'r_id', RolClass::class);
     }
 
@@ -60,10 +61,10 @@ class ColectorRol extends Collector
     public function deleteRol($rol)
     {
         $query="Select * from usuario_info where u_role='".$rol."'";
-         if(self::execQuery($query)){
-             echo "No se puede borrar, el rol está asignado a un usuario";
-             exit();
-         }
+        if (self::execQuery($query)) {
+            echo "No se puede borrar, el rol está asignado a un usuario";
+            exit();
+        }
         try {
              self::execQuery("DELETE FROM rol WHERE r_id=".$rol);
 

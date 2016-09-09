@@ -1,6 +1,7 @@
 <?php
 
 namespace mas_acceso\edificio\comentario;
+
 class ComentarioClass
 {
     private $c_id;
@@ -32,7 +33,6 @@ class ComentarioClass
     public function getIdEdificio()
     {
         return $this->c_id_edificio;
-
     }
 
     /**
@@ -43,7 +43,6 @@ class ComentarioClass
     public function getIdUsuario()
     {
         return $this->c_id_usuario;
-
     }
 
     /**
@@ -54,7 +53,6 @@ class ComentarioClass
     public function getContenido()
     {
         return $this->c_contenido;
-
     }
 
     /**
@@ -82,7 +80,7 @@ class ComentarioClass
      *
      * @return UsuarioClass los datos del Usuario.
      */
-     public function getUsuario()
+    public function getUsuario()
     {
         return UsuarioCollector::getById($this->v_id_usuario);
     }
@@ -107,7 +105,6 @@ class ComentarioClass
     public function setIdUsuario($n)
     {
         $this->c_id_usuario = $n;
-
     }
 
     /**
@@ -118,7 +115,6 @@ class ComentarioClass
     public function setContenido($n)
     {
         $this->c_contenido=$n;
-
     }
 
     /**
@@ -129,8 +125,5 @@ class ComentarioClass
     public function setFecha($n)
     {
         $this->c_fecha=$n;
-
     }
-
-
 }

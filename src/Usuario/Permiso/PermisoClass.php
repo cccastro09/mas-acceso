@@ -1,8 +1,6 @@
 <?php
 namespace mas_acceso\usuario\Permiso;
 
-
-
 class PermisoClass
 {
     private $p_id;

@@ -1,8 +1,6 @@
 <?php
 namespace mas_acceso\usuario\Rol;
 
-
-
 class RolClass
 {
     private $r_id;

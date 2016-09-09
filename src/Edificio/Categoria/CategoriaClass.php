@@ -5,6 +5,7 @@
  *
  */
  namespace mas_acceso\edificio\categoria;
+
 class CategoriaClass
 {
     private $c_id;
@@ -33,7 +34,6 @@ class CategoriaClass
     public function getNombre()
     {
         return $this->c_nombre;
-
     }
 
     /**
@@ -44,7 +44,6 @@ class CategoriaClass
     public function getDescripcion()
     {
         return $this->c_descripcion;
-
     }
 
 
@@ -57,13 +56,11 @@ class CategoriaClass
     public function setNombre($n)
     {
         $this->c_nombre = $n;
-
     }
 
     public function setId($n)
     {
         $this->c_id = $n;
-
     }
 
     /**
@@ -74,9 +71,5 @@ class CategoriaClass
     public function setDescripcion($n)
     {
         $this->c_descripcion=$n;
-
     }
-
-
-
 }

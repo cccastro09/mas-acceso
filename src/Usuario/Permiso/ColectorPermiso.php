@@ -47,7 +47,8 @@ class ColectorPermiso extends Collector
             return false;
         }
     }
-    public function getPermiso($id){
+    public function getPermiso($id)
+    {
          return self::getBYId($id, 'permiso', 'p_id', PermisoClass::class);
     }
 

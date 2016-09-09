@@ -4,6 +4,7 @@
  *
  */
  namespace mas_acceso\edificio\voto;
+
 class VotoClass
 {
     private $v_id;
@@ -35,7 +36,6 @@ class VotoClass
     public function getIdEdificio()
     {
         return $this->v_id_edificio;
-
     }
 
     /**
@@ -46,7 +46,6 @@ class VotoClass
     public function getIdUsuario()
     {
         return $this->v_id_usuario;
-
     }
 
     /**
@@ -57,7 +56,6 @@ class VotoClass
     public function getValoracion()
     {
         return $this->v_valoracion;
-
     }
 
     /**
@@ -85,7 +83,7 @@ class VotoClass
      *
      * @return UsuarioClass los datos del Usuario.
      */
-     public function getUsuario()
+    public function getUsuario()
     {
         return UsuarioCollector::getById($this->v_id_usuario);
     }
@@ -99,7 +97,6 @@ class VotoClass
     public function setIdEdificio($n)
     {
         $this->v_id_edificio = $n;
-
     }
 
     /**
@@ -110,7 +107,6 @@ class VotoClass
     public function setIdUsuario($n)
     {
         $this->v_id_usuario = $n;
-
     }
 
     /**
@@ -121,7 +117,6 @@ class VotoClass
     public function setValoracion($n)
     {
         $this->v_valoracion=$n;
-
     }
 
     /**
@@ -132,8 +127,5 @@ class VotoClass
     public function setFecha($n)
     {
         $this->v_fecha=$n;
-
     }
-
-
 }
