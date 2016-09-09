@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
-use mas_acceso\edificio\voto\ComentarioCollector;
+use mas_acceso\edificio\voto\VotoCollector;
 use mas_acceso\edificio\voto\VotoClass;
 $colector= new VotoCollector();
 if(isset($_POST["a"])){
@@ -19,8 +19,8 @@ if(isset($_POST["a"])){
 }
 else {
 ?>
-<form action="index.php">
-<div style="width: 50%; text-align: center; margin: auto;">
+<form action="voto.php">
+<div style="text-align: center;">
   0<input type="range" id="a" name="a" value="50">100
   <output name="x" for="a"></output>
 </div>

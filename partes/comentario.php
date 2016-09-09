@@ -13,7 +13,7 @@
 
             if($colector->addComentario($comentario)){
                 // refrescar a la pagina actual
-                /*header("Refresh:0; url=***");*/
+                /*header("Location: /src/Edificio");*/
               }else{
                   echo "Hubo un error al intentar agregar el comentario2.";
               }
