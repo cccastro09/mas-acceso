@@ -61,4 +61,17 @@ class Collector
             return false;
         }
     }
+
+    public function execQueryAVG($query)
+    {
+        try {
+            $stmt = $this->con->prepare($query);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
 }
