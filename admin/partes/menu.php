@@ -1,7 +1,19 @@
 <?php
 use mas_acceso\util\Functions as FNC;
 use mas_acceso\Autenticacion\AutenticarClass;
+use mas_acceso\usuario\Rol\ColectorRol;
 
+$cu = new usuarioColector();
+$usuario = AutenticarClass::verUsuarioConectado($cu, $_SESSION);
+if(!$usuario){
+    header("location: /");
+    exit();
+}
+$cr =new ColectorRol();
+if(!AutenticarClass::esAdmin($cr,$usuario)){
+  header("location: /");
+  exit();
+}
 
     ?>
 <!-- Navigation -->
@@ -159,7 +171,7 @@ use mas_acceso\Autenticacion\AutenticarClass;
                     Comentarios</a>
             </li>
             <li <?php echo FNC::isActive("usuarios", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/usuarios/">
+                <a href="/admin/usuario/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Usuarios</a>
             </li>
@@ -179,7 +191,7 @@ use mas_acceso\Autenticacion\AutenticarClass;
                     Discapacidades</a>
             </li>
             <li <?php echo FNC::isActive("rol-permisos", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/rol-permisos/">
+                <a href="/admin/rol/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Roles y permisos</a>
             </li>
