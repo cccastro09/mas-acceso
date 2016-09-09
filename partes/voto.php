@@ -1,5 +1,7 @@
 <?php
-use mas_acceso\edificio\voto\VotoCollector;
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+use mas_acceso\edificio\voto\ComentarioCollector;
+use mas_acceso\edificio\voto\VotoClass;
 $colector= new VotoCollector();
 if(isset($_POST["a"])){
 
