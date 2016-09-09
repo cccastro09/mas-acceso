@@ -92,10 +92,10 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 		<input type="text" id="usuario" class="textbox" name="usuario" placeholder="Usuario" value="<?php echo $usu; ?>">
 		<label id="password">Contrase&ntilde;a:</label>
 		<input type="password" id="password" class="textbox" name="password" placeholder="**********" value="<?php echo $psw; ?>">
-		<label id="email">Correo Electr&oacute;nico:</label>
-		<input type="text" id="mail" class="textbox" name="mail" placeholder="yyyyyy@yyyy.com" value="<?php echo $email; ?>">
 	</div>
 	<div class="form-column">
+		<label id="email">Correo Electr&oacute;nico:</label>
+		<input type="text" id="mail" class="textbox" name="mail" placeholder="yyyyyy@yyyy.com" value="<?php echo $email; ?>">
 	<label id="genero_reg">G&eacute;nero</label>
 		<select id="sexo" class="textbox" name="sexo" >
 			<option>Masculino</option>
@@ -126,16 +126,18 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 						<option value="Uruguay">Uruguay</option>
 						<option value="Venezuela">Venezuela</option>
 		</select>
+	</div>
+	<div class="form-column">
 		<label>Tipo de Discapacidad:</label>
 			<select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad" >
-					<?php
-					foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
-						$d_id = $tipo_discapacidad->getId();
-						$d_tipo = $tipo_discapacidad->getTipo();
-					?>
-						<option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
-					<?php
-					}?>
+				<?php
+								foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
+									$d_id = $tipo_discapacidad->getD_id();
+									$d_tipo = $tipo_discapacidad->getD_Tipo();
+								?>
+									<option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
+								<?php
+							}?>
 		</select>
 		<label>Porcentaje de Discapacidad:</label>
 		<select id="porcentaje_discapacidad" class="textbox" name="porcentaje_discapacidad" >

@@ -18,7 +18,7 @@
 			//echo "nombre: ".$_POST['nombre']."  apellido: ".$_POST['apellidos']."  mail: ".$_POST['mail']."  sexo: ".$_POST['sexo'] ;
 			//echo "fecha: ".$_POST['fecha_nacimiento']."  pais: ".$_POST['pais']."  tipo: ".$_POST['tipo_discapacidad']."  porcentaje: ".$_POST['porcentaje_discapacidad']."  role: ".$_POST['rol'] ;
 
-			echo "<meta http-equiv='Refresh' content='0;/admin/usuario/'>";
+			echo "<meta http-equiv='Refresh' content='0;/registrarse/'>";
 		}
 		else {
 			//insertamos
@@ -44,7 +44,7 @@
 			//echo "fecha: ".$_POST['fecha_nacimiento']."  pais: ".$_POST['pais']."  tipo: ".$_POST['tipo_discapacidad']."  porcentaje: ".$_POST['porcentaje_discapacidad']."  role: ".$_POST['rol'] ;
 			$uCollector->insertarUsuarioInfo($usuario_info);
 		//echo "     El usuario se ha agregado correctamente.";
-			echo "<meta http-equiv='Refresh' content='0;/admin/usuario/'>";
+			echo "<meta http-equiv='Refresh' content='0;/login/'>";
 			//echo "<meta http-equiv='Refresh' content='2;../../login.php'>";
 		}
 	}
