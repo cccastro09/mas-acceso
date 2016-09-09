@@ -74,7 +74,7 @@ $colector= new CategoriaCollector();
             }
             ?>
             <tr>
-              <td><a href="/admin/categoria/agregar/?id=<?php echo $datos->getId();?>"> Agregar</a>  </td>
+              <td><a href="/admin/categoria/agregar/"> Agregar</a>  </td>
             </tr>
           </tbody>
           </table>

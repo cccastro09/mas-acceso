@@ -23,7 +23,7 @@ class CategoriaCollector extends Collector
      */
     public function addCategoria($categoria)
     {
-        return self::execQuery("INSERT INTO categoria(c_nombre, c_descripcion) VALUES (".$categoria->getNombre().",".$categoria->getDescripcion().")");
+        return self::execQuery("INSERT INTO public.categoria(c_nombre, c_descripcion) VALUES ('".$categoria->getNombre()."','".$categoria->getDescripcion()."')");
     }
 
     /**
@@ -68,7 +68,7 @@ class CategoriaCollector extends Collector
     public function deleteCategoria($id)
     {
         try {
-             self::execQuery("DELETE FROM categoria WEHRE c_id=".$id);
+             self::execQuery("DELETE FROM public.categoria WHERE c_id=".$id);
 
             return true;
         } catch (PDOException $e) {
