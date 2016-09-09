@@ -154,7 +154,7 @@ use mas_acceso\Autenticacion\AutenticarClass;
                     Lugares</a>
             </li>
             <li <?php echo FNC::isActive("comentarios", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/comentarios/">
+                <a href="/admin/comentario/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Comentarios</a>
             </li>
@@ -164,7 +164,7 @@ use mas_acceso\Autenticacion\AutenticarClass;
                     Usuarios</a>
             </li>
             <li <?php echo FNC::isActive("categorias", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/categorias/">
+                <a href="/admin/categoria/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Categorías</a>
             </li>
@@ -184,7 +184,7 @@ use mas_acceso\Autenticacion\AutenticarClass;
                     Roles y permisos</a>
             </li>
             <li <?php echo FNC::isActive("votos", htmlspecialchars($_SERVER["PHP_SELF"])) ? "class=\"active\"" : " asd"; ?>>
-                <a href="/admin/votos/">
+                <a href="/admin/voto/">
                     <i class="fa fa-fw fa-bar-chart-o"></i>
                     Votos</a>
             </li>

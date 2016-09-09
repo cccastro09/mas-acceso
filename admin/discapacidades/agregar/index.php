@@ -5,14 +5,13 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
 use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
 
-if (isset($_POST["nombre"])) {
+if (isset($_POST["tipo"])) {
     $vCollector = new CollectorDiscapacidad();
     $DiscapacidadClass = new DiscapacidadClass();
-    $DiscapacidadClass->setNombre($_POST["nombre"]);
-    $DiscapacidadClass->setDescripcion($_POST["descr"]);
-    if ($vCollector->adddiscapacidad_info($DiscapacidadClass)) {
+    $DiscapacidadClass->setD_tipo($_POST["tipo"]);
+    if ($vCollector->addDiscapacidades($DiscapacidadClass)) {
         //var_dump($obj);
-        header("Location: /admin/discapacidad");
+        header("Location: /admin/discapacidades/");
         exit();
     } else {
         echo "Hubo un error al intentar agregar la Discapacidad.";
@@ -60,16 +59,12 @@ if (isset($_POST["nombre"])) {
 
 
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                      <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-                      </div>
+
                         <div class="form-group">
-                          <label for="descr">Descripción</label>
-                          <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"></textarea>
+                          <label for="Tipo Discapacidad">Tipo Discapacidad</label>
+                          <textarea class='form-control' placeholder='Tipo Descapacidad' name="tipo" id="tipo" rows="6"></textarea>
                         </div>
                         <button type="submit" class="btn btn-default">Crear</button>
-                    </form>
 
               </div>
               <!-- /.container-fluid -->
