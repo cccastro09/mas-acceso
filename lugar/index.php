@@ -71,6 +71,8 @@ use mas_acceso\edificio\categoria\CategoriaCollector;
                     </header>
     <h2>Categoría</h2><h4><?php echo $ccol->getCategoria($e->getCategoriaID())->getNombre(); ?></h4>
     <p><?php echo $e->getDescripcion(); ?></p>
+    <hr>
+    <?php include $_SERVER['DOCUMENT_ROOT'].'/partes/comentario.php';?>
                 </div>
             </div>
 

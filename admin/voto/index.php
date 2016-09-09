@@ -1,13 +1,11 @@
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
-use mas_acceso\edificio\categoria\CategoriaCollector;
-use mas_acceso\edificio\categoria\CategoriaClass;
-
- $coll = new CategoriaCollector();
-if (isset($_GET["id"])) {
-    $obj = $coll->getCategoria($_GET["id"]);
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+use mas_acceso\edificio\voto\VotoCollector;
+use mas_acceso\edificio\voto\VotoClass;
+$colector= new VotoCollector();
 ?>
+<!DOCTYPE html>
 <html lang='es'>
-
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -45,45 +43,54 @@ if (isset($_GET["id"])) {
             <?php include $_SERVER['DOCUMENT_ROOT'].'/admin/partes/menu.php'; ?>
 
             <div id="page-wrapper">
+
                 <div class="container-fluid">
+                  <div class="col-lg-6">
+                      <h2>Comentarios</h2>
+                      <div class="table-responsive">
+                          <table class="table table-hover">
+                              <thead>
+                                  <tr>
+                                      <th>ID</th>
+                                      <th>VALORACION</th>
+                                      <th>ID EDIFICIO</th>
+                                      <th>ID USUARIO</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
 
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                        <input type="hidden" name="id" value="<?php echo $obj->getId(); ?>">
-                        <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $obj->getNombre(); ?>" placeholder="Nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="descr">Descripción</label>
-                            <textarea class='form-control' placeholder='Descripción' name="descr" id="descr" rows="6"><?php echo $obj->getDescripcion(); ?></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-default">Actualizar</button>
-                    </form>
+          <?php
 
-                </div>
-                <!-- /.container-fluid -->
+            foreach ($colector->readAllVoto() as $datos) {
+                ?>
 
-            </div>
-            <!-- /#page-wrapper -->
+                     <tr>
+                      <td> <?php echo $datos->getId(); ?> </td>
+                       <td> <?php echo $datos->getValoracion(); ?> </td>
+                       <td> <?php echo $datos->getIdEdificio(); ?> </td>
+                       <td> <?php echo $datos->getIdUsuario(); ?> </td>
+                       <td><a href="/admin/voto/borrar/?id=<?php echo $datos->getId();?>"> Eliminar</a>  </td>
+                     </tr>
+                   <?php
+            }
+            ?>
+          </tbody>
+          </table>
+          </div>
+          </div>
 
-        </div>
-        <!-- /#wrapper -->
+          </div>
+          <!-- /.container-fluid -->
 
-    </html>
-<?php
-} elseif (isset($_POST["id"]) && isset($_POST["nombre"])) {
-    $obj = new CategoriaClass();
-    $obj->setId($_POST["id"]);
-    $obj->setNombre($_POST["nombre"]);
-    $obj->setDescripcion($_POST["descr"]);
-    if ($coll->updateCategoria($obj)) {
-        //var_dump($obj);
-        header("Location: /admin/categoria/");
-        exit();
-    } else {
-        echo "Hubo un error al intentar actualizar el Becario.";
-    }
-} else {
-    header("Location: /admin/categoria/");
-    exit();
-}
+          </div>
+          <!-- /#page-wrapper -->
+
+          </div>
+          <!-- /#wrapper -->
+
+          <!-- Morris Charts JavaScript -->
+          <script src="/admin/js/plugins/morris/raphael.min.js"></script>
+          <script src="/admin/js/plugins/morris/morris.min.js"></script>
+          <script src="/admin/js/plugins/morris/morris-data.js"></script>
+
+          </html>
