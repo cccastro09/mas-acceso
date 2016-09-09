@@ -5,11 +5,11 @@
     //include_once("Modelo/usuarioColector.php");
     use mas_acceso\usuario\usuarioColector;
     use mas_acceso\usuario\Rol\ColectorRol;
-		use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
+		use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
     $UsuarioObj = new usuarioColector();
     $rolColector = new ColectorRol();
-		$discapacdadObjeto = new CollectorDiscapacidad();
+		$discapacidadObjeto = new CollectorDiscapacidad();
 
 ?>
 <!DOCTYPE html>

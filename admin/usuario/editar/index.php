@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 //include_once("Modelo/usuarioColector.php");
 use mas_acceso\usuario\usuarioColector;
 use mas_acceso\usuario\Rol\ColectorRol;
-use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
+use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
 
 $UsuarioObj = new usuarioColector();
 $rolColector = new ColectorRol();
@@ -54,7 +54,7 @@ $discapacdadObjeto = new CollectorDiscapacidad();
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
   	<link rel="stylesheet" href="css/tema.min.css">
-	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="/css/login.css">
 
 
 
@@ -127,15 +127,15 @@ if (datefield.type!="date"){ //if browser doesn't support input type="date", ini
 						<option value="Venezuela">Venezuela</option>
 		</select>
 		<label>Tipo de Discapacidad:</label>
-		<select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad" >
-			<?php
-			foreach ($discapacdadObjeto->leerDiscapacidades() as $tipo_discapacidad) {
-					$d_id = $tipo_discapacidad->getId();
-					$d_tipo = $tipo_discapacidad->getTipo();
-			?>
-					<option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
-				<?php
-				}?>
+			<select id="tipo_discapacidad" class="textbox" name="tipo_discapacidad" >
+					<?php
+					foreach ($UsuarioObj->consultarDiscapacidadInfo() as $tipo_discapacidad) {
+						$d_id = $tipo_discapacidad->getId();
+						$d_tipo = $tipo_discapacidad->getTipo();
+					?>
+						<option value= "<?php echo $d_id ?>" > <?php echo  $d_tipo ?> </option>
+					<?php
+					}?>
 		</select>
 		<label>Porcentaje de Discapacidad:</label>
 		<select id="porcentaje_discapacidad" class="textbox" name="porcentaje_discapacidad" >

@@ -7,13 +7,19 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 use mas_acceso\usuario\usuarioColector;
 use mas_acceso\usuario\UsuarioClass;
 use mas_acceso\usuario\UsuarioInfoClass;
-use mas_acceso\usuario\Rol\colectorRol;
-use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
+use mas_acceso\usuario\Rol\ColectorRol;
+use mas_acceso\usuario\Rol\RolClass;
+use mas_acceso\Usuario\Discapacidades\CollectorDiscapacidad;
+use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
 
 
 	$UsuarioObj = new usuarioColector();
 	$usuario = new UsuarioClass();
 	$usuario_info = new UsuarioInfoClass();
+	$rol = new RolClass();
+	$objRol = new ColectorRol;
+	$discapacidadInfo = new DiscapacidadClass();
+	$objDiscapacidad = new CollectorDiscapacidad();
 
 ?>
 <!Doctype html>
@@ -52,20 +58,20 @@ use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
 					   <td class="celda"> <?php echo $usuario_info->getFecha_nacimiento(); ?> </td>
 					   <td class="celda"> <?php echo $usuario_info->getPais(); ?> </td>
 
-					   <?php
-						$discapacidadInfo = $UsuarioObj->consultarDiscapacidadInfoPorId($usuario_info->getTipodiscapacidad());
-						?>
-					   <td class="celda"> <?php echo $discapacidadInfo->getTipo(); ?> </td>
+						 <?php
+					$discapacidadInfo = $UsuarioObj->consultarDiscapacidadInfoPorId($usuario_info->getTipodiscapacidad());
+					?>
+					 <td class="celda"> <?php echo $discapacidadInfo->getD_tipo(); ?> </td>
 
-					   <td class="celda"> <?php echo $usuario_info->getPorcentajediscapacidad(); ?> </td>
+					 <td class="celda"> <?php echo $usuario_info->getPorcentajediscapacidad(); ?> </td>
 
-					   <?php
-						$rol = $UsuarioObj->consultarRolePorId($usuario_info->getRole());
-						?>
-					   <td class="celda"> <?php echo $rol->getNombre(); ?> </td>
+					 <?php
+					$rol = $UsuarioObj->consultarRolePorId($usuario_info->getRole());
+					?>
+					 <td class="celda"> <?php echo $rol->getNombre(); ?> </td>
 
                        <td><a class="link" href="/admin/usuario/editar/?id=<?php echo $c->getId();?>"> Editar</a>  </td>
-                       <td><a class="link" href="/admin/usuario/eliminar/?id=<?php echo $c->getId();?>"> Eliminar</a>  </td>
+                       <td><a class="link" href="/admin/usuario/borrar/?id=<?php echo $c->getId();?>"> Eliminar</a>  </td>
                      </tr>
                    <?php
             }

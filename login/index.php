@@ -1,13 +1,24 @@
 <?php
-	session_start();
-	
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
+
+//include_once("Modelo/usuarioColector.php");
+use mas_acceso\usuario\usuarioColector;
+
+//use mas_acceso\usuario\Discapacidades\CollectorDiscapacidad;
+
+$UsuarioObj = new usuarioColector();
+
+//$discapacdadObjeto = new CollectorDiscapacidad();
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="copyright" content="+Acceso"> <!--Nombre de la compañia-->
+    	<meta name="copyright" content="+Acceso"> <!--Nombre de la compaï¿½ia-->
 	<meta name="organization" content="+Acceso" /> <!--Nombre de la Organizacion-->
 	<meta name="generator" content="Notepad++"> <!--Cual es la herramienta que se utiliza para editar, crear la pagina web-->
     <meta name="name" content="Inicio sesion">
@@ -25,11 +36,11 @@
 </head>
 <body id="page-top">
     <nav id="mainNav" class="navbar-fixed-top">
-              
+
            </nav>
-		   
+
 		   <div id="container">
-		    <form class="form-login">
+		  <form class="form-login" action="/login/validarUsuario.php" method="post">
 			<div class="form-group">
 			<a  href="/">
 			<img class="logo img-responsive" alt="Logo" src="../img/logo.gif">
@@ -37,12 +48,12 @@
 				<label id="user">Usuario:</label>
 				<input type="text" id="usuario" name="usuario" placeholder="Digite su usuario">
 				<label id="password">Contrase&ntilde;a:</label>
-				<input type="text" id="contrasena" name="contrasena" placeholder="Digite su contrase&ntilde;a">
+				<input type="password" id="contrasena" name="contrasena" placeholder="Digite su contrase&ntilde;a">
 			</div>
 				<button type="submit" class="btn btn-default">Login</button>
 				<label  id="registroform">No estas registrado?, <a id="registro" href="../Registro/index.php">Registrate aqu&iacute;</a></label>
 			</form>
 			</div>
-			
+
 </body>
 </html>
