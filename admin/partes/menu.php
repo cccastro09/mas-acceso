@@ -1,7 +1,19 @@
 <?php
 use mas_acceso\util\Functions as FNC;
 use mas_acceso\Autenticacion\AutenticarClass;
+use mas_acceso\usuario\Rol\ColectorRol;
 
+$cu = new usuarioColector();
+$usuario = AutenticarClass::verUsuarioConectado($cu, $_SESSION);
+if(!$usuario){
+    header("location: /");
+    exit();
+}
+$cr =new ColectorRol();
+if(!AutenticarClass::esAdmin($cr,$usuario)){
+  header("location: /");
+  exit();
+}
 
     ?>
 <!-- Navigation -->
