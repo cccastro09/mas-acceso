@@ -13,8 +13,8 @@ session_start();
 	if(isset($_GET["id"]))
 	{
 		$obj = $UsuarioObj->delete($_GET["id"]);
-		echo "Se elimino registro.";
-		echo "<meta http-equiv='Refresh' content='1;/admin/usuario'>";
+		//echo "Se elimino registro.";
+		echo "<meta http-equiv='Refresh' content='0;/admin/usuario'>";
 	}
 	else
 	{

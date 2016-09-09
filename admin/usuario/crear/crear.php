@@ -4,9 +4,11 @@
 	require_once $_SERVER['DOCUMENT_ROOT'].'/src/autoload.php';
 
 	use mas_acceso\usuario\usuarioColector;
+	use mas_acceso\usuario\UsuarioClass;
+	use mas_acceso\usuario\UsuarioInfoClass;
 	$uCollector = new usuarioColector();
-	$usuario = new usuario();
-	$usuario_info = new usuario_info();
+	$usuario = new UsuarioClass();
+	$usuario_info = new UsuarioInfoClass();
 
 	if (!empty($_POST)) {
 		if (empty($_POST['usuario']) || empty($_POST['password']) || empty($_POST['nombre']) || empty($_POST['apellidos']) || empty($_POST['mail'])
@@ -16,7 +18,7 @@
 			//echo "nombre: ".$_POST['nombre']."  apellido: ".$_POST['apellidos']."  mail: ".$_POST['mail']."  sexo: ".$_POST['sexo'] ;
 			//echo "fecha: ".$_POST['fecha_nacimiento']."  pais: ".$_POST['pais']."  tipo: ".$_POST['tipo_discapacidad']."  porcentaje: ".$_POST['porcentaje_discapacidad']."  role: ".$_POST['rol'] ;
 
-			echo "<meta http-equiv='Refresh' content='2;../../index.php'>";
+			echo "<meta http-equiv='Refresh' content='0;/admin/usuario/'>";
 		}
 		else {
 			//insertamos
@@ -41,8 +43,8 @@
 			//echo "  **nombre: ".$_POST['nombre']."  apellido: ".$_POST['apellidos']."  mail: ".$_POST['mail']."  sexo: ".$_POST['sexo'] ;
 			//echo "fecha: ".$_POST['fecha_nacimiento']."  pais: ".$_POST['pais']."  tipo: ".$_POST['tipo_discapacidad']."  porcentaje: ".$_POST['porcentaje_discapacidad']."  role: ".$_POST['rol'] ;
 			$uCollector->insertarUsuarioInfo($usuario_info);
-			echo "     El usuario se ha agregado correctamente.";
-			//echo "<meta http-equiv='Refresh' content='2;consultaSucursal.php'>";
+		//echo "     El usuario se ha agregado correctamente.";
+			echo "<meta http-equiv='Refresh' content='0;/admin/usuario/'>";
 			//echo "<meta http-equiv='Refresh' content='2;../../login.php'>";
 		}
 	}

@@ -78,7 +78,7 @@ use mas_acceso\Usuario\Discapacidades\DiscapacidadClass;
             ?>
 
           <tr>
-            <td colspan=14><a class="link" href="index.php">Crear Usuario</a></td>
+            <td colspan=14><a class="link" href="/admin/usuario/crear/">Crear Usuario</a></td>
           </tr>
 
 </table>
