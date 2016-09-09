@@ -1,21 +1,22 @@
 <?php
+namespace mas_acceso\edificio;
 
-namespace mas_aceso\Edificio;
-
-use mas_aceso\Edificio\Reportes\ReporteCollector;
-use mas_aceso\Edificio\Categorias\CategoriaCollector;
+use mas_acceso\edificio\reporte\ReporteCollector;
+use mas_acceso\edificio\reporte\ReporteClass;
+use mas_acceso\edificio\categorias\CategoriaCollector;
+use mas_acceso\edificio\categorias\CategoriaClass;
+use mas_acceso\util\Functions as FNC;
 
 /**
- *
+ * Un edificio accesible.
  */
 class EdificioClass
 {
     private $e_id;
-    private $e_name;
-    private $e_dscr;
-    private $e_prcnt_accs;
-    private $e_report;
-    private $e_cid;
+    private $e_nombre;
+    private $e_descripcion;
+    private $e_id_reporte;
+    private $e_id_categoria;
 
     public function __construct()
     {
@@ -26,9 +27,9 @@ class EdificioClass
      *
      * @return String El id del Edificio.
      */
-    public function getId()
+    public function getId(): int
     {
-        return $this->$e_id;
+        return $this->e_id;
     }
 
     /**
@@ -36,9 +37,9 @@ class EdificioClass
      *
      * @return String El nombre del Edificio.
      */
-    public function getNombre()
+    public function getNombre(): string
     {
-        return $this->$e_name;
+        return $this->e_nombre;
     }
 
     /**
@@ -46,19 +47,9 @@ class EdificioClass
      *
      * @return String La descripción
      */
-    public function getDescripcion()
+    public function getDescripcion(): string
     {
-        return $this->$e_dscr;
-    }
-
-    /**
-     * Retorna el porcentaje de accesibilidad del edificio. 0-100 con 0 representando accesibilidad inexistente y 100 accesibilidad de excelencia.
-     *
-     * @return Integer EL procentaje de accesibilidad.
-     */
-    public function getAccesibilidad()
-    {
-        return $this->$e_prcnt_accs;
+        return $this->e_descripcion;
     }
 
     /**
@@ -66,9 +57,9 @@ class EdificioClass
      *
      * @return ReporteClass El último reporte (y por lo tanto el efectivo) acerca del Edificio.
      */
-    public function getReporte()
+    public function getReporte(ReporteCollector $colector)
     {
-        return ReporteCollector::getById($this->$e_report);
+        return $colector->getReporte($this->e_id_reporte);
     }
 
     /**
@@ -76,9 +67,32 @@ class EdificioClass
      *
      * @return CategoriaClass La Categoría del Edificio.
      */
-    public function getCategoria()
+    public function getCategoria($colector)
     {
-        return CategoriaCollector::getById($this->$e_cid);
+        return $colector->getCategoria($this->e_id_categoria);
+    }
+
+    /**
+     * Devuelve el id del reporte que describe el Edificio
+     * @return mixed El id.
+     */
+    public function getReporteID()
+    {
+        return is_null($this->e_id_reporte) ? "NULL":$this->e_id_reporte;
+    }
+
+    /**
+     * Devuelve el id del reporte que describe el Edificio
+     * @return mixed El id.
+     */
+    public function getCategoriaID()
+    {
+        return is_null($this->e_id_categoria) ? "NULL":$this->e_id_categoria;
+    }
+
+    public function setId($id)
+    {
+        $this->e_id = $id;
     }
 
     /**
@@ -88,7 +102,16 @@ class EdificioClass
      */
     public function setNombre($n)
     {
-        $this->$e_name = $n;
+        $this->e_nombre = $n;
+    }
+
+    /**
+     * Cambia el id del reporte del Edificio
+     * @param ReporteClass $reporte el nuevo reporte del Edificio.
+     */
+    public function setReporte($reporte)
+    {
+        $this->e_id_reporte = $reporte->getId();
     }
 
     /**
@@ -98,7 +121,7 @@ class EdificioClass
      */
     public function setDescripcion($n)
     {
-        $this->$e_dscr = $n;
+        $this->e_descripcion = $n;
     }
 
     /**
@@ -108,6 +131,6 @@ class EdificioClass
      */
     public function setCategoria($categoria)
     {
-        $this->$e_cid = $categoria->getId();
+        $this->e_id_categoria = $categoria->getId();
     }
 }
